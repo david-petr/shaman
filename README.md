@@ -20,14 +20,9 @@
   <li><p>Once the installation is complete, you will find the application in your Start menu or on your desktop.</p></li>
 </ol>
 
-<h3>Sources (for developers)</h3>
-<p>If you want to run or modify the application from the source code:</p>
-<ol>
-  <li>
-    <p>Clone the repository:</p>
-    <div>
-      <p>git clone https://github.com/david-petr/shaman.git</p>
-      <p>cd shaman</p>
-    </div>
-  </li>
-</ol>
+<h2>Support and Contributions</h2>
+<p>If you encounter a bug, have an idea for a new feature, or want to contribute to the development, you can:</p>
+<ul><li><p>Open an issue on GitHub: https://github.com/david-petr/shaman/issues</p></li></ul>
+
+<h2>License</h2>
+<p>This project is licensed under the MIT License (ISC License) - see the <a href="https://github.com/david-petr/shaman/blob/master/license.md">LICENSE.md</a> file for details.</p>
