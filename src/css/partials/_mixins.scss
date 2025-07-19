@@ -1,0 +1,40 @@
+@mixin button($height, $font-size, $padding: 15px, $width) {
+    background-color: var(--accent-color);
+    height: $height;
+    font-size: $font-size;
+    padding: $padding;
+    width: $width;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--darken-accent-color);
+    }
+}
+
+@mixin spinbox(){
+    display: flex;
+    background: #bfbfbf;
+    padding: 5px;
+    border-radius: 15px;
+
+    input[type=number]{
+        outline: none;
+        text-align: center;
+        width: 100px;
+        border-radius: 10px;
+        border: 2px solid var(--accent-color);
+        margin: 0px 5px;
+        font-size: 16px
+    }
+
+    button {
+        @include button(40px, 20px, 0px, 40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

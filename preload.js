@@ -1,0 +1,23 @@
+const { contextBridge, ipcRenderer } = require("electron")
+
+// ==== open new window ====
+contextBridge.exposeInMainWorld("newWindow", {
+  openNewWindow: (dataToSend) => ipcRenderer.send("open-new-window-request", dataToSend)
+})
+
+// ==== dark mode ====
+contextBridge.exposeInMainWorld("darkMode", {
+  system: () => ipcRenderer.invoke("dark-mode:system")
+})
+
+// ==== accent color ====
+contextBridge.exposeInMainWorld("accentColor", {
+  get: () => ipcRenderer.invoke("get-accent-color")
+})
+
+contextBridge.exposeInMainWorld('accentColorUpdates', {
+  onUpdated: (callback) => ipcRenderer.on('accent-color-updated', (event, color) => {
+    console.log('Received updated accent color:', color)
+    callback(color)
+  })
+})

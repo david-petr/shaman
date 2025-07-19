@@ -1,0 +1,46 @@
+{
+  "name": "shaman",
+  "author": "David Petr",
+  "version": "1.0.0",
+  "description": "Aplikace na prověřování zeměpisných znalostí",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "repository": "https://github.com/david-petr/shaman",
+  "publish": {
+    "provider": "github",
+    "releaseType": "release"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^37.2.3",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.davidpetr.shaman",
+    "productName": "Shaman",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "Shaman uninstaller",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.6.2"
+  }
+}
