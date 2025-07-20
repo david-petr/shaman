@@ -16,10 +16,10 @@ body {
 .buttons {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   width: 90%;
-  height: 90%;
+  height: 100%;
 }
 .buttons button {
   background-color: var(--accent-color);
@@ -36,4 +36,16 @@ body {
 }
 .buttons button:hover {
   background-color: var(--darken-accent-color);
+}
+
+#update {
+  display: none;
+  background: var(--update-back);
+  height: 50px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+#update p {
+  width: 90%;
 }/*# sourceMappingURL=style.css.map */
