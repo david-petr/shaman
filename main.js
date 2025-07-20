@@ -20,6 +20,8 @@ function createWindow () {
     win = new BrowserWindow({
         width: 300,
         height: 425,
+        minWidth: 300,
+        minHeight: 300,
         resizable: false,
         show: false,
         webPreferences: {
@@ -62,8 +64,8 @@ function createWindow () {
     })
 
     // změna velikosti okna při aktualizaci
-    ipcMain.on('resize-main-window', (event, width, height) => {
-        if (win) {
+    ipcMain.on("resize-main-window", (event, width, height) => {
+        if(win) {
             win.setSize(width, height)
             win.center()
         }

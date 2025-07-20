@@ -1,12 +1,6 @@
 @import "../partials/functions";
 @import "../partials/mixins";
 
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
 body {
     display: flex;
     flex-direction: column;
@@ -39,8 +33,21 @@ body {
     width: 100%;
     justify-content: center;
     align-items: center;
+    color: #fff;
 
     p {
         width: 90%;
+    }
+}
+
+#progress-bar {
+    display: none;
+    height: 90%;
+    width: 90%;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    progress {
+        width: 100%;
     }
 }

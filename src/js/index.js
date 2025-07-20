@@ -1,5 +1,7 @@
 const updateSection = document.getElementById("update")
 const updateMessageElement = document.getElementById("updateMessage")
+const progressBar = document.getElementById("progress-bar")
+const progressElement = document.getElementById("progress")
 
 // ==== accent color => css variables ====
 window.accentColor.get().then(color => {
@@ -17,23 +19,30 @@ window.accentColorUpdates.onUpdated((color) => {
 document.addEventListener("DOMContentLoaded", () => {
   window.sendMessage.get( message => {
     if(message === "available"){
-      window.windowApi.resizeWindow(300, 450)
+      window.windowApi.resizeWindow(300, 460)
       updateMessageElement.textContent = "Nová verze aplikace je k dispozici. Stahuje se na pozadí."
       updateSection.style.display = "flex"
 
       setTimeout(() => {
         updateMessageElement.style.display = "none"
+        progressBar.style.display = "flex"
         window.updateProgress.get( progress => {
-          updateMessageElement.textContent = progress.percent
+          progressElement.value = progress.percent
         })
       }, 5000)
+
     } else if(message === "downloaded"){
-      updateMessageElement.textContent = "Aktualizece je stažena"
+      progressBar.style.display = "none"
+      updateMessageElement.style.display = "block"
+      updateMessageElement.textContent = "Aktualizace je stažena"
 
       setTimeout(() => {
-        updateSection.style.display = "none"
         window.windowApi.resizeWindow(300, 425)
-      }, 5000)
+        updateSection.style.display = "none"
+      }, 3000)
+
+    } else {
+      console.log(message)
     }
   })
 })
