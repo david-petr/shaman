@@ -40,6 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   color: #fff;
+  border-radius: 6px 6px 0px 0px;
 }
 #update p {
   width: 90%;
