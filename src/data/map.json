@@ -31,7 +31,7 @@
             { "id": "ko", "name": "Kosovo", "region": "Jihovýchodní Evropa" },
             { "id": "bg", "name": "Bulharsko", "region": "Jihovýchodní Evropa" },
             { "id": "ro", "name": "Rumunsko", "region": "Jihovýchodní Evropa" },
-            { "id": "md", "name": "Mongolsko", "region": "Východní Evropa" },
+            { "id": "md", "name": "Moldavsko", "region": "Východní Evropa" },
             { "id": "ua", "name": "Ukrajina", "region": "Východní Evropa" },
             { "id": "by", "name": "Bělorusko", "region": "Východní Evropa" },
             { "id": "lt", "name": "Litva", "region": "Východní Evropa" },
@@ -105,5 +105,113 @@
             { "id": "mg", "name": "Madagaskar", "region": "Východní Afrika" }
         ],
         "mapPosition": { "x": 500, "y": 20, "width": 2000, "height": 1200, "scale": 1.5 }
+    },
+
+    "asie": {
+        "countries": [
+            { "id": "bd", "name": "Bangladéš", "region": "Jižní Asie" },
+            { "id": "in", "name": "Indie", "region": "Jižní Asie" },
+            { "id": "pk", "name": "Pákistán", "region": "Jižní Asie" },
+            { "id": "np", "name": "Nepál", "region": "Jižní Asie" },
+            { "id": "lk", "name": "Srí Lanka", "region": "Jižní Asie" },
+            { "id": "bt", "name": "Bhútán", "region": "Jižní Asie" },
+            { "id": "af", "name": "Afghánistán", "region":"Jižní Asie" },
+            { "id": "jp", "name": "Japonsko", "region": "Východní Asie" },
+            { "id": "mn", "name": "Mongolsko", "region": "Východní Asie" },
+            { "id": "kp", "name": "Severní Korea", "region": "Východní Asie" },
+            { "id": "cn", "name": "Čína", "region": "Východní Asie" },
+            { "id": "kr", "name": "Jižní Korea", "region": "Východní Asie" },
+            { "id": "ph", "name": "Filipíny", "region": "Jihovýchodní Asie" },
+            { "id": "id", "name": "Indonésie", "region": "Jihovýchodní Asie" },
+            { "id": "my", "name": "Malajsie", "region": "Jihovýchodní Asie" },
+            { "id": "bn", "name": "Brunej", "region": "Jihovýchodní Asie", "circle": true },
+            { "id": "mm", "name": "Myanmar", "region": "Jihovýchodní Asie" },
+            { "id": "sg", "name": "Singapur", "region": "Jihovýchodní Asie", "circle": true },
+            { "id": "th", "name": "Thajsko", "region": "Jihovýchodní Asie" },
+            { "id": "la", "name": "Laos", "region": "Jihovýchodní Asie" },
+            { "id": "vn", "name": "Vietnam", "region": "Jihovýchodní Asie" },
+            { "id": "kh", "name": "Kambodža", "region": "Jihovýchodní Asie" },
+            { "id": "ye", "name": "Jemen", "region": "Střední Východ" },
+            { "id": "sy", "name": "Sýrie", "region": "Střední Východ" },
+            { "id": "iq", "name": "Írák", "region": "Střední Východ" },
+            { "id": "om", "name": "Omán", "region": "Střední Východ" },
+            { "id": "qa", "name": "Katar", "region": "Střední Východ", "circle": true },
+            { "id": "ir", "name": "Írán", "region": "Střední Východ" },
+            { "id": "lb", "name": "Libanon", "region": "Střední Východ", "circle": true },
+            { "id": "ae", "name": "Spojené arabské emiráty", "region": "Střední Východ" },
+            { "id": "kw", "name": "Kuvajt", "region": "Střední Východ", "circle": true },
+            { "id": "tr", "name": "Turecko", "region": "Střední Východ" },
+            { "id": "sa", "name": "Saúdská Arábie", "region": "Střední Východ" },
+            { "id": "jo", "name": "Jordánsko", "region": "Střední Východ" },
+            { "id": "cy", "name": "Kypr", "region": "Střední Východ" },
+            { "id": "il", "name": "Izrael", "region": "Střední Východ" },
+            { "id": "ps", "name": "Palestina", "region": "Střední Východ" },
+            { "id": "ge", "name": "Gruzie", "region": "Státy SNS"},
+            { "id": "am", "name": "Arménie", "region": "Státy SNS"},
+            { "id": "ua", "name": "Ukrajina", "region": "Státy SNS"},
+            { "id": "uz", "name": "Uzbekistán", "region": "Státy SNS"},
+            { "id": "kz", "name": "Kazachstán", "region": "Státy SNS"},
+            { "id": "kg", "name": "Kyrgyzstán", "region": "Státy SNS"},
+            { "id": "ru", "name": "Rusko", "region": "Státy SNS"},
+            { "id": "tj", "name": "Tádžikistán", "region": "Státy SNS"},
+            { "id": "tm", "name": "Turkmenistán", "region": "Státy SNS"},
+            { "id": "az", "name": "Ázerbájdžán", "region": "Státy SNS"}
+        ],
+        "mapPosition": { "x": 900, "y": -20, "width": 2000, "height": 900, "scale": 1.5}
+    },
+
+    "severní amerika": {
+        "countries": [
+            { "id": "ca", "name": "Kanada", "region": "" },
+            { "id": "cu", "name": "Kuba", "region": "" },
+            { "id": "do", "name": "Dominikánská republika", "region": "" },
+            { "id": "us", "name": "USA", "region": "" },
+            { "id": "gl", "name": "Grónsko", "region": "" },
+            { "id": "bz", "name": "Belize", "region": "" },
+            { "id": "hn", "name": "Honduras", "region": "" },
+            { "id": "pr", "name": "Portoriko", "region": "" },
+            { "id": "pa", "name": "Panama", "region": "" },
+            { "id": "mx", "name": "Mexiko", "region": "" },
+            { "id": "jm", "name": "Jamajka", "region": "" },
+            { "id": "sv", "name": "Salvador", "region": "" },
+            { "id": "ht", "name": "Haiti", "region": "" },
+            { "id": "ni", "name": "Nikaragua", "region": "" },
+            { "id": "gt", "name": "Guatemala", "region": "" },
+            { "id": "cr", "name": "Kostarika", "region": "" }
+        ],
+        "mapPosition": { "x": -50, "y": -150, "width": 1500, "height": 900, "scale": 1.25 }
+    },
+
+    "jižní amerika": {
+        "countries": [
+            { "id": "ec", "name": "Ekvádor", "region": "" },
+            { "id": "uy", "name": "Uruguay", "region": "" },
+            { "id": "cl", "name": "Chile", "region": "" },
+            { "id": "gy", "name": "Guyana", "region": "" },
+            { "id": "br", "name": "Brazílie", "region": "" },
+            { "id": "co", "name": "Kolumbie", "region": "" },
+            { "id": "py", "name": "Paraguay", "region": "" },
+            { "id": "gf", "name": "Francouzská Guyana", "region": "" },
+            { "id": "pe", "name": "Peru", "region": "" },
+            { "id": "sr", "name": "Surinam", "region": "" },
+            { "id": "ve", "name": "Venezuela", "region": "" },
+            { "id": "ar", "name": "Argentina", "region": "" },
+            { "id": "bo", "name": "Bolívie", "region": "" }
+        ],
+        "mapPosition": { "x": 75, "y": 300, "width": 1600, "height": 1000, "scale": 1.25 }
+    },
+
+    "oceánie": {
+        "countries": [
+            { "id": "pg", "name": "Papua-Nová Guinea", "region": "" },
+            { "id": "au", "name": "Austrálie", "region": "" },
+            { "id": "nr", "name": "Nauru", "region": "", "circle": true },
+            { "id": "fj", "name": "Fidži", "region": "" },
+            { "id": "nc", "name": "Nová Kaledonie", "region": "" },
+            { "id": "nz", "name": "Nový Zéland", "region": "" },
+            { "id": "vu", "name": "Vanuatu", "region": "" },
+            { "id": "sb", "name": "Šalamounovy ostrovy", "region": "" }       
+        ],
+        "mapPosition": { "x": 1800, "y": 400, "width": 1200, "height": 900, "scale": 1.5 }
     }
 }
