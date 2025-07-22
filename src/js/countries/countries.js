@@ -84,13 +84,15 @@ const continueButtonHandler = function() {
 
         element.addEventListener("mouseout", countryMouseOutHandler)
 
-        if (country.circle) {
+        if(country.circle) {
             const circle = element.querySelector("circle")
             if (circle) {
                 circle.addEventListener("mouseover", circleMouseOverHandler)
 
                 circle.addEventListener("mouseout", circleMouseOutHandler)
             }
+
+            circleMouseOutHandler.call(circle)
         }
 
         if(country.id === currentCountryElement.dataset.id){
@@ -283,7 +285,7 @@ document.addEventListener("DOMContentLoaded", initializeGame)
 
 // ==== odstranění prvků (může být i dříve, nebo v initializeGame) ====
 document.querySelector("#ocean")?.remove()
-const titles = document.querySelectorAll("title")
+const titles = document.querySelector("body").querySelectorAll("title")
 titles.forEach( (title) => {
     title.remove()
 })
@@ -327,4 +329,10 @@ document.addEventListener("mouseup", () => {
 })
 
 // ==== close window ====
-document.getElementById("close-btn").addEventListener("click", () => window.close())
+document.getElementById("close-btn").addEventListener("click", () => {
+    if(preferences.href === "europe"){
+        window.close()
+    } else if(preferences.href === "world"){
+        window.location.href = "../../html/world.html"
+    }
+})

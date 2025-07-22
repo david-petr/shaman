@@ -34,7 +34,8 @@
       "uninstallerIcon": "icon.ico",
       "uninstallDisplayName": "Shaman uninstaller",
       "license": "license.md",
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "installerLanguages": ["cs_CZ"]
     },
     "directories": {
       "output": "dist"

@@ -1,5 +1,5 @@
 {
-    "evropa" : {
+    "europe" : {
         "countries": [
             { "id": "no", "name": "Norsko", "region": "Severní Evropa" },
             { "id": "se", "name": "Švédsko", "region": "Severní Evropa" },
@@ -9,7 +9,7 @@
             { "id": "nl", "name": "Nizozemsko", "region": "Západní Evropa" },
             { "id": "be", "name": "Belgie", "region": "Západní Evropa" },
             { "id": "fr", "name": "Francie", "region": "Západní Evropa" },
-            { "id": "gb", "name": "Velká Británie", "region": "Západní Evropa" },
+            { "id": "gb", "name": "Spojené království", "region": "Západní Evropa" },
             { "id": "ie", "name": "Irsko", "region": "Západní Evropa" },
             { "id": "is", "name": "Island", "region": "Severní Evropa" },
             { "id": "es", "name": "Španělsko", "region": "Jižní Evropa" },
@@ -25,7 +25,7 @@
             { "id": "hr", "name": "Chorvatsko", "region": "Jihovýchodní Evropa" },
             { "id": "ba", "name": "Bosna a Hercegovina", "region": "Jihovýchodní Evropa" },
             { "id": "al", "name": "Albánie", "region": "Jihovýchodní Evropa" },
-            { "id": "mk", "name": "Makedonie", "region": "Jihovýchodní Evropa" },
+            { "id": "mk", "name": "Severní Makedonie", "region": "Jihovýchodní Evropa" },
             { "id": "gr", "name": "Řecko", "region": "Jižní Evropa" },
             { "id": "rs", "name": "Srbsko", "region": "Jihovýchodní Evropa" },
             { "id": "ko", "name": "Kosovo", "region": "Jihovýchodní Evropa" },
@@ -40,7 +40,7 @@
             { "id": "ru", "name": "Rusko", "region": "Východní Evropa" },
             { "id": "tr", "name": "Turecko", "region": "Asijské oblasti" },
             { "id": "cy", "name": "Kypr", "region": "Asijské oblasti" },
-            { "id": "me", "name": "Černá hora", "region": "Jihovýchodní Evropa" },
+            { "id": "me", "name": "Černá Hora", "region": "Jihovýchodní Evropa" },
             { "id": "lu", "name": "Lucembursko", "region": "Západní Evropa" },
             { "id": "li", "name": "Lichtenštejnsko", "region": "Střední Evropa", "circle": true },
             { "id": "sm", "name": "San Marino", "circle": true, "region": "Jižní Evropa" },
@@ -51,7 +51,7 @@
         "mapPosition": { "x": 900, "y": -50, "width": 1000, "height": 600, "scale": 1.75 }
     },
 
-    "afrika" : {
+    "africa" : {
         "countries": [
             { "id": "eg", "name": "Egypt", "region": "Severní Afrika" },
             { "id": "ly", "name": "Libye", "region": "Severní Afrika" },
@@ -66,7 +66,7 @@
             { "id": "eh", "name": "Západní Sahara", "region": "Severní Afrika" },
             { "id": "sn", "name": "Senegal", "region": "Guinejský záliv" },
             { "id": "gm", "name": "Gambie", "region": "Guinejský záliv" },
-            { "id": "gw", "name": "Guinea Bissau", "region": "Guinejský záliv" },
+            { "id": "gw", "name": "Guinea-Bissau", "region": "Guinejský záliv" },
             { "id": "gn", "name": "Guinea", "region": "Guinejský záliv" },
             { "id": "sl", "name": "Sierra Leone", "region": "Guinejský záliv" },
             { "id": "bf", "name": "Burkina Faso", "region": "Guinejský záliv" },
@@ -96,7 +96,7 @@
             { "id": "zm", "name": "Zambie", "region": "Střední a jižní Afrika" },
             { "id": "mw", "name": "Malawi", "region": "Střední a jižní Afrika" },
             { "id": "mz", "name": "Mosambik", "region": "Střední a jižní Afrika" },
-            { "id": "na", "name": "Nambie", "region": "Střední a jižní Afrika" },
+            { "id": "na", "name": "Namibie", "region": "Střední a jižní Afrika" },
             { "id": "bw", "name": "Botswana", "region": "Střední a jižní Afrika" },
             { "id": "zw", "name": "Zimbabwe", "region": "Střední a jižní Afrika" },
             { "id": "za", "name": "Jihoafrická republika", "region": "Střední a jižní Afrika" },
@@ -107,7 +107,7 @@
         "mapPosition": { "x": 500, "y": 20, "width": 2000, "height": 1200, "scale": 1.5 }
     },
 
-    "asie": {
+    "asia": {
         "countries": [
             { "id": "bd", "name": "Bangladéš", "region": "Jižní Asie" },
             { "id": "in", "name": "Indie", "region": "Jižní Asie" },
@@ -133,7 +133,7 @@
             { "id": "kh", "name": "Kambodža", "region": "Jihovýchodní Asie" },
             { "id": "ye", "name": "Jemen", "region": "Střední Východ" },
             { "id": "sy", "name": "Sýrie", "region": "Střední Východ" },
-            { "id": "iq", "name": "Írák", "region": "Střední Východ" },
+            { "id": "iq", "name": "Irák", "region": "Střední Východ" },
             { "id": "om", "name": "Omán", "region": "Střední Východ" },
             { "id": "qa", "name": "Katar", "region": "Střední Východ", "circle": true },
             { "id": "ir", "name": "Írán", "region": "Střední Východ" },
@@ -146,26 +146,26 @@
             { "id": "cy", "name": "Kypr", "region": "Střední Východ" },
             { "id": "il", "name": "Izrael", "region": "Střední Východ" },
             { "id": "ps", "name": "Palestina", "region": "Střední Východ" },
-            { "id": "ge", "name": "Gruzie", "region": "Státy SNS"},
-            { "id": "am", "name": "Arménie", "region": "Státy SNS"},
-            { "id": "ua", "name": "Ukrajina", "region": "Státy SNS"},
-            { "id": "uz", "name": "Uzbekistán", "region": "Státy SNS"},
-            { "id": "kz", "name": "Kazachstán", "region": "Státy SNS"},
-            { "id": "kg", "name": "Kyrgyzstán", "region": "Státy SNS"},
-            { "id": "ru", "name": "Rusko", "region": "Státy SNS"},
-            { "id": "tj", "name": "Tádžikistán", "region": "Státy SNS"},
-            { "id": "tm", "name": "Turkmenistán", "region": "Státy SNS"},
-            { "id": "az", "name": "Ázerbájdžán", "region": "Státy SNS"}
+            { "id": "ge", "name": "Gruzie", "region": "Státy SNS" },
+            { "id": "am", "name": "Arménie", "region": "Státy SNS" },
+            { "id": "ua", "name": "Ukrajina", "region": "Státy SNS" },
+            { "id": "uz", "name": "Uzbekistán", "region": "Státy SNS" },
+            { "id": "kz", "name": "Kazachstán", "region": "Státy SNS" },
+            { "id": "kg", "name": "Kyrgyzstán", "region": "Státy SNS" },
+            { "id": "ru", "name": "Rusko", "region": "Státy SNS" },
+            { "id": "tj", "name": "Tádžikistán", "region": "Státy SNS" },
+            { "id": "tm", "name": "Turkmenistán", "region": "Státy SNS" },
+            { "id": "az", "name": "Ázerbájdžán", "region": "Státy SNS" }
         ],
         "mapPosition": { "x": 900, "y": -20, "width": 2000, "height": 900, "scale": 1.5}
     },
 
-    "severní amerika": {
+    "na": {
         "countries": [
             { "id": "ca", "name": "Kanada", "region": "" },
             { "id": "cu", "name": "Kuba", "region": "" },
             { "id": "do", "name": "Dominikánská republika", "region": "" },
-            { "id": "us", "name": "USA", "region": "" },
+            { "id": "us", "name": "Spojené státy americké", "region": "" },
             { "id": "gl", "name": "Grónsko", "region": "" },
             { "id": "bz", "name": "Belize", "region": "" },
             { "id": "hn", "name": "Honduras", "region": "" },
@@ -182,7 +182,7 @@
         "mapPosition": { "x": -50, "y": -150, "width": 1500, "height": 900, "scale": 1.25 }
     },
 
-    "jižní amerika": {
+    "sa": {
         "countries": [
             { "id": "ec", "name": "Ekvádor", "region": "" },
             { "id": "uy", "name": "Uruguay", "region": "" },
@@ -201,7 +201,7 @@
         "mapPosition": { "x": 75, "y": 300, "width": 1600, "height": 1000, "scale": 1.25 }
     },
 
-    "oceánie": {
+    "oceania": {
         "countries": [
             { "id": "pg", "name": "Papua-Nová Guinea", "region": "" },
             { "id": "au", "name": "Austrálie", "region": "" },

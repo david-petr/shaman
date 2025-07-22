@@ -9,13 +9,13 @@ window.accentColor.get().then(color => {
   document.documentElement.style.setProperty("--darken-accent-color", Color.darken(color, 20))
   document.documentElement.style.setProperty("--update-back", Color.darken(color, 40))
 })
-
 window.accentColorUpdates.onUpdated((color) => {
   document.documentElement.style.setProperty("--accent-color", color)
   document.documentElement.style.setProperty("--darken-accent-color", Color.darken(color, 20))
   document.documentElement.style.setProperty("--update-back", Color.darken(color, 40))
 })
 
+// ==== app update info ====
 document.addEventListener("DOMContentLoaded", () => {
   window.sendMessage.get( message => {
     if(message === "available"){
@@ -49,15 +49,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ==== open new windows ====
 document.getElementById("europe").addEventListener("click", () => {
+  localStorage.setItem("preferences", JSON.stringify( {continent: "europe", href: "europe"} ))
+
   if(window.newWindow){
     window.newWindow.openNewWindow({ 
-      with: null,
+      width: null,
       height: null,
       resizable: true,
       fullscreen: true,
       file: "/countries/set.html",
+      title: "Evropa",
+      openDevTools: false
+    })
+  }
+})
+document.getElementById("world").addEventListener("click", () => {
+  if(window.newWindow){
+    window.newWindow.openNewWindow({
+      width: null,
+      height: null,
+      resizable: true,
+      fullscreen: true,
+      file: "world.html",
+      title: "Svět",
       openDevTools: true
     })
   }
 })
-// ...

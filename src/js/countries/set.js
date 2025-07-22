@@ -1,5 +1,7 @@
 const input = document.getElementById("number-input")
-const continent = "evropa"
+const preferences = JSON.parse(localStorage.getItem("preferences"))
+const continent = preferences.continent
+const href = preferences.href
 let data = null
 
 // ==== functions ====
@@ -44,7 +46,8 @@ document.getElementById("start").addEventListener("click", () => {
     preferences.countOfQuestions = countOfQuestions
 
     // ==== continent ke zkoušení ====
-    preferences.continent = continent
+    preferences.continent = continent,
+    preferences.href = href
 
     localStorage.setItem("preferences", JSON.stringify(preferences))
 
@@ -60,8 +63,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     let labels = countries.map( (country) => {
         return country.region
     })
+
     labels = new Set(labels)
-    
+
     labels.forEach( (labelName) => {
         const id = labelName.substring(0, 3).toLowerCase()
 
@@ -91,6 +95,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("allCheckboxes").appendChild(div)
     })
 
+    if(labels.has("") && labels.size === 1){
+        document.getElementById("choise").style.display = "none"
+
+        const countBoxElement = document.getElementById("count")
+        countBoxElement.style.border = "none"
+        countBoxElement.style.width = "100%"
+        document.getElementById("settings").style.width = "50%"
+    }
+
     update(data, continent)
 })
 
@@ -108,7 +121,13 @@ document.getElementById("plus").addEventListener("click", () => {
     }
 })
 
-document.getElementById("close").addEventListener("click", () => window.close())
+document.getElementById("close").addEventListener("click", () => {
+    if(href === "europe"){
+        window.close()
+    } else if(href === "world"){
+        window.location.href = "../../html/world.html"
+    }
+})
 
 // ==== pozadí ====
 const useDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches

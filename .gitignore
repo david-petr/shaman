@@ -93,3 +93,7 @@ out/
 
 # app - exe
 dist/
+
+
+test.py
+test.txt

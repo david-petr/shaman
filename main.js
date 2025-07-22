@@ -128,6 +128,7 @@ ipcMain.on("open-new-window-request", (e, data) => {
         resizable: data.resizable,
         // fullscreen: data.fullscreen,
         show: false,
+        title: data.title,
         webPreferences: {
             contextIsolation: true,
             preload: path.join(__dirname, "preload.js")
