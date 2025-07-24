@@ -102,12 +102,25 @@ autoUpdater.on("update-not-available", (info) => {
     win.webContents.send("message-send", "unavailable")
 })
 autoUpdater.on("error", (err) => {
+    win.setProgressBar(-1)
+    setTimeout(() => {
+        win.setProgressBar(0)
+    }, 5000)
+
     win.webContents.send("message-send", "Nepodařilo se zkontrolovat aktualizace: " + err.message)
 })
 autoUpdater.on("download-progress", (info) => {
+    const progress = info.percent / 100
+    win.setProgressBar(progress)
+
     win.webContents.send("update-progress-send", info)
 })
 autoUpdater.on("update-downloaded", (info) => {
+    win.setProgressBar(1)
+    setTimeout(() => {
+      win.setProgressBar(0)
+    }, 2000)
+
     win.webContents.send("message-send", "downloaded")
 })
 
