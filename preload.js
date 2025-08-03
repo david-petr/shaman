@@ -38,3 +38,10 @@ contextBridge.exposeInMainWorld("windowApi", {
     ipcRenderer.send("resize-main-window", width, height)
   }
 })
+
+// ==== user preferences ====
+contextBridge.exposeInMainWorld("preferencesAPI", {
+  get: (key) => ipcRenderer.invoke("get-preference", key),
+  set: (key, value) => ipcRenderer.invoke("set-preference", key, value),
+  onUpdate: (callback) => ipcRenderer.on("preference-updated", (event, key, value) => callback(key, value))
+})

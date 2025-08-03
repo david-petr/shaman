@@ -22,6 +22,7 @@
   "build": {
     "appId": "com.davidpetr.shaman",
     "productName": "Shaman",
+    "artifactName": "${productName}-v${version}-${arch}.${ext}",
     "win": {
       "target": [
         "nsis"
@@ -35,7 +36,10 @@
       "uninstallDisplayName": "Shaman uninstaller",
       "license": "license.md",
       "allowToChangeInstallationDirectory": true,
-      "installerLanguages": ["cs_CZ"]
+      "installerLanguages": [
+        "cs_CZ"
+      ],
+      "requestExecutionLevel": "requireAdministrator"
     },
     "directories": {
       "output": "dist"
@@ -43,6 +47,7 @@
   },
   "dependencies": {
     "electron-log": "^5.4.1",
+    "electron-store": "^10.1.0",
     "electron-updater": "^6.6.2"
   }
 }

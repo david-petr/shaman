@@ -2,6 +2,7 @@
 <html lang="cs">
 <head>
     <link rel="stylesheet" href="../css/general/style.css">
+    <link rel="stylesheet" href="../css/settings/style.css">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,33 @@
     <title>Shaman</title>
 </head>
 <body>
-    <h1>Nastavení</h1>
 
-    <a href="../index.html">Zpět</a>
+    <section>
+        <h1>Nastavení</h1>
+
+        <div class="input">
+            <label for="toggle-switch">Tmavý motiv</label>
+
+            <div id="toggle-switch">
+                <input type="checkbox" id="dark-mode-toggle" class="toggle-switch-checkbox">
+                <label for="dark-mode-toggle" class="toggle-switch-label"></label>
+            </div>
+        </div>
+
+        <div class="input">
+            <label for="color">Akcentní barva</label>
+            <input type="color" id="color" name="color">
+        </div>
+
+        <div>
+            <p>Verze: <span id="version"></span></p>
+        </div>
+    </section>
+
+    <button id="exit" onclick="window.location.href='../index.html'">Zpět</button>
+
+
+    <script src="../classes/Color.js"></script>
+    <script src="../js/settings.js"></script>
 </body>
 </html>
