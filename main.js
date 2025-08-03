@@ -36,6 +36,11 @@ function createWindow () {
         slashes: true
     }))
 
+    win.webContents.on("did-finish-load", () => {
+        const appVersion = app.getVersion()
+        win.webContents.send("app-version", appVersion)
+    })
+
     win.once("ready-to-show", win.show)
 
     // win.webContents.openDevTools()

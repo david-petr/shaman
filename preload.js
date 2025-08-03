@@ -7,14 +7,15 @@ contextBridge.exposeInMainWorld("newWindow", {
 
 // ==== dark mode ====
 contextBridge.exposeInMainWorld("darkMode", {
+  toggle: () => ipcRenderer.invoke("dark-mode:toggle"),
   system: () => ipcRenderer.invoke("dark-mode:system")
 })
 
 // ==== accent color ====
 contextBridge.exposeInMainWorld("accentColor", {
-  get: () => ipcRenderer.invoke("get-accent-color")
-})
-contextBridge.exposeInMainWorld("accentColorUpdates", {
+  get: () => ipcRenderer.invoke("get-accent-color"),
+  system: () => ipcRenderer.invoke("get-system-accent-color"),
+  update: (color) => ipcRenderer.invoke("set-accent-color", color),
   onUpdated: (callback) => ipcRenderer.on("accent-color-updated", (event, color) => {
     callback(color)
   })
@@ -39,9 +40,7 @@ contextBridge.exposeInMainWorld("windowApi", {
   }
 })
 
-// ==== user preferences ====
-contextBridge.exposeInMainWorld("preferencesAPI", {
-  get: (key) => ipcRenderer.invoke("get-preference", key),
-  set: (key, value) => ipcRenderer.invoke("set-preference", key, value),
-  onUpdate: (callback) => ipcRenderer.on("preference-updated", (event, key, value) => callback(key, value))
+// ==== app version ====
+contextBridge.exposeInMainWorld("appAPI", {
+  onAppVersion: (callback) => ipcRenderer.on("app-version", (event, version) => callback(version))
 })

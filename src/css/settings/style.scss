@@ -29,3 +29,9 @@ body {
 #exit {
     @include button(50px, 16px, 15px, 100px);
 }
+
+.no-transition,
+.no-transition .toggle-switch-label,
+.no-transition .toggle-switch-label::before {
+    transition: none !important;
+}

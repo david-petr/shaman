@@ -27,18 +27,18 @@ const updateInfoBox = () => {
 
     let successRate = Math.round((Number(countElement.textContent) - remainingCountriesToGuess.length - countOfWrongAnswers) / (Number(countElement.textContent) - remainingCountriesToGuess.length) * 100)
 
-    if(!isNaN(successRate)){
+    if (!isNaN(successRate)) {
         successRateElement.textContent = `${successRate}%`
 
         let mark
 
-        if(successRate >= 90){
-           mark = 1 
-        } else if(successRate >= 75){
+        if (successRate >= 90) {
+            mark = 1
+        } else if (successRate >= 75) {
             mark = 2
-        } else if(successRate >= 50){
+        } else if (successRate >= 50) {
             mark = 3
-        } else if(successRate >= 30)
+        } else if (successRate >= 30)
             mark = 4
         else {
             mark = 5
@@ -69,7 +69,7 @@ const update = () => {
     }
 }
 
-const continueButtonHandler = function() {
+const continueButtonHandler = function () {
     this.removeEventListener("click", continueButtonHandler)
 
     taskContent.style.display = "flex"
@@ -84,7 +84,7 @@ const continueButtonHandler = function() {
 
         element.addEventListener("mouseout", countryMouseOutHandler)
 
-        if(country.circle) {
+        if (country.circle) {
             const circle = element.querySelector("circle")
             if (circle) {
                 circle.addEventListener("mouseover", circleMouseOverHandler)
@@ -95,21 +95,21 @@ const continueButtonHandler = function() {
             circleMouseOutHandler.call(circle)
         }
 
-        if(country.id === currentCountryElement.dataset.id){
+        if (country.id === currentCountryElement.dataset.id) {
             element.classList.remove("blink-target")
             element.querySelectorAll("path").forEach((pathEl) => {
                 pathEl.classList.remove("blink-target")
             })
         }
-        
+
         countryMouseOutHandler.call(element)
     })
 
     update()
 }
 
-const countryMouseOverHandler = function() {
-    const element = this 
+const countryMouseOverHandler = function () {
+    const element = this
 
     window.accentColor.get().then(color => {
         color = Color.makeHexOpaque(color)
@@ -120,8 +120,8 @@ const countryMouseOverHandler = function() {
     })
 }
 
-const countryMouseOutHandler = function() {
-    const element = this 
+const countryMouseOutHandler = function () {
+    const element = this
     const originalColor = document.documentElement.style.getPropertyValue("--active-land")
 
     element.style.fill = originalColor
@@ -130,7 +130,7 @@ const countryMouseOutHandler = function() {
     })
 }
 
-const circleMouseOverHandler = function() {
+const circleMouseOverHandler = function () {
     const circle = this
 
     window.accentColor.get().then(color => {
@@ -139,7 +139,7 @@ const circleMouseOverHandler = function() {
     })
 }
 
-const circleMouseOutHandler = function() {
+const circleMouseOutHandler = function () {
     const circle = this
     const originalColor = document.documentElement.style.getPropertyValue("--active-land")
 
@@ -156,13 +156,13 @@ const mapClickHandler = (event, worldMap) => {
         }
     }
 
-    if(clickedCountry){
+    if (clickedCountry) {
 
-        while(clickedCountry.id.length > 2 || clickedCountry.parentElement.id.length === 2){
-            clickedCountry = clickedCountry.parentElement   
+        while (clickedCountry.id.length > 2 || clickedCountry.parentElement.id.length === 2) {
+            clickedCountry = clickedCountry.parentElement
         }
 
-        if(currentCountryElement.dataset.id === clickedCountry.id){
+        if (currentCountryElement.dataset.id === clickedCountry.id) {
             update()
 
         } else {
@@ -189,8 +189,8 @@ const mapClickHandler = (event, worldMap) => {
                     }
                 }
 
-                if(country.id === currentCountryElement.dataset.id){
-                    if(country.circle){
+                if (country.id === currentCountryElement.dataset.id) {
+                    if (country.circle) {
                         element.querySelector("circle").style.fill = "unset"
                     }
 
@@ -218,7 +218,7 @@ const initializeGame = async () => {
     allMapData = allMapData[preferences.continent].countries
 
     remainingCountriesToGuess = [...allMapData]
-    remainingCountriesToGuess = remainingCountriesToGuess.filter( (country) => {
+    remainingCountriesToGuess = remainingCountriesToGuess.filter((country) => {
         return preferences.regions.includes(country.region)
     })
     remainingCountriesToGuess = Random.randomElementsFromArray(remainingCountriesToGuess, preferences.countOfQuestions)
@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", initializeGame)
 // ==== odstranění prvků (může být i dříve, nebo v initializeGame) ====
 document.querySelector("#ocean")?.remove()
 const titles = document.querySelector("body").querySelectorAll("title")
-titles.forEach( (title) => {
+titles.forEach((title) => {
     title.remove()
 })
 
@@ -296,7 +296,7 @@ window.accentColor.get().then(color => {
     document.documentElement.style.setProperty("--darken-accent-color", Color.darken(Color.makeHexOpaque(color), 20))
 })
 
-window.accentColorUpdates.onUpdated((color) => {
+window.accentColor.onUpdated((color) => {
     document.documentElement.style.setProperty("--accent-color", Color.makeHexOpaque(color))
     document.documentElement.style.setProperty("--darken-accent-color", Color.darken(Color.makeHexOpaque(color), 20))
 })
@@ -330,9 +330,9 @@ document.addEventListener("mouseup", () => {
 
 // ==== close window ====
 document.getElementById("close-btn").addEventListener("click", () => {
-    if(preferences.href === "europe"){
+    if (preferences.href === "europe") {
         window.close()
-    } else if(preferences.href === "world"){
+    } else if (preferences.href === "world") {
         window.location.href = "../../html/world.html"
     }
 })

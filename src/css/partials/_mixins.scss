@@ -78,7 +78,7 @@
     }
 
     .toggle-switch-checkbox:checked + .toggle-switch-label {
-    background-color: var(--accent-color);
+        background-color: var(--accent-color);
     }
 
     .toggle-switch-checkbox:checked + .toggle-switch-label:before {

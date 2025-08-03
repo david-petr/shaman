@@ -69,4 +69,10 @@ body section h1 {
 }
 #exit:hover {
   background-color: var(--darken-accent-color);
+}
+
+.no-transition,
+.no-transition .toggle-switch-label,
+.no-transition .toggle-switch-label::before {
+  transition: none !important;
 }/*# sourceMappingURL=style.css.map */

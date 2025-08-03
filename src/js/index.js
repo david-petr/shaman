@@ -5,14 +5,15 @@ const progressElement = document.getElementById("progress")
 
 // ==== accent color => css variables ====
 window.accentColor.get().then(color => {
-  document.documentElement.style.setProperty("--accent-color", color)
-  document.documentElement.style.setProperty("--darken-accent-color", Color.darken(color, 20))
-  document.documentElement.style.setProperty("--update-back", Color.darken(color, 40))
+  console.log(color)
+  document.documentElement.style.setProperty("--accent-color", Color.makeHexOpaque(color))
+  document.documentElement.style.setProperty("--darken-accent-color", Color.makeHexOpaque(Color.darken(color, 20)))
+  document.documentElement.style.setProperty("--update-back", Color.makeHexOpaque(Color.darken(color, 40)))
 })
-window.accentColorUpdates.onUpdated((color) => {
-  document.documentElement.style.setProperty("--accent-color", color)
-  document.documentElement.style.setProperty("--darken-accent-color", Color.darken(color, 20))
-  document.documentElement.style.setProperty("--update-back", Color.darken(color, 40))
+window.accentColor.onUpdated((color) => {
+  document.documentElement.style.setProperty("--accent-color", Color.makeHexOpaque(color))
+  document.documentElement.style.setProperty("--darken-accent-color", Color.makeHexOpaque(Color.darken(color, 20)))
+  document.documentElement.style.setProperty("--update-back", Color.makeHexOpaque(Color.darken(color, 40)))
 })
 
 // ==== app update info ====
