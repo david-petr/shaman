@@ -8,7 +8,9 @@ contextBridge.exposeInMainWorld("newWindow", {
 // ==== dark mode ====
 contextBridge.exposeInMainWorld("darkMode", {
   toggle: () => ipcRenderer.invoke("dark-mode:toggle"),
-  system: () => ipcRenderer.invoke("dark-mode:system")
+  system: () => ipcRenderer.invoke("dark-mode:system"),
+  user: () => ipcRenderer.invoke("dark-mode:user"),
+  getSystem: () => ipcRenderer.invoke("dark-mode:getSystem")
 })
 
 // ==== accent color ====

@@ -2,11 +2,14 @@ const { app, BrowserWindow, ipcMain, nativeTheme, Menu, systemPreferences } = re
 const { autoUpdater } = require("electron-updater")
 const path = require("path")
 const url = require("url")
+const Store = require("electron-store").default
 
 let win
 
+const store = new Store()
+
 // ==== functions ====
-function getAccentColor(){
+function getSystemAccentColor() {
     if (process.platform === "win32") {
         return `#${systemPreferences.getAccentColor()}`
     } else if (process.platform === "darwin") {
@@ -14,6 +17,26 @@ function getAccentColor(){
     } else {
         return null
     }
+}
+function getAccentColor() {
+    if(store.get("accentColor")){
+        if(store.get("accentColor") === "system"){
+            return getSystemAccentColor()
+        } else {
+            return store.get("accentColor")
+        }
+    } else {
+        return getSystemAccentColor()
+    } 
+}
+function toggle() {
+    if (nativeTheme.shouldUseDarkColors) {
+        nativeTheme.themeSource = "light"
+    } else {
+        nativeTheme.themeSource = "dark"
+    }
+
+    store.set("theme", nativeTheme.themeSource)
 }
 
 function createWindow () {
@@ -52,20 +75,37 @@ function createWindow () {
 
     // ==== dark / light mode ====
     ipcMain.handle("dark-mode:toggle", () => {
-        if (nativeTheme.shouldUseDarkColors) {
-            nativeTheme.themeSource = "light"
-        } else {
-            nativeTheme.themeSource = "dark"
-        }
+        toggle()
         return nativeTheme.shouldUseDarkColors
     })
-
     ipcMain.handle("dark-mode:system", () => {
+        store.set("theme", "system")
         nativeTheme.themeSource = "system"
+        return nativeTheme.shouldUseDarkColors
     })
+    ipcMain.handle("dark-mode:user", () => {
+        return store.get("theme")
+    })
+    ipcMain.handle("dark-mode:getSystem", () => {
+        return nativeTheme.shouldUseDarkColors
+    })
+    if(nativeTheme.shouldUseDarkColors && store.get("theme") === "light"){
+        toggle()
+    }
+    if(nativeTheme.shouldUseDarkColors && store.get("theme") === "dark" || !nativeTheme.shouldUseDarkColors && store.get("theme") === "light"){
+        store.set("theme", "system")
+    }
 
+    // ==== accent color ====
     ipcMain.handle("get-accent-color", () => {
         return getAccentColor()
+    })
+    ipcMain.handle("get-system-accent-color", () => {
+        return getSystemAccentColor()
+    })
+    ipcMain.handle("set-accent-color", (event, color) => {
+        store.set("accentColor", color)
+        win.webContents.send("accent-color-updated", color)
     })
 
     // změna velikosti okna při aktualizaci

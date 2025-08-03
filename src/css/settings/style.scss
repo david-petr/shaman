@@ -27,7 +27,17 @@ body {
 }
 
 #exit {
-    @include button(50px, 16px, 15px, 100px);
+    @include button(40px, 16px, 15px, 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#reset {
+    @include button(40px, 16px, 15px, 100px);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
 
 .no-transition,

@@ -8,9 +8,9 @@ window.accentColor.onUpdated((color) => {
     document.documentElement.style.setProperty("--darken-accent-color", Color.makeHexOpaque(Color.darken(color, 20)))
 })
 
+const darkModeToggle = document.getElementById("dark-mode-toggle")
 document.addEventListener("DOMContentLoaded", () => {
     // ==== přepínání tmavého režimu ====
-    const darkModeToggle = document.getElementById("dark-mode-toggle")
     const useDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
     const toggle = document.getElementById("toggle-switch")
 
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.accentColor.get().then(color => colorInput.value = Color.makeHexOpaque(color))
 
     colorInput.addEventListener("change", (event) => {
-        console.log(event.target.value)
+        window.accentColor.update(event.target.value)
     })
 
     // ==== nastavení verze ====
@@ -38,3 +38,37 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("version").textContent = version
     })
 })
+
+// ==== resetování do "továrního nastavení" ====
+let systemMode
+if(window.darkMode.getSystem()){
+    systemMode = "dark"
+} else {
+    systemMode = "light"
+}
+
+let userMode = window.darkMode.user()
+if(userMode === "system"){
+    userMode = systemMode
+}
+
+if(window.accentColor.get() !== window.accentColor.system()){
+    const resetButton = document.getElementById("reset")
+    resetButton.style.display = "flex"
+
+    resetButton.addEventListener("click", () => {
+        window.darkMode.system()
+        if (systemMode === "dark") {
+            darkModeToggle.checked = true
+        } else {
+            darkModeToggle.checked = false
+        }
+
+        window.accentColor.system().then(color => {
+            window.accentColor.update(color)
+            document.getElementById("color").value = Color.makeHexOpaque(color)
+        })
+
+        resetButton.style.display = "none"
+    })
+}
