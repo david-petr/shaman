@@ -3,6 +3,7 @@ const { autoUpdater } = require("electron-updater")
 const path = require("path")
 const url = require("url")
 const Store = require("electron-store").default
+const fs = require("node:fs/promises")
 
 let win
 
@@ -76,12 +77,10 @@ function createWindow () {
     // ==== dark / light mode ====
     ipcMain.handle("dark-mode:toggle", () => {
         toggle()
-        return nativeTheme.shouldUseDarkColors
     })
     ipcMain.handle("dark-mode:system", () => {
         store.set("theme", "system")
         nativeTheme.themeSource = "system"
-        return nativeTheme.shouldUseDarkColors
     })
     ipcMain.handle("dark-mode:user", () => {
         return store.get("theme")
@@ -91,9 +90,6 @@ function createWindow () {
     })
     if(nativeTheme.shouldUseDarkColors && store.get("theme") === "light"){
         toggle()
-    }
-    if(nativeTheme.shouldUseDarkColors && store.get("theme") === "dark" || !nativeTheme.shouldUseDarkColors && store.get("theme") === "light"){
-        store.set("theme", "system")
     }
 
     // ==== accent color ====
@@ -173,6 +169,21 @@ nativeTheme.on("updated", () => {
     if(win){
         const color = getAccentColor()
         win.webContents.send("accent-color-updated", color)
+    }
+})
+
+// ==== získávání souborů z adresáře ====
+ipcMain.handle("get-files-in-folder", async (event, folderPath) => {
+    try {
+        const files = await fs.readdir(path.join(__dirname, folderPath), { withFileTypes: true })
+        const fileNames = files
+            .filter(dirent => dirent.isFile())
+            .map(dirent => dirent.name)
+
+        return { success: true, files: fileNames }
+    } catch (error) {
+        console.error(`Chyba při čtení složky ${folderPath}:`, error)
+        return { success: false, error: error.message }
     }
 })
 

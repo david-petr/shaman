@@ -46,3 +46,8 @@ contextBridge.exposeInMainWorld("windowApi", {
 contextBridge.exposeInMainWorld("appAPI", {
   onAppVersion: (callback) => ipcRenderer.on("app-version", (event, version) => callback(version))
 })
+
+// ==== files ====
+contextBridge.exposeInMainWorld("fileAPI", {
+  getFilesInFolder: (folderPath) => ipcRenderer.invoke("get-files-in-folder", folderPath),
+})

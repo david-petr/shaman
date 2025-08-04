@@ -9,6 +9,7 @@
     color: #fff;
     outline: none;
     cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
 
     &:hover {
         background-color: var(--darken-accent-color);
@@ -20,6 +21,7 @@
     background: #bfbfbf;
     padding: 5px;
     border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
 
     input[type=number]{
         outline: none;

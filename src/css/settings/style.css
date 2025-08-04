@@ -66,6 +66,7 @@ body section h1 {
   color: #fff;
   outline: none;
   cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,6 +86,7 @@ body section h1 {
   color: #fff;
   outline: none;
   cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
   display: none;
   align-items: center;
   justify-content: center;

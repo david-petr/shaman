@@ -26,12 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
     darkModeToggle.addEventListener("change", () => window.darkMode.toggle())
 
     // ==== accent color ====
-    const colorInput = document.getElementById("color")
-    window.accentColor.get().then(color => colorInput.value = Color.makeHexOpaque(color))
+    // const colorInput = document.getElementById("color")
+    // window.accentColor.get().then(color => colorInput.value = Color.makeHexOpaque(color))
 
-    colorInput.addEventListener("change", (event) => {
-        window.accentColor.update(event.target.value)
-    })
+    // colorInput.addEventListener("change", (event) => {
+    //     window.accentColor.update(event.target.value)
+    //     resetHandler()
+    // })
 
     // ==== nastavení verze ====
     window.appAPI.onAppVersion((version) => {
@@ -40,35 +41,43 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 // ==== resetování do "továrního nastavení" ====
-let systemMode
-if(window.darkMode.getSystem()){
-    systemMode = "dark"
-} else {
-    systemMode = "light"
-}
+// const resetHandler = async () => {
+//     try {
+//         const systemMode = await window.darkMode.getSystem()
+//         const accentColor = await window.accentColor.get()
+//         const systemAccentColor = await window.accentColor.system()
+//         // let userMode = await window.darkMode.user()
 
-let userMode = window.darkMode.user()
-if(userMode === "system"){
-    userMode = systemMode
-}
+//         // if(userMode === "system"){
+//         //     userMode = systemMode
+//         // }
 
-if(window.accentColor.get() !== window.accentColor.system()){
-    const resetButton = document.getElementById("reset")
-    resetButton.style.display = "flex"
+//         // console.log(systemMode, userMode)
 
-    resetButton.addEventListener("click", () => {
-        window.darkMode.system()
-        if (systemMode === "dark") {
-            darkModeToggle.checked = true
-        } else {
-            darkModeToggle.checked = false
-        }
+//         if(accentColor !== systemAccentColor){
+//             const resetButton = document.getElementById("reset")
+//             resetButton.style.display = "flex"
 
-        window.accentColor.system().then(color => {
-            window.accentColor.update(color)
-            document.getElementById("color").value = Color.makeHexOpaque(color)
-        })
+//             resetButton.addEventListener("click", () => {
+//                 window.darkMode.system()
+//                 if (systemMode !== "dark") {
+//                     darkModeToggle.checked = true
+//                 } else {
+//                     darkModeToggle.checked = false
+//                 }
 
-        resetButton.style.display = "none"
-    })
-}
+//                 window.accentColor.system().then(color => {
+//                     window.accentColor.update(color)
+//                     document.getElementById("color").value = Color.makeHexOpaque(color)
+//                 })
+
+//                 resetButton.style.display = "none"
+//             })
+//         }
+
+//     } catch (e) {
+//         console.error(e)
+//     }
+// }
+
+// resetHandler()

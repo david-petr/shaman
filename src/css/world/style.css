@@ -1,1 +1,71 @@
-/*# sourceMappingURL=style.css.map */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #ddd;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #242424;
+  }
+}
+body {
+  height: 100vh;
+}
+body main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: var(--background-color);
+  height: 600px;
+  width: 660px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 40px #000;
+}
+body main #buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+body main #buttons button {
+  background-color: var(--accent-color);
+  height: 70px;
+  font-size: 20px;
+  padding: 15px;
+  width: 280px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
+body main #buttons button:hover {
+  background-color: var(--darken-accent-color);
+}
+body #flags-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-auto-rows: minmax(80px, 1fr);
+  gap: 15px;
+  align-content: space-between;
+  justify-content: space-between;
+  padding: 20px;
+}
+body #flags-background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  opacity: 0.5;
+}/*# sourceMappingURL=style.css.map */

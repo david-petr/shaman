@@ -72,7 +72,7 @@ document.getElementById("world").addEventListener("click", () => {
       fullscreen: true,
       file: "world.html",
       title: "Svět",
-      openDevTools: true
+      openDevTools: false
     })
   }
 })
