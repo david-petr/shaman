@@ -5,6 +5,11 @@ document.getElementById("countries").addEventListener("click", () => {
 
     window.location.href = "../html/countries/set.html"
 })
+document.getElementById("flags").addEventListener("click", () => {
+    localStorage.setItem("preferences", JSON.stringify( {continent: continent.value} ))
+
+    window.location.href = "../html/flags/set.html"
+})
 
 // ==== accent color => css variables ====
 window.accentColor.get().then(color => {

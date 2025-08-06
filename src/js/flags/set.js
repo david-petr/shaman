@@ -4,42 +4,9 @@ const continent = preferences.continent
 const href = preferences.href
 let data = null
 
-// ==== functions ====
-const update = (data, continent) => {
-    const checkboxes = Array.from(document.querySelectorAll(".checkbox"))
-    const checked = checkboxes.filter((checkbox) => {
-        return checkbox.checked === true
-    })
-
-    const labels = checked.map((checkbox) => {
-        return document.querySelector(`label[for="${checkbox.id}"]`).textContent
-    })
-
-    let countries = [...data[continent].countries]
-
-
-    countries = countries.filter((country) => {
-        return labels.includes(country.region)
-    })
-
-    input.value = countries.length
-    input.setAttribute("max", countries.length)
-    document.getElementById("count-of-questions").textContent = countries.length
-}
-
 // ==== potvrzení otázek a začátek kvízu ====
 document.getElementById("start").addEventListener("click", () => {
     const preferences = {}
-
-    // ==== regiony ke zkoušení ====
-    const checkboxes = Array.from(document.querySelectorAll(".checkbox"))
-    const checked = checkboxes.filter((checkbox) => {
-        return checkbox.checked === true
-    })
-    const labels = checked.map((checkbox) => {
-        return document.querySelector(`label[for="${checkbox.id}"]`).textContent
-    })
-    preferences.regions = labels
 
     // ==== počet otázek ke zkoušení ====
     const countOfQuestions = input.value
@@ -47,64 +14,21 @@ document.getElementById("start").addEventListener("click", () => {
 
     // ==== continent ke zkoušení ====
     preferences.continent = continent
-    preferences.href = href
 
     localStorage.setItem("preferences", JSON.stringify(preferences))
 
-    window.location.href = "../../html/countries/map.html"
+    window.location.href = "../../html/flags/flags.html"
 })
 
 // načtení počtu otázek
 document.addEventListener("DOMContentLoaded", async () => {
     data = await DataImport.getData("../../data/map.json")
 
-    // ==== nastavení výběru regionů ====
-    let countries = [...data[continent].countries]
-    let labels = countries.map((country) => {
-        return country.region
-    })
+    const countries = [...data[continent].countries]
 
-    labels = new Set(labels)
-
-    labels.forEach((labelName) => {
-        const id = labelName.substring(0, 3).toLowerCase()
-
-        const div = document.createElement("div")
-
-        const checkbox = document.createElement("input")
-        checkbox.setAttribute("type", "checkbox")
-        checkbox.setAttribute("id", id)
-        checkbox.classList.add("checkbox")
-
-        // ==== checkbox => aktualizace při výběru ====
-        checkbox.addEventListener("change", () => {
-            update(data, continent)
-        })
-
-        if (id !== "asi") {
-            checkbox.checked = true
-        }
-
-        const label = document.createElement("label")
-        label.textContent = labelName
-        label.setAttribute("for", id)
-
-        div.appendChild(checkbox)
-        div.appendChild(label)
-
-        document.getElementById("allCheckboxes").appendChild(div)
-    })
-
-    if (labels.has("") && labels.size === 1) {
-        document.getElementById("choise").style.display = "none"
-
-        const countBoxElement = document.getElementById("count")
-        countBoxElement.style.border = "none"
-        countBoxElement.style.width = "100%"
-        document.getElementById("settings").style.width = "50%"
-    }
-
-    update(data, continent)
+    input.setAttribute("max", countries.length)
+    input.value = countries.length
+    document.getElementById("count-of-questions").textContent = countries.length
 })
 
 // ==== odčítací tlačítko ====
@@ -122,11 +46,7 @@ document.getElementById("plus").addEventListener("click", () => {
 })
 
 document.getElementById("close").addEventListener("click", () => {
-    if (href === "europe") {
-        window.close()
-    } else if (href === "world") {
-        window.location.href = "../../html/world.html"
-    }
+    window.location.href = "../../html/world.html"
 })
 
 // ==== pozadí ====

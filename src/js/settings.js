@@ -23,7 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     setTimeout(() => { toggle.classList.remove("no-transition") }, 0)
-    darkModeToggle.addEventListener("change", () => window.darkMode.toggle())
+    darkModeToggle.addEventListener("change", () => {
+        window.darkMode.toggle()
+        resetHandler()
+    })
 
     // ==== accent color ====
     // const colorInput = document.getElementById("color")
@@ -41,43 +44,37 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 // ==== resetování do "továrního nastavení" ====
-// const resetHandler = async () => {
-//     try {
-//         const systemMode = await window.darkMode.getSystem()
-//         const accentColor = await window.accentColor.get()
-//         const systemAccentColor = await window.accentColor.system()
-//         // let userMode = await window.darkMode.user()
+const resetHandler = async () => {
+    try {
+        const systemMode = await window.darkMode.getSystem()
+        const accentColor = await window.accentColor.get()
+        const systemAccentColor = await window.accentColor.system()
+        let userMode = await window.darkMode.user()
 
-//         // if(userMode === "system"){
-//         //     userMode = systemMode
-//         // }
+        if(accentColor !== systemAccentColor || userMode !== "system"){
+            const resetButton = document.getElementById("reset")
+            resetButton.style.display = "flex"
 
-//         // console.log(systemMode, userMode)
+            resetButton.addEventListener("click", () => {
+                window.darkMode.system()
+                if (systemMode !== "dark") {
+                    darkModeToggle.checked = true
+                } else {
+                    darkModeToggle.checked = false
+                }
 
-//         if(accentColor !== systemAccentColor){
-//             const resetButton = document.getElementById("reset")
-//             resetButton.style.display = "flex"
+                window.accentColor.system().then(color => {
+                    window.accentColor.update(color)
+                    document.getElementById("color").value = Color.makeHexOpaque(color)
+                })
 
-//             resetButton.addEventListener("click", () => {
-//                 window.darkMode.system()
-//                 if (systemMode !== "dark") {
-//                     darkModeToggle.checked = true
-//                 } else {
-//                     darkModeToggle.checked = false
-//                 }
+                resetButton.style.display = "none"
+            })
+        }
 
-//                 window.accentColor.system().then(color => {
-//                     window.accentColor.update(color)
-//                     document.getElementById("color").value = Color.makeHexOpaque(color)
-//                 })
+    } catch (e) {
+        console.error(e)
+    }
+}
 
-//                 resetButton.style.display = "none"
-//             })
-//         }
-
-//     } catch (e) {
-//         console.error(e)
-//     }
-// }
-
-// resetHandler()
+resetHandler()
