@@ -47,7 +47,7 @@
             { "id": "va", "name": "Vatikán", "region": "Jižní Evropa", "circle": true },
             { "id": "ad", "name": "Andorra", "region": "Jižní Evropa", "circle": true },
             { "id": "mc", "name": "Monako", "region": "Jižní Evropa", "circle": true },
-            { "id": "mt", "name": "Malta", "region": "Jižní Evropa"}
+            { "id": "mt", "name": "Malta", "region": "Jižní Evropa" }
         ],
         "mapPosition": { "x": 900, "y": -50, "width": 1000, "height": 600, "scale": 1.75 }
     },
