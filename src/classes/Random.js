@@ -16,6 +16,16 @@ class Random {
     }
 
     /**
+     * Náhodné číslo od 0 do maxIndex
+     * 
+     * @param {Number} maxIndex 
+     * @returns {Number}
+     */
+    static randomNumber(maxIndex){
+        return Math.floor(Math.random() * maxIndex + 1)
+    }
+
+    /**
      * Vybere náhodné prvky v poli
      * 
      * @param {Array} array 

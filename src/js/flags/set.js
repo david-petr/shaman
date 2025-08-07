@@ -22,9 +22,9 @@ document.getElementById("start").addEventListener("click", () => {
 
 // načtení počtu otázek
 document.addEventListener("DOMContentLoaded", async () => {
-    data = await DataImport.getData("../../data/map.json")
+    data = await DataImport.getData("../../data/flags.json")
 
-    const countries = [...data[continent].countries]
+    const countries = [...data[continent]]
 
     input.setAttribute("max", countries.length)
     input.value = countries.length

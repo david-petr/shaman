@@ -59,7 +59,6 @@
         { "id": "ne", "name": "Niger" },
         { "id": "ml", "name": "Mali" },
         { "id": "mr", "name": "Mauritánie" },
-        { "id": "eh", "name": "Západní Sahara" },
         { "id": "sn", "name": "Senegal" },
         { "id": "gm", "name": "Gambie" },
         { "id": "gw", "name": "Guinea-Bissau" },
@@ -98,7 +97,12 @@
         { "id": "za", "name": "Jihoafrická republika" },
         { "id": "ls", "name": "Lesotho" },
         { "id": "sz", "name": "Svazijsko" },
-        { "id": "mg", "name": "Madagaskar" }
+        { "id": "mg", "name": "Madagaskar" },
+        { "id": "sc", "name": "Seychely" },
+        { "id": "cv", "name": "Kapverdy" },
+        { "id": "km", "name": "Komory" },
+        { "id": "mu", "name": "Mauricius" },
+        { "id": "st", "name": "Svatý Tomáš a Princův ostrov" }
     ],
 
     "asia": [
@@ -141,14 +145,17 @@
         { "id": "ps", "name": "Palestina" },
         { "id": "ge", "name": "Gruzie" },
         { "id": "am", "name": "Arménie" },
-        { "id": "ua", "name": "Ukrajina" },
         { "id": "uz", "name": "Uzbekistán" },
         { "id": "kz", "name": "Kazachstán" },
         { "id": "kg", "name": "Kyrgyzstán" },
         { "id": "ru", "name": "Rusko" },
         { "id": "tj", "name": "Tádžikistán" },
         { "id": "tm", "name": "Turkmenistán" },
-        { "id": "az", "name": "Ázerbájdžán" }
+        { "id": "az", "name": "Ázerbájdžán" },
+        { "id": "mv", "name": "Maledivy" },
+        { "id": "bh", "name": "Bahrajn" },
+        { "id": "tl", "name": "Východní Timor" },
+        { "id": "ps", "name": "Palestina" }
     ],
 
     "na": [
@@ -156,10 +163,8 @@
         { "id": "cu", "name": "Kuba" },
         { "id": "do", "name": "Dominikánská republika" },
         { "id": "us", "name": "Spojené státy americké" },
-        { "id": "gl", "name": "Grónsko" },
         { "id": "bz", "name": "Belize" },
         { "id": "hn", "name": "Honduras" },
-        { "id": "pr", "name": "Portoriko" },
         { "id": "pa", "name": "Panama" },
         { "id": "mx", "name": "Mexiko" },
         { "id": "jm", "name": "Jamajka" },
@@ -167,7 +172,16 @@
         { "id": "ht", "name": "Haiti" },
         { "id": "ni", "name": "Nikaragua" },
         { "id": "gt", "name": "Guatemala" },
-        { "id": "cr", "name": "Kostarika" }
+        { "id": "cr", "name": "Kostarika" },
+        { "id": "kn", "name": "Svatý Kryštof a Nevis" },
+        { "id": "dm", "name": "Dominika" },
+        { "id": "tt", "name": "Trinidad a Tobago" },
+        { "id": "vc", "name": "Svatý Vincenc a Grenadiny" },
+        { "id": "bs", "name": "Bahamy" },
+        { "id": "lc", "name": "Svatá Lucie" },
+        { "id": "bb", "name": "Barbados" },
+        { "id": "gd", "name": "Grenada" },
+        { "id": "ag", "name": "Antigua a Barbuda" }
     ],
 
     "sa": [
@@ -178,7 +192,6 @@
         { "id": "br", "name": "Brazílie" },
         { "id": "co", "name": "Kolumbie" },
         { "id": "py", "name": "Paraguay" },
-        { "id": "gf", "name": "Francouzská Guyana" },
         { "id": "pe", "name": "Peru" },
         { "id": "sr", "name": "Surinam" },
         { "id": "ve", "name": "Venezuela" },
@@ -191,9 +204,15 @@
         { "id": "au", "name": "Austrálie" },
         { "id": "nr", "name": "Nauru" },
         { "id": "fj", "name": "Fidži" },
-        { "id": "nc", "name": "Nová Kaledonie" },
         { "id": "nz", "name": "Nový Zéland" },
         { "id": "vu", "name": "Vanuatu" },
-        { "id": "sb", "name": "Šalamounovy ostrovy" }       
+        { "id": "sb", "name": "Šalamounovy ostrovy" },
+        { "id": "tv", "name": "Tuvalu" },
+        { "id": "to", "name": "Tonga" },
+        { "id": "mh", "name": "Marshallovy ostrovy" },
+        { "id": "ws", "name": "Samoa" },
+        { "id": "fm", "name": "Mikronésie" },
+        { "id": "ki", "name": "Kiribati" },
+        { "id": "pw", "name": "Palau" }
     ]
 }
