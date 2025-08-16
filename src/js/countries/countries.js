@@ -7,47 +7,20 @@ let mapPosition = {}
 let currentCountryElement = document.getElementById("country")
 let taskContent = document.getElementById("task")
 let wrongTaskContent = document.getElementById("wrong")
+const continueButton = document.getElementById("continue-btn")
 
 // ==== preference ====
 const preferences = JSON.parse(localStorage.getItem("preferences"))
 
 // ==== info box ====
-let countElement = document.getElementById("count")
-let remainsElement = document.getElementById("remains")
-let wrongElement = document.getElementById("count-of-wrong-answers")
-let successRateElement = document.getElementById("success-rate")
-let markElement = document.getElementById("mark")
-
-const continueButton = document.getElementById("continue-btn")
+const draggableWindow = new DraggableElement("handle", "info-box")
+draggableWindow.countElement = document.getElementById("count")
+draggableWindow.remainsElement = document.getElementById("remains")
+draggableWindow.wrongElement = document.getElementById("count-of-wrong-answers")
+draggableWindow.successRateElement = document.getElementById("success-rate")
+draggableWindow.markElement = document.getElementById("mark")
 
 // ==== functions =====
-const updateInfoBox = () => {
-    remainsElement.textContent = remainingCountriesToGuess.length
-    wrongElement.textContent = countOfWrongAnswers
-
-    let successRate = Math.round((Number(countElement.textContent) - remainingCountriesToGuess.length - countOfWrongAnswers) / (Number(countElement.textContent) - remainingCountriesToGuess.length) * 100)
-
-    if (!isNaN(successRate)) {
-        successRateElement.textContent = `${successRate}%`
-
-        let mark
-
-        if (successRate >= 90) {
-            mark = 1
-        } else if (successRate >= 75) {
-            mark = 2
-        } else if (successRate >= 50) {
-            mark = 3
-        } else if (successRate >= 30)
-            mark = 4
-        else {
-            mark = 5
-        }
-
-        markElement.textContent = mark
-    }
-}
-
 const update = () => {
     const guessedCountryId = currentCountryElement.dataset.id
 
@@ -62,10 +35,33 @@ const update = () => {
             currentCountryElement.dataset.id = nextRandomCountry.id
         }
 
-        updateInfoBox()
+        draggableWindow.updateInfoBox(remainingCountriesToGuess.length, countOfWrongAnswers)
     } else {
         currentCountryElement.textContent = "Všechny země uhodnuty! Gratulujeme!"
         currentCountryElement.dataset.id = ""
+
+        document.getElementById("map").removeEventListener("click", mainMapClickHandlerInstance)
+
+        allMapData.forEach((country) => {
+            const element = document.getElementById(country.id)
+
+            element.removeEventListener("mouseover", countryMouseOverHandler)
+
+            element.removeEventListener("mouseout", countryMouseOutHandler)
+
+            if(country.circle) {
+                const circle = element.querySelector("circle")
+                if (circle) {
+                    circle.removeEventListener("mouseover", circleMouseOverHandler)
+
+                    circle.removeEventListener("mouseout", circleMouseOutHandler)
+                }
+
+                circleMouseOutHandler.call(circle)
+            }
+
+            countryMouseOutHandler.call(element)
+        })
     }
 }
 
@@ -220,11 +216,11 @@ const initializeGame = async () => {
     remainingCountriesToGuess = Random.randomElementsFromArray(remainingCountriesToGuess, preferences.countOfQuestions)
 
     // ==== info box - aktualní info ====
-    countElement.textContent = remainingCountriesToGuess.length
-    remainsElement.textContent = remainingCountriesToGuess.length
-    wrongElement.textContent = "0"
-    successRateElement.textContent = "--"
-    markElement.textContent = "--"
+    draggableWindow.countElement.textContent = remainingCountriesToGuess.length
+    draggableWindow.remainsElement.textContent = remainingCountriesToGuess.length
+    draggableWindow.wrongElement.textContent = "0"
+    draggableWindow.successRateElement.textContent = "--"
+    draggableWindow.markElement.textContent = "--"
 
 
     allMapData.forEach((country) => {

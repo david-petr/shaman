@@ -4,6 +4,7 @@ const testButtonsSection = document.getElementById("test-buttons")
 const testButtons = testButtonsSection.querySelectorAll("button")
 const wrongTaskContent = document.getElementById("wrong")
 const taskContent = document.getElementById("task")
+const continueButton = document.getElementById("continue-btn")
 let guessedFlag = null
 let countries = null
 let remainingCountriesToGuess = []
@@ -14,13 +15,12 @@ const preferences = JSON.parse(localStorage.getItem("preferences"))
 const continent = preferences.continent
 
 // ==== info box ====
-let countElement = document.getElementById("count")
-let remainsElement = document.getElementById("remains")
-let wrongElement = document.getElementById("count-of-wrong-answers")
-let successRateElement = document.getElementById("success-rate")
-let markElement = document.getElementById("mark")
-
-const continueButton = document.getElementById("continue-btn")
+const draggableWindow = new DraggableElement("handle", "info-box")
+draggableWindow.countElement = document.getElementById("count")
+draggableWindow.remainsElement = document.getElementById("remains")
+draggableWindow.wrongElement = document.getElementById("count-of-wrong-answers")
+draggableWindow.successRateElement = document.getElementById("success-rate")
+draggableWindow.markElement = document.getElementById("mark")
 
 // ==== functions ====
 function continueButtonHandler() {
@@ -35,17 +35,14 @@ function continueButtonHandler() {
         button.addEventListener("click", buttonHandler)
     })
 
-    wrongElement.textContent = countOfWrongAnswers
-
     update()
-
 }
 
 function buttonHandler() {
     const id = this.id
     
     if(id === guessedFlag.id){
-        remainsElement.textContent = remainingCountriesToGuess.length
+        draggableWindow.remainsElement.textContent = remainingCountriesToGuess.length
 
         update()
     } else {
@@ -69,27 +66,39 @@ function buttonHandler() {
 }
 
 const update = () => {
-    guessedFlag = Random.randomElement(remainingCountriesToGuess)
-
-    remainingCountriesToGuess = remainingCountriesToGuess.filter(country => country.id !== guessedFlag.id)
-    flagElement.setAttribute("src", "../../img/flags/" + guessedFlag.id + ".webp")
-
-    let randomFlags = Random.randomElementsFromArray(countries, 5)
-
-    if(randomFlags.includes(guessedFlag)){
-        while (randomFlags.includes(guessedFlag)){
-            randomFlags = Random.randomElementsFromArray(countries, 5)
-        }
-    }
-
-    randomFlags.splice(Random.randomNumber(randomFlags.length), 0, guessedFlag)
+    if(remainingCountriesToGuess.length > 0){
+        guessedFlag = Random.randomElement(remainingCountriesToGuess)
     
-    testButtons.forEach( (button, index) => {
-        button.textContent = randomFlags[index].name
-        button.id = randomFlags[index].id
+        remainingCountriesToGuess = remainingCountriesToGuess.filter(country => country.id !== guessedFlag.id)
+        flagElement.setAttribute("src", "../../img/flags/" + guessedFlag.id + ".webp")
+    
+        let randomFlags = Random.randomElementsFromArray(countries, 5)
+    
+        if(randomFlags.includes(guessedFlag)){
+            while (randomFlags.includes(guessedFlag)){
+                randomFlags = Random.randomElementsFromArray(countries, 5)
+            }
+        }
+    
+        randomFlags.splice(Random.randomNumber(randomFlags.length), 0, guessedFlag)
+        
+        testButtons.forEach( (button, index) => {
+            button.textContent = randomFlags[index].name
+            button.id = randomFlags[index].id
+    
+            button.addEventListener("click", buttonHandler)
+        })
+    
+        draggableWindow.updateInfoBox(remainingCountriesToGuess.length, countOfWrongAnswers)
+    } else {
+        testButtons.forEach( button => {
+            button.removeEventListener("click", buttonHandler)
 
-        button.addEventListener("click", buttonHandler)
-    }) 
+            button.classList.add("disabled-btn")
+        })
+
+        document.getElementById("task").querySelector("p").textContent = "Všechny země uhodnuty! Gratulujeme!"
+    }
 }
 
 const initializeGame = async () => {
@@ -99,11 +108,11 @@ const initializeGame = async () => {
     remainingCountriesToGuess = Random.randomElementsFromArray(countries, preferences.countOfQuestions)
 
     // ==== info box - aktuální informace ====
-    countElement.textContent = remainingCountriesToGuess.length
-    remainsElement.textContent = remainingCountriesToGuess.length
-    wrongElement.textContent = "0"
-    successRateElement.textContent = "--"
-    markElement.textContent = "--"
+    draggableWindow.countElement.textContent = remainingCountriesToGuess.length
+    draggableWindow.remainsElement.textContent = remainingCountriesToGuess.length
+    draggableWindow.wrongElement.textContent = "0"
+    draggableWindow.successRateElement.textContent = "--"
+    draggableWindow.markElement.textContent = "--"
     
     update()
 }
@@ -120,33 +129,6 @@ window.accentColor.onUpdated((color) => {
     document.documentElement.style.setProperty("--accent-color", Color.makeHexOpaque(color))
     document.documentElement.style.setProperty("--darken-accent-color", Color.makeHexOpaque(Color.darken(color, 20)))
     document.documentElement.style.setProperty("--disabled-color", Color.makeHexOpaque(Color.darken(color, 40)))
-})
-
-// ==== info box handle - pohyb ====
-const handle = document.getElementById("handle")
-const infoWindow = document.getElementById("info-box")
-
-let isDragging = false
-let offsetX, offsetY
-
-handle.addEventListener("mousedown", (e) => {
-    isDragging = true
-    offsetX = e.clientX - infoWindow.getBoundingClientRect().left
-    offsetY = e.clientY - infoWindow.getBoundingClientRect().top
-    handle.style.cursor = "grabbing"
-})
-
-document.addEventListener("mousemove", (e) => {
-    if (!isDragging) return
-    const newX = e.clientX - offsetX
-    const newY = e.clientY - offsetY
-    infoWindow.style.left = `${newX}px`
-    infoWindow.style.top = `${newY}px`
-})
-
-document.addEventListener("mouseup", () => {
-    isDragging = false
-    handle.style.cursor = "move"
 })
 
 // ==== close window ====
