@@ -8,26 +8,64 @@ window.accentColor.onUpdated((color) => {
     document.documentElement.style.setProperty("--darken-accent-color", Color.makeHexOpaque(Color.darken(color, 20)))
 })
 
-const darkModeToggle = document.getElementById("dark-mode-toggle")
-document.addEventListener("DOMContentLoaded", () => {
-    // ==== přepínání tmavého režimu ====
-    const useDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-    const toggle = document.getElementById("toggle-switch")
+const clickHandler = async (mode) => {
+    try {
+        let userMode = await window.darkMode.user()
 
-    toggle.classList.add("no-transition")
+        if(userMode === "system"){
+            const useDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+            userMode = (useDarkMode)? "dark" : "light"
+        }
+        
+        if(mode !== userMode){
+            if(mode === "light" || mode === "dark"){
+                window.darkMode.toggle()
+            } 
 
-    if (useDarkMode) {
-        darkModeToggle.checked = true
-    } else {
-        darkModeToggle.checked = false
+            if(mode === "system"){
+                window.darkMode.system()
+            }
+        }
+
+    } catch (e){
+        console.error(e)
     }
+}
 
-    setTimeout(() => { toggle.classList.remove("no-transition") }, 0)
-    darkModeToggle.addEventListener("change", () => {
-        window.darkMode.toggle()
-        resetHandler()
-    })
+// ==== resetování do "továrního nastavení" ====
+const initHandler = async () => {
+    try {
+        // ==== nastavení aktuálního modu ====
+        let userMode = await window.darkMode.user()
 
+        const allModes = document.querySelectorAll(".mode")
+        allModes.forEach( mode => {
+            if(mode.id === userMode){
+                mode.classList.add("active")
+            }
+        })
+
+        document.getElementById("tripple-switch").addEventListener("click", (e) => {
+            const clickedMode = e.target.closest(".mode")
+            if(clickedMode){
+                allModes.forEach( mode => {
+                    mode.classList.remove("active")
+
+                    if(mode.id === clickedMode.id){
+                        mode.classList.add("active")
+
+                        clickHandler(clickedMode.id)
+                    }
+                })
+            }
+        })
+
+    } catch (e) {
+        console.error(e)
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
     // ==== accent color ====
     // const colorInput = document.getElementById("color")
     // window.accentColor.get().then(color => colorInput.value = Color.makeHexOpaque(color))
@@ -41,40 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.appAPI.onAppVersion((version) => {
         document.getElementById("version").textContent = version
     })
+
+    initHandler()
 })
-
-// ==== resetování do "továrního nastavení" ====
-const resetHandler = async () => {
-    try {
-        const systemMode = await window.darkMode.getSystem()
-        const accentColor = await window.accentColor.get()
-        const systemAccentColor = await window.accentColor.system()
-        let userMode = await window.darkMode.user()
-
-        if(accentColor !== systemAccentColor || userMode !== "system"){
-            const resetButton = document.getElementById("reset")
-            resetButton.style.display = "flex"
-
-            resetButton.addEventListener("click", () => {
-                window.darkMode.system()
-                if (systemMode !== "dark") {
-                    darkModeToggle.checked = true
-                } else {
-                    darkModeToggle.checked = false
-                }
-
-                window.accentColor.system().then(color => {
-                    window.accentColor.update(color)
-                    document.getElementById("color").value = Color.makeHexOpaque(color)
-                })
-
-                resetButton.style.display = "none"
-            })
-        }
-
-    } catch (e) {
-        console.error(e)
-    }
-}
-
-resetHandler()

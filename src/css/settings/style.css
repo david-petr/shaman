@@ -1,3 +1,15 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tripple-switch-back: #151515;
+    --text-color: #fff;
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --tripple-switch-back: #acacac;
+    --text-color: #000;
+  }
+}
 body {
   height: 100vh;
   display: flex;
@@ -15,44 +27,30 @@ body section h1 {
   margin-bottom: 20px;
 }
 
-#toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 55px;
-  height: 25px;
+#tripple-switch {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4745098039);
+  background-color: var(--tripple-switch-back);
+  height: 50px;
 }
-#toggle-switch .toggle-switch-checkbox {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-#toggle-switch .toggle-switch-label {
-  position: absolute;
+#tripple-switch .mode {
+  display: flex;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
 }
-#toggle-switch .toggle-switch-label:before {
-  position: absolute;
-  content: "";
-  height: 17px;
-  width: 17px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
+#tripple-switch .mode path, #tripple-switch .mode g {
+  fill: var(--text-color);
 }
-#toggle-switch .toggle-switch-checkbox:checked + .toggle-switch-label {
+#tripple-switch .active {
   background-color: var(--accent-color);
-}
-#toggle-switch .toggle-switch-checkbox:checked + .toggle-switch-label:before {
-  transform: translateX(30px);
+  padding: 7px 15px;
+  display: flex;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5803921569);
+  transition: 0.2s;
 }
 
 #exit {

@@ -1,6 +1,20 @@
 @import "../partials/mixins";
 @import "../partials/functions";
 
+@media (prefers-color-scheme: dark){
+    :root {
+        --tripple-switch-back: #151515;
+        --text-color: #fff;
+    }
+}
+
+@media (prefers-color-scheme: light){
+    :root {
+        --tripple-switch-back: #acacac;
+        --text-color: #000;
+    }
+}
+
 
 body {
     height: 100vh;
@@ -22,8 +36,33 @@ body {
     }
 }
 
-#toggle-switch {
-    @include toggle();
+#tripple-switch {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px #00000079;
+    background-color: var(--tripple-switch-back);
+    height: 50px;
+
+    .mode {
+        display: flex;
+        cursor: pointer;
+
+        path, g {
+            fill: var(--text-color);
+        }
+    }
+
+    .active {
+        background-color: var(--accent-color);
+        padding: 7px 15px;
+        display: flex;
+        border-radius: 30px;
+        box-shadow: 0px 0px 10px #00000094;
+        transition: .2s;
+    }
 }
 
 #exit {
