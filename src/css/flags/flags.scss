@@ -1,0 +1,73 @@
+@import "../partials/mixins";
+@import "../partials/functions";
+
+@media (prefers-color-scheme: light){
+    :root {
+        --background-color: #ddd;
+        --text-color: #000;
+    }
+}
+
+@media (prefers-color-scheme: dark){
+    :root {
+        --background-color: #242424;
+        --text-color: #fff;
+    }
+}
+
+main {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    #task-bar {
+        @include taskBar();
+    }
+
+    #info-box {
+        @include infoBox(40%, 40px);
+    }
+    
+    #flag {
+        height: 40vh;
+        box-shadow: 0px 0px 20px #0000007c;
+    }
+    
+    #test-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 700px;
+        margin-top: 50px;
+    
+        button {
+            @include button(50px, 16px, 15px, 175px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.blink-target {
+    animation: blinkTargetAnimation 0.5s infinite alternate; 
+}
+.disabled-btn {
+    background-color: var(--disabled-color) !important;
+    opacity: 0.5;
+}
+
+@keyframes blinkTargetAnimation {
+    from {
+        background-color: var(--accent-color);
+        opacity: 1;
+    }
+    to {
+        background-color: #1dad01;
+        opacity: 0.8;
+    }
+}

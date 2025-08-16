@@ -1,22 +1,22 @@
 // ==== Globální proměnné ====
 let allMapData = null
 let remainingCountriesToGuess = []
-let currentCountryElement = null
-let taskContent = null
-let wrongTaskContent = null
 let countOfWrongAnswers = 0
 let mainMapClickHandlerInstance = null
 let mapPosition = {}
+let currentCountryElement = document.getElementById("country")
+let taskContent = document.getElementById("task")
+let wrongTaskContent = document.getElementById("wrong")
 
 // ==== preference ====
 const preferences = JSON.parse(localStorage.getItem("preferences"))
 
 // ==== info box ====
-let countElement = null
-let remainsElement = null
-let wrongElement = null
-let successRateElement = null
-let markElement = null
+let countElement = document.getElementById("count")
+let remainsElement = document.getElementById("remains")
+let wrongElement = document.getElementById("count-of-wrong-answers")
+let successRateElement = document.getElementById("success-rate")
+let markElement = document.getElementById("mark")
 
 const continueButton = document.getElementById("continue-btn")
 
@@ -210,10 +210,6 @@ const mapClickHandler = (event, worldMap) => {
 const initializeGame = async () => {
     allMapData = await DataImport.getData("../../data/map.json")
 
-    currentCountryElement = document.getElementById("country")
-    taskContent = document.getElementById("task")
-    wrongTaskContent = document.getElementById("wrong")
-
     mapPosition = allMapData[preferences.continent].mapPosition
     allMapData = allMapData[preferences.continent].countries
 
@@ -224,12 +220,6 @@ const initializeGame = async () => {
     remainingCountriesToGuess = Random.randomElementsFromArray(remainingCountriesToGuess, preferences.countOfQuestions)
 
     // ==== info box - aktualní info ====
-    countElement = document.getElementById("count")
-    remainsElement = document.getElementById("remains")
-    wrongElement = document.getElementById("count-of-wrong-answers")
-    successRateElement = document.getElementById("success-rate")
-    markElement = document.getElementById("mark")
-
     countElement.textContent = remainingCountriesToGuess.length
     remainsElement.textContent = remainingCountriesToGuess.length
     wrongElement.textContent = "0"
