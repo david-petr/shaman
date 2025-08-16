@@ -7,6 +7,9 @@ const fs = require("node:fs/promises")
 
 let win
 
+autoUpdater.autoDownload = false
+autoUpdater.autoInstallOnAppQuit = true
+
 const store = new Store()
 
 // ==== functions ====
