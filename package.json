@@ -1,7 +1,7 @@
 {
   "name": "shaman",
   "author": "David Petr",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Aplikace na prověřování zeměpisných znalostí",
   "main": "main.js",
   "scripts": {
@@ -35,7 +35,10 @@
       "uninstallerIcon": "icon.ico",
       "uninstallDisplayName": "Shaman uninstaller",
       "license": "license.md",
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true,
+      "createDesktopShortcut": true,
+      "installerLanguages": ["cs_CZ"]
     },
     "directories": {
       "output": "dist"
