@@ -2,13 +2,15 @@ const continent = document.getElementById("continent")
 
 document.getElementById("countries").addEventListener("click", () => {
     localStorage.setItem("preferences", JSON.stringify( {continent: continent.value, href: "world"} ))
-
     window.location.href = "../html/countries/set.html"
 })
 document.getElementById("flags").addEventListener("click", () => {
     localStorage.setItem("preferences", JSON.stringify( {continent: continent.value} ))
-
     window.location.href = "../html/flags/set.html"
+})
+document.getElementById("countries-shapes").addEventListener("click", () => {
+    localStorage.setItem("preferences", JSON.stringify( {continent: continent.value} ))
+    window.location.href = "../html/countries-shapes/set.html"
 })
 
 // ==== accent color => css variables ====

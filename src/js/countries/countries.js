@@ -269,7 +269,7 @@ const initializeGame = async () => {
 document.addEventListener("DOMContentLoaded", initializeGame)
 
 
-// ==== odstranění prvků (může být i dříve, nebo v initializeGame) ====
+// ==== odstranění prvků ====
 document.querySelector("#ocean")?.remove()
 const titles = document.querySelector("body").querySelectorAll("title")
 titles.forEach((title) => {
@@ -285,33 +285,6 @@ window.accentColor.get().then(color => {
 window.accentColor.onUpdated((color) => {
     document.documentElement.style.setProperty("--accent-color", Color.makeHexOpaque(color))
     document.documentElement.style.setProperty("--darken-accent-color", Color.darken(Color.makeHexOpaque(color), 20))
-})
-
-// ==== info box handle - pohyb ====
-const handle = document.getElementById("handle")
-const infoWindow = document.getElementById("info-box")
-
-let isDragging = false
-let offsetX, offsetY
-
-handle.addEventListener("mousedown", (e) => {
-    isDragging = true
-    offsetX = e.clientX - infoWindow.getBoundingClientRect().left
-    offsetY = e.clientY - infoWindow.getBoundingClientRect().top
-    handle.style.cursor = "grabbing"
-})
-
-document.addEventListener("mousemove", (e) => {
-    if (!isDragging) return
-    const newX = e.clientX - offsetX
-    const newY = e.clientY - offsetY
-    infoWindow.style.left = `${newX}px`
-    infoWindow.style.top = `${newY}px`
-})
-
-document.addEventListener("mouseup", () => {
-    isDragging = false
-    handle.style.cursor = "move"
 })
 
 // ==== close window ====

@@ -40,7 +40,7 @@ class  DraggableElement {
 
     onMouseUp() {
         this.isDragging = false
-        this.handle.style.cursor = "grab"
+        this.handle.style.cursor = "move"
     }
 
     removeEventListeners() {
