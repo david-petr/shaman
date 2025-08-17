@@ -12,10 +12,12 @@ const clickHandler = async (mode) => {
     try {
         let userMode = await window.darkMode.user()
 
-        if(userMode === "system"){
+        if(mode === "system" || userMode === "system"){
             const useDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
             userMode = (useDarkMode)? "dark" : "light"
         }
+
+        console.log(userMode, mode)
         
         if(mode !== userMode){
             if(mode === "light" || mode === "dark"){
