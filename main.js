@@ -81,6 +81,10 @@ function createWindow () {
     ipcMain.handle("dark-mode:toggle", () => {
         toggle()
     })
+    ipcMain.handle("setThemeManual", (event, theme) => {
+        nativeTheme.themeSource = theme
+        store.set("theme", nativeTheme.themeSource)
+    })
     ipcMain.handle("dark-mode:system", () => {
         store.set("theme", "system")
         nativeTheme.themeSource = "system"

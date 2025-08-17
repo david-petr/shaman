@@ -11,13 +11,13 @@ window.accentColor.onUpdated((color) => {
 const clickHandler = async (mode) => {
     try {
         let userMode = await window.darkMode.user()
+        let userModeIfSystem
 
-        if(mode === "system" || userMode === "system"){
-            const useDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-            userMode = (useDarkMode)? "dark" : "light"
+        if(userMode === "system"){
+            const systemMode = await window.darkMode.getSystem()
+            userMode = (systemMode) ? "dark" : "light"
+            userModeIfSystem = (systemMode) ? "dark" : "light"
         }
-
-        console.log(userMode, mode)
         
         if(mode !== userMode){
             if(mode === "light" || mode === "dark"){
@@ -27,6 +27,10 @@ const clickHandler = async (mode) => {
             if(mode === "system"){
                 window.darkMode.system()
             }
+        }
+
+        if(mode === userModeIfSystem){
+            window.darkMode.setThemeManual(mode)
         }
 
     } catch (e){

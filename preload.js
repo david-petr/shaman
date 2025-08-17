@@ -10,7 +10,8 @@ contextBridge.exposeInMainWorld("darkMode", {
   toggle: () => ipcRenderer.invoke("dark-mode:toggle"),
   system: () => ipcRenderer.invoke("dark-mode:system"),
   user: () => ipcRenderer.invoke("dark-mode:user"),
-  getSystem: () => ipcRenderer.invoke("dark-mode:getSystem")
+  getSystem: () => ipcRenderer.invoke("dark-mode:getSystem"),
+  setThemeManual: (theme) => ipcRenderer.invoke("setThemeManual", theme)
 })
 
 // ==== accent color ====
