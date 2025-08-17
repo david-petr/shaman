@@ -7,7 +7,7 @@ const fs = require("node:fs/promises")
 
 let win
 
-autoUpdater.autoDownload = false
+autoUpdater.autoDownload = true
 autoUpdater.autoInstallOnAppQuit = true
 
 const store = new Store()
@@ -136,9 +136,6 @@ app.on("activate", () => {
 })
 
 // ==== autoUpdater události ====
-autoUpdater.logger = require("electron-log")
-autoUpdater.logger.transports.file.level = "info"
-
 autoUpdater.on("update-available", (info) => {
     win.webContents.send("message-send", "available")
 })
