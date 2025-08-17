@@ -67,6 +67,7 @@ function buttonHandler() {
 
 const update = () => {
     if(remainingCountriesToGuess.length > 0){
+        draggableWindow.updateInfoBox(remainingCountriesToGuess.length, countOfWrongAnswers)
         guessedFlag = Random.randomElement(remainingCountriesToGuess)
     
         remainingCountriesToGuess = remainingCountriesToGuess.filter(country => country.id !== guessedFlag.id)
@@ -89,7 +90,6 @@ const update = () => {
             button.addEventListener("click", buttonHandler)
         })
     
-        draggableWindow.updateInfoBox(remainingCountriesToGuess.length, countOfWrongAnswers)
     } else {
         testButtons.forEach( button => {
             button.removeEventListener("click", buttonHandler)
