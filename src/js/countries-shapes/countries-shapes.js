@@ -1,9 +1,61 @@
+// ==== Globální proměnné ====
+let allMapData = null
+let data = []
+let remainingCountriesToGuess = []
+let guessedCountry = null
+
+// ==== preference ====
+const preferences = JSON.parse(localStorage.getItem("preferences"))
+const continent = preferences.continent
+
+// ==== functions ====
+const update = () => {
+    if(remainingCountriesToGuess.length > 0){
+        if(guessedCountry){
+            const previousCountryElement = document.getElementById(guessedCountry.id)
+            previousCountryElement.style.display = "none"
+    
+            const previousPathElements = previousCountryElement.querySelectorAll("path")
+            previousPathElements.forEach( element => {
+                element.style.display = "block"
+            })
+        }
+
+        guessedCountry = Random.randomElement(remainingCountriesToGuess)
+
+        const countryElement = document.getElementById(guessedCountry.id)
+        countryElement.style.display = "block"
+
+        const pathElements = countryElement.querySelectorAll("path")
+        pathElements.forEach( element => {
+            element.style.display = "block"
+        })
+
+        remainingCountriesToGuess = remainingCountriesToGuess.filter( country => country.id !== guessedCountry.id)
+    } else {
+        console.log("konec")
+    }
+}
 
 // ==== Hlavní inicializační funkce pro celou hru ====
 const initializeGame = async () => {
     const worldMap = document.getElementById("map")
+    worldMap.setAttribute("viewBox", "0 0 2500 1000")
 
-    worldMap.setAttribute("viewBox", "0 0 700 500")
+    const gElements = worldMap.querySelectorAll("g")
+    gElements.forEach( element => {
+        element.style.display = "none"
+    })
+    const pathElements = worldMap.querySelectorAll("path")
+    pathElements.forEach( element => {
+        element.style.display = "none"
+    })
+
+    allMapData = await DataImport.getData("../../data/shapes.json")
+    data = [...allMapData[continent]]
+    remainingCountriesToGuess = Random.randomElementsFromArray(data, preferences.countOfQuestions)
+
+    update()
 }
 
 // ==== DOM Content Loaded - hlavní spouštěč ====

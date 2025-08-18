@@ -1,6 +1,6 @@
 {
     "europe": [
-        { "id": "no", "name": "Norsko" },
+        { "id": "no", "name": "Norsko", "position": {"x": 150, "y": 200} },
         { "id": "se", "name": "Švédsko" },
         { "id": "fi", "name": "Finsko"  },
         { "id": "dk", "name": "Dánsko" },
