@@ -45,6 +45,21 @@ body main #buttons button {
 body main #buttons button:hover {
   background-color: var(--darken-accent-color);
 }
+body main #options {
+  display: flex;
+  height: 90px;
+  justify-content: center;
+  align-items: center;
+}
+body main #options select {
+  background-color: var(--accent-color);
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
 body #flags-background {
   position: fixed;
   top: 0;
