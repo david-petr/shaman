@@ -22,7 +22,7 @@ class Random {
      * @returns {Number}
      */
     static randomNumber(maxIndex){
-        return Math.floor(Math.random() * maxIndex + 1)
+        return Math.floor(Math.random() * (maxIndex + 1))
     }
 
     /**

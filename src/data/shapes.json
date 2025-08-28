@@ -22,7 +22,6 @@
         { "id": "it", "name": "Itálie", "position": {"x": 140, "y": -160, "scale": 14.75} },
         { "id": "hr", "name": "Chorvatsko", "position": {"x": 170, "y": -180, "scale": 19} },
         { "id": "ba", "name": "Bosna a Hercegovina", "position": {"x": 180, "y": -180, "scale": 15.75} },
-        { "id": "mk", "name": "Severní Makedonie", "position": {"x": 210, "y": -160, "scale": 21.5} },
         { "id": "gr", "name": "Řecko", "position": {"x": 230, "y": -130, "scale": 16.25} },
         { "id": "rs", "name": "Srbsko", "position": {"x": 200, "y": -180, "scale": 12.75} },
         { "id": "bg", "name": "Bulharsko", "position": {"x": 230, "y": -170, "scale": 19.25} },

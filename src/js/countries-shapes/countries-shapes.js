@@ -4,24 +4,72 @@ let data = []
 let remainingCountriesToGuess = []
 let guessedCountry = null
 let worldMap
+let countOfWrongAnswers = 0
 const testButtonsSection = document.getElementById("test-buttons")
 const testButtons = testButtonsSection.querySelectorAll("button")
+const wrongTaskContent = document.getElementById("wrong")
+const taskContent = document.getElementById("task")
+const continueButton = document.getElementById("continue-btn")
 
 // ==== preference ====
 const preferences = JSON.parse(localStorage.getItem("preferences"))
 const continent = preferences.continent
 
+// ==== info box ====
+const draggableWindow = new DraggableElement("handle", "info-box")
+draggableWindow.countElement = document.getElementById("count")
+draggableWindow.remainsElement = document.getElementById("remains")
+draggableWindow.wrongElement = document.getElementById("count-of-wrong-answers")
+draggableWindow.successRateElement = document.getElementById("success-rate")
+draggableWindow.markElement = document.getElementById("mark")
+
 // ==== functions ====
+function continueButtonHandler() {
+    this.removeEventListener("click", continueButtonHandler)
+
+    taskContent.style.display = "flex"
+    wrongTaskContent.style.display = "none"
+
+    testButtons.forEach( button => {
+        button.classList.remove("blink-target")
+        button.classList.remove("disabled-btn")
+        button.addEventListener("click", buttonHandler)
+    })
+
+    update()
+}
+
 function buttonHandler() {
     const id = this.id
 
     if(id === guessedCountry.id){
+        draggableWindow.remainsElement.textContent = remainingCountriesToGuess.length
+
         update()
+    } else {
+        countOfWrongAnswers += 1
+
+        taskContent.style.display = "none"
+        wrongTaskContent.style.display = "flex"
+
+        testButtons.forEach( button => {
+            button.removeEventListener("click", buttonHandler)
+
+            if(button.id === guessedCountry.id){
+                button.classList.add("blink-target")
+            } else {
+                button.classList.add("disabled-btn")
+            }
+        })
+
+        continueButton.addEventListener("click", continueButtonHandler)
     }
 }
 
 const update = () => {
     if(remainingCountriesToGuess.length > 0){
+        draggableWindow.updateInfoBox(remainingCountriesToGuess.length, countOfWrongAnswers)
+
         if(guessedCountry){
             const previousCountryElement = document.getElementById(guessedCountry.id)
             previousCountryElement.style.display = "none"
@@ -78,7 +126,13 @@ const update = () => {
         })
 
     } else {
-        console.log("konec")
+        testButtons.forEach( button => {
+            button.removeEventListener("click", buttonHandler)
+
+            button.classList.add("disabled-btn")
+        })
+
+        document.getElementById("task").querySelector("p").textContent = "Všechny země uhodnuty! Gratulujeme!"
     }
 }
 
@@ -100,6 +154,13 @@ const initializeGame = async () => {
     data = [...allMapData[continent]]
     remainingCountriesToGuess = Random.randomElementsFromArray(data, preferences.countOfQuestions)
 
+    // ==== info box - aktuální informace ====
+    draggableWindow.countElement.textContent = remainingCountriesToGuess.length
+    draggableWindow.remainsElement.textContent = remainingCountriesToGuess.length
+    draggableWindow.wrongElement.textContent = "0"
+    draggableWindow.successRateElement.textContent = "--"
+    draggableWindow.markElement.textContent = "--"
+
     update()
 }
 
@@ -117,14 +178,19 @@ titles.forEach((title) => {
 window.accentColor.get().then(color => {
     document.documentElement.style.setProperty("--accent-color", Color.makeHexOpaque(color))
     document.documentElement.style.setProperty("--darken-accent-color", Color.darken(Color.makeHexOpaque(color), 20))
+    document.documentElement.style.setProperty("--disabled-color", Color.makeHexOpaque(Color.darken(color, 40)))
 })
 
 window.accentColor.onUpdated((color) => {
     document.documentElement.style.setProperty("--accent-color", Color.makeHexOpaque(color))
     document.documentElement.style.setProperty("--darken-accent-color", Color.darken(Color.makeHexOpaque(color), 20))
+    document.documentElement.style.setProperty("--disabled-color", Color.makeHexOpaque(Color.darken(color, 40)))
 })
 
-
+// ==== close window ====
+document.getElementById("close-btn").addEventListener("click", () => {
+    window.location.href = "../../html/world.html"
+})
 
 // ==== testovací sekce ====
 // document.addEventListener("keydown", (event) => {
