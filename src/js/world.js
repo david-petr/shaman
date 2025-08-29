@@ -46,3 +46,10 @@ document.addEventListener("DOMContentLoaded", () => loadFiles())
 
 // ==== zavření okna ====
 document.getElementById("close").addEventListener("click", () => window.close())
+
+// ==== načtení předchozí volby kontinentu ====
+const preferences = JSON.parse(localStorage.getItem("preferences"))
+
+if(preferences.continent){
+    continent.value = preferences.continent
+}

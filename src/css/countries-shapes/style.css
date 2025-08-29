@@ -121,7 +121,6 @@ main #mapBox {
   width: 600px;
   height: 400px;
   overflow: hidden;
-  border: 2px solid red;
 }
 main #mapBox #map {
   width: 100%;

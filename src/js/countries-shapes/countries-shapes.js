@@ -151,8 +151,16 @@ const initializeGame = async () => {
     })
 
     allMapData = await DataImport.getData("../../data/shapes.json")
-    data = [...allMapData[continent]]
-    remainingCountriesToGuess = Random.randomElementsFromArray(data, preferences.countOfQuestions)
+    
+    if(!allMapData[continent].concepts){
+        data = [...allMapData[continent]]
+        remainingCountriesToGuess = Random.randomElementsFromArray(data, preferences.countOfQuestions)
+    } else {
+        data = [...allMapData[continent].concepts, ...allMapData[continent].filling]
+        remainingCountriesToGuess = Random.randomElementsFromArray([...allMapData[continent].concepts], preferences.countOfQuestions)
+    }
+
+
 
     // ==== info box - aktuální informace ====
     draggableWindow.countElement.textContent = remainingCountriesToGuess.length
@@ -197,7 +205,7 @@ document.getElementById("close-btn").addEventListener("click", () => {
 //     const viewBox = worldMap.getAttribute("viewBox").split(" ").map(parseFloat)
 //     let [x, y, width, height] = viewBox
 
-//     const step = 10
+//     const step = 5
 
 //     switch (event.key){
 //         case "ArrowUp":

@@ -24,7 +24,13 @@ document.getElementById("start").addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", async () => {
     data = await DataImport.getData("../../data/shapes.json")
 
-    const countries = [...data[continent]]
+    let countries
+
+    if (!data[continent].concepts){
+        countries = [...data[continent]]
+    } else {
+        countries = [...data[continent].concepts]
+    }
 
     input.setAttribute("max", countries.length)
     input.value = countries.length
