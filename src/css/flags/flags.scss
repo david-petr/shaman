@@ -30,7 +30,7 @@ main {
     align-items: center;
 
     #task-bar {
-        @include taskBar();
+        @include taskBar(60px, 100px);
     }
 
     #info-box {

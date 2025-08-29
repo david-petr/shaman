@@ -40,7 +40,7 @@ body {
 }
 
 #task-bar {
-    @include taskBar();
+    @include taskBar(120px, 120px);
 }
 
 #info-box {

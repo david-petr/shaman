@@ -57,6 +57,7 @@ body {
 }
 #task-bar #wrong {
   display: none;
+  height: 120px;
 }
 #task-bar #wrong button {
   background-color: var(--accent-color);
