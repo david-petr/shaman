@@ -31,7 +31,7 @@ class Random {
      * @param {Array} array 
      * @param {Number} count 
      * 
-     *  @returns {Array}
+     * @returns {Array}
      */
     static randomElementsFromArray(array, count){
         if (!Array.isArray(array)) {
@@ -61,5 +61,27 @@ class Random {
         }
 
         return randomElements
+    }
+
+    /**
+     * Náhodné promíchání pole
+     * 
+     * @param {Array} array 
+     * 
+     * @returns {Array}
+     */
+    static shuffleArray(array){
+        let currentIndex = array.length
+        let randomIndex
+
+        while (currentIndex !== 0){
+            randomIndex = Math.floor(Math.random() * currentIndex)
+            currentIndex--
+
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
+        }
+
+
+        return array
     }
 }

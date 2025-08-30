@@ -1,11 +1,15 @@
 @media (prefers-color-scheme: light) {
   :root {
     --background-color: #ddd;
+    --border: #707070;
+    --scroll-box-back: #bbbbbb;
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #242424;
+    --border: #505050;
+    --scroll-box-back: #363636;
   }
 }
 body {
@@ -28,19 +32,26 @@ body #backg {
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 500px;
+  height: 600px;
   background-color: var(--background-color);
   border-radius: 20px;
   box-shadow: 0px 0px 40px #000;
   padding: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+#settings > p {
+  font-size: 18px;
 }
 #settings #scroll-box {
   overflow-y: scroll;
   height: 75%;
   width: 500px;
-  border: 2px solid #9f9f9f;
+  border: 3px solid var(--border);
   border-radius: 20px;
   padding: 20px;
+  background-color: var(--scroll-box-back);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5411764706);
 }
 #settings #scroll-box p {
   padding: 10px;
@@ -49,4 +60,45 @@ body #backg {
   cursor: pointer;
   background-color: var(--accent-color);
   border-radius: 20px;
+}
+#settings #scroll-box .active {
+  background-color: var(--active-color);
+  border-radius: 20px;
+}
+#settings #scroll-box::-webkit-scrollbar {
+  width: 12px;
+}
+#settings #scroll-box::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 10px;
+}
+#settings #scroll-box::-webkit-scrollbar-thumb:hover {
+  background-color: var(--darken-accent-color);
+  cursor: default;
+}
+#settings #scroll-box::-webkit-scrollbar-track {
+  background-color: none;
+  margin: 20px;
+}
+#settings #buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+#settings #buttons button {
+  background-color: var(--accent-color);
+  height: 50px;
+  font-size: 16px;
+  padding: 15px;
+  width: 175px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
+#settings #buttons button:hover {
+  background-color: var(--darken-accent-color);
 }/*# sourceMappingURL=set.css.map */

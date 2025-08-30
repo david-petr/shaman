@@ -3,12 +3,16 @@
 @media (prefers-color-scheme: light){
     :root {
         --background-color: #ddd;
+        --border: #707070;
+        --scroll-box-back: #bbbbbb;
     }
 }
 
 @media (prefers-color-scheme: dark){
     :root {
         --background-color: #242424;
+        --border: #505050;
+        --scroll-box-back: #363636;        
     }
 }
 
@@ -33,7 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 500px;
+    height: 600px;
 
     background-color: var(--background-color);
     border-radius: 20px;
@@ -41,13 +45,22 @@ body {
 
     padding: 50px;
 
+    justify-content: space-between;
+    align-items: center;
+
+    & > p {
+        font-size: 18px;
+    }
+
     #scroll-box {
         overflow-y: scroll;
         height: 75%;
         width: 500px;
-        border: 2px solid #9f9f9f;
+        border: 3px solid var(--border);
         border-radius: 20px;
         padding: 20px;
+        background-color: var(--scroll-box-back);
+        box-shadow: 0px 0px 20px #0000008a;
 
         p {
             padding: 10px;
@@ -57,6 +70,39 @@ body {
                 background-color: var(--accent-color);
                 border-radius: 20px;
             }
+        }
+
+        .active {
+            background-color: var(--active-color);
+            border-radius: 20px;
+        }
+
+        &::-webkit-scrollbar {
+            width: 12px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--accent-color);
+            border-radius: 10px;
+
+            &:hover {
+                background-color: var(--darken-accent-color);
+                cursor: default;
+            }
+        }
+        &::-webkit-scrollbar-track {
+            background-color: none;
+            margin: 20px;
+        }
+    }
+
+    #buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+
+        button {
+            @include button (50px, 16px, 15px, 175px);
         }
     }
 }
