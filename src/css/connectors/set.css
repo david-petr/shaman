@@ -45,7 +45,7 @@ body #backg {
 }
 #settings #scroll-box {
   overflow-y: scroll;
-  height: 75%;
+  height: 70%;
   width: 500px;
   border: 3px solid var(--border);
   border-radius: 20px;

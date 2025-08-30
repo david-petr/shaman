@@ -1,0 +1,54 @@
+body {
+  height: 100vh;
+  width: 100vw;
+}
+body #test-buttons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 5px;
+  box-shadow: 0px 0px 40px #000;
+  padding: 40px;
+  border-radius: 20px;
+}
+body #test-buttons .column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+body #test-buttons button {
+  background-color: var(--accent-color);
+  height: 50px;
+  font-size: 16px;
+  padding: 15px;
+  width: 200px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
+body #test-buttons button:hover {
+  background-color: var(--darken-accent-color);
+}
+body #test-buttons .active-btn {
+  background-color: var(--active-btn);
+}
+
+.blink-target {
+  animation: blinkTargetAnimation 0.5s infinite alternate;
+}
+
+@keyframes blinkTargetAnimation {
+  from {
+    background-color: var(--accent-color);
+    opacity: 1;
+  }
+  to {
+    background-color: #1dad01;
+    opacity: 0.8;
+  }
+}/*# sourceMappingURL=style.css.map */

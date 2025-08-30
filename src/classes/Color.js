@@ -32,6 +32,46 @@ class Color {
     }
 
     /**
+     * Přidá alfa kanál k hexadecimální barvě, čímž ji učiní průsvitnou.
+     *
+     * @param {string} hexColor Vstupní hexadecimální barva (např. "#FF0000", "#FFF").
+     * @param {number} opacity Průhlednost od 0 (plně průhledné) do 1 (plně neprůhledné).
+     * @returns {string} Hexadecimální barva s alfa kanálem (např. "#FF000080").
+     */
+    static makeHexTransparent(hexColor, opacity) {
+        // 1. Validace vstupu
+        if (!hexColor || typeof hexColor !== 'string' || !hexColor.startsWith('#')) {
+            console.warn("Neplatný vstup pro makeHexTransparent. Očekává se řetězec začínající '#'.");
+            return '';
+        }
+        if (typeof opacity !== 'number' || opacity < 0 || opacity > 1) {
+            console.warn("Neplatná hodnota průhlednosti. Očekává se číslo od 0 do 1.");
+            return '';
+        }
+
+        // 2. Převod na 6místný hex kód
+        const cleanHex = hexColor.slice(1);
+        let fullHex;
+
+        if (cleanHex.length === 3) {
+            fullHex = cleanHex.split('').map(char => char + char).join('');
+        } else if (cleanHex.length === 6 || cleanHex.length === 8) {
+            // Pokud má barva již alfa kanál, odstraníme ho pro účely nové průhlednosti
+            fullHex = cleanHex.substring(0, 6);
+        } else {
+            console.warn(`Neplatná délka hexadecimální barvy: ${hexColor}`);
+            return '';
+        }
+
+        // 3. Převod průhlednosti na hexadecimální formát
+        // 0 = 00, 1 = FF, 0.5 = 80
+        const alpha = Math.round(opacity * 255).toString(16).padStart(2, '0');
+
+        // 4. Vrácení hex kódu s alfa kanálem
+        return `#${fullHex}${alpha}`;
+    }
+
+    /**
      * Ztmavý barvu o dané procento
      * 
      * @param {String} color 
