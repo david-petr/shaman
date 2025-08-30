@@ -1,0 +1,398 @@
+{
+    "world": [
+        {
+            "topicName": "Hlavní města evropských států 1",
+            "concepts": {
+                "Portugalsko": "Lisabon",
+                "Španělsko": "Madrid",
+                "Andorra": "Andorra la Vella",
+                "Itálie": "Řím",
+                "Vatikán": "Vatikán",
+                "San Marino": "San Marino",
+                "Monako": "Monako",
+                "Malta": "Valletta",
+                "Albánie": "Tiraná",
+                "Černá Hora": "Podgorica"
+            }
+        },
+        {
+            "topicName": "Hlavní města evropských států 2",
+            "concepts": {
+                "Bosna a Hercegovina": "Sarajevo",
+                "Chorvatsko": "Zábřeh",
+                "Srbsko": "Bělehrad",
+                "Kosovo": "Prishtina",
+                "Severní Makedonie": "Skopje",
+                "Řecko": "Athény",
+                "Bulharsko": "Sofia",
+                "Rumunsko": "Bukurešť",
+                "Velká Británie": "Londýn",
+                "Francie": "Paříž"
+            }
+        },
+        {
+            "topicName": "Hlavní města evropských států 3",
+            "concepts": {
+                "Nizozemsko": "Amsterdam",
+                "Belgie": "Brusel",
+                "Lucembursko": "Luxembourg",
+                "Irsko": "Dublin",
+                "Německo": "Berlín",
+                "Švýcarsko": "Bern",
+                "Rakousko": "Vídeň",
+                "Slovinsko": "Lublaň",
+                "Lichtenštejnsko": "Vadus",
+                "Česko": "Praha"
+            }
+        },
+        {
+            "topicName": "Hlavní města evropských států 4",
+            "concepts": {
+                "Slovensko": "Bratislava", 
+                "Polsko": "Varšava",
+                "Maďarsko": "Budapešť",
+                "Ukrajina": "Kyjev",
+                "Moldavsko": "Kišiněv",
+                "Bělorusko": "Minsk",
+                "Rusko": "Moskva",
+                "Norsko": "Oslo",
+                "Švédsko": "Stockholm",
+                "Dánsko": "Kodaň"
+            }
+        },
+        {
+            "topicName": "Hlavní města evropských států 5",
+            "concepts": {
+                "Finsko": "Helsinky",
+                "Island": "Reykjavík",
+                "Estonsko": "Talinn",
+                "Lotyšsko": "Riga",
+                "Litva": "Vilnius",
+                "Turecko": "Ankara",
+                "Kypr": "Nikósie",
+                "Gruzie": "Tbilisi",
+                "Arménie": "Jerevan",
+                "Kazachstán": "Astana"
+            }
+        },
+        {
+            "topicName": "Měny evropských států 1",
+            "concepts": {
+                "Chorvatsko": "Euro",
+                "Velká Británie": "Libra",
+                "Švýcarsko": "Frank",
+                "Bulharsko": "Lev",
+                "Bosna a Hercegovina": "Marka",
+                "Malta": "Lira",
+                "Litva": "Litas",
+                "Rumunsko": "Lei",
+                "Gruzie": "Lari",
+                "Dánsko": "Koruna"
+            }
+        },
+        {
+            "topicName": "Měny evropských států 2",
+            "concepts": {
+                "Slovensko": "Euro", 
+                "Norsko": "Koruna",
+                "Čína": "Jüan",
+                "Japonsko": "Jen", 
+                "Indie": "Rupie", 
+                "Maďarsko": "Forint", 
+                "Polsko": "Zlotý",
+                "Arménie": "Dram", 
+                "Austrálie": "Dolar", 
+                "Bělorusko": "Rubl"
+            }
+        },
+        {
+            "topicName": "Měny evropských států 3",
+            "concepts": {
+                "Rakousko": "Euro",
+                "Albánie": "Lek",
+                "Makedonie": "Denár",
+                "Moldavsko": "Leu",
+                "Rusko": "Rubl",
+                "Srbsko": "Dinár",
+                "Turecko": "Lira",
+                "Ukrajina": "Hřivna",
+                "USA": "Dolar",
+                "Česko": "Koruna"
+            }
+        },
+        {
+            "topicName": "Počet obyvatel evropských států 1",
+            "concepts": {
+                "Německo": "84,3 mil.", 
+                "Švýcarsko": "8,54 mil.", 
+                "Finsko": "5,5 mil.",
+                "Lotyšsko": "2,3 mil.", 
+                "Litva": "2,8 mil.", 
+                "Estonsko": "1,33 mil.",
+                "Itálie": "58,7 mil.", 
+                "Albánie": "2,84 mil.", 
+                "Černá Hora": "0,6 mil.",
+                "Monaco": "38 tis."
+            }
+        },
+        {
+            "topicName": "Počet obyvatel evropských států 2",
+            "concepts": {
+                "Andorra": "0,8 mil.", 
+                "Rakousko": "8,5 mil.", 
+                "Lichtenštejnsko": "40 tis.",
+                "Slovensko": "5,47 mil.", 
+                "Velká Británie": "67 mil.", 
+                "Francie": "65 mil.",
+                "Dánsko": "5,8 mil.", 
+                "Španělsko": "46,6 mil.", 
+                "Portugalsko": "10,5 mil.",
+                "Vatikán": "825"
+            }
+        },
+        {
+            "topicName": "Počet obyvatel evropských států 3",
+            "concepts": {
+                "Irsko": "4,2 mil.",
+                "Polsko": "38 mil.",
+                "Bulharsko": "8 mil.",
+                "Rumunsko": "19 mil.", 
+                "Chorvatsko": "3,9 mil.", 
+                "Slovinsko": "2,1 mil.",
+                "Severní Makedonie": "1,8 mil.", 
+                "Norsko": "4,8 mil.",
+                "Švédsko": "10,4 mil.", 
+                "Rusko": "146,1 mil."
+            }
+        },
+        {
+            "topicName": "Automobilky",
+            "concepts": {
+                "Skupina Toyota": "Japonsko", 
+                "Volkswagen Group": "Německo, ...",
+                "Renault–Nissan–Mitsubishi": "Francie, Japonsko, ...",
+                "Skupina Hyundai": "Jižní Korea", 
+                "Skupina Ford": "USA",
+                "Skupina BMW": "Německo a VB", 
+                "General-Motors": "USA a Čína",
+                "Suzuki": "Japonsko a Indie", 
+                "Tata Motors": "VB a Jižní Korea",
+                "Stellantis": "USA, Itálie, Francie, ..."
+            }
+        },
+        {
+            "topicName": "Hlavní města asijských států 1",
+            "concepts": {
+                "Tokio": "Japonsko",
+                "Soul": "Jižní Korea",
+                "Hong Kong": "Čína",
+                "Singapur": "Singapur", 
+                "Bangkok": "Thajsko",
+                "Kuala Lumpur": "Malajsie", 
+                "Hanoj": "Vietnam", 
+                "Manila": "Filipíny",
+                "Ammán": "Jordánsko", 
+                "Astana": "Kazachstán"
+            }
+        },
+        {
+            "topicName": "Hlavní města asijských států 2",
+            "concepts": {
+                "Bagdád": "Irák", 
+                "Baku": "Ázerbájdžán", 
+                "Bejrút": "Libanon",
+                "Biškek": "Kyrgyzstán", 
+                "Damašek": "Sýrie", 
+                "Dillí": "Indie",
+                "Jakarta": "Indonésie", 
+                "Peking": "Čína", 
+                "Rijád": "Saúdská Arábie",
+                "Teherán": "Írán"
+            }
+        },
+        {
+            "topicName": "Hlavní města afrických států 1",
+            "concepts": {
+                "Káhira": "Egypt", 
+                "Pretoria": "Jihoafrická republika",
+                "Nairobi": "Keňa", 
+                "Addis Abeba": "Etiopie", 
+                "Dakar": "Senegal",
+                "Rabat": "Maroko", 
+                "Tunis": "Tunisko", 
+                "Alžír": "Alžírsko",
+                "Tripolis": "Libye", 
+                "Accra": "Ghana"
+            }
+        },
+        {
+            "topicName": "Hlavní města afrických států 2",
+            "concepts": {
+                "Lagos": "Nigérie", 
+                "Luanda": "Angola", 
+                "Maputo": "Mosambik",
+                "Gaborone": "Bostwana", 
+                "Windhoek": "Namibie", 
+                "Maseru": "Lesotho",
+                "Antananarivo": "Madagaskar", 
+                "Port Louis": "Mauricius",
+                "Victoria": "Seychely", 
+                "Jamestown": "Svatá Helena"
+            }
+        },
+        {
+            "topicName": "Hlavní města amerických států 1",
+            "concepts": {
+                "Mexico City": "Mexiko", 
+                "Ottawa": "Kanada", 
+                "Buenos Aires": "Argentina",
+                "Brasília": "Brazílie", 
+                "Santiago": "Chile", 
+                "Bogotá": "Kolumbie",
+                "Lima": "Peru", 
+                "Caracas": "Venezuela", 
+                "Havana": "Kuba",
+                "San José": "Kostarika"
+            }
+        },
+        {
+            "topicName": "Hlavní města amerických států 2",
+            "concepts": {
+                "Panama City": "Panama", 
+                "Tegucigalpa": "Honduras", 
+                "Managua": "Nikaragua",
+                "San Salvador": "Salvador", 
+                "Guatemala City": "Guatemala",
+                "Kingston": "Jamajka", 
+                "Port-au-Prince": "Haiti",
+                "Santo Domingo": "Dominikánská republika", 
+                "Nassau": "Bahamy", 
+                "Bridgetown": "Barbados"
+            }
+        },
+        {
+            "topicName": "Pohoří 1",
+            "concepts": {
+                "Himálaj": "Mount Everest", 
+                "Karákóram": "K2", 
+                "Hindúkuš": "Tirich Mir",
+                "Pamír": "Kongur Tagh",
+                "Andy": "Aconcagua",
+                "Alpy": "Mont Blanc",
+                "Kavkaz": "Elbrus",
+                "Skalnaté hory": "Mount Elbert",
+                "Apeniny": "Corno Grande",
+                "Pyreneje": "Aneto"
+            }
+        },
+        {
+            "topicName": "Pohoří 2",
+            "concepts": {
+                "Ural": "Narodnaya", 
+                "Atlas": "Toubkal", 
+                "Velké předělové pohoří": "Mount Kosciuszko",
+                "Aljaška": "Denali", 
+                "Apalačské hory": "Mount Mitchell", 
+                "Dračí hory": "Thabana Ntlenyana",
+                "Transantarktické pohoří": "Mount Kirkpatrick", 
+                "Sierra Nevada": "Mulhacén",
+                "Mauna Kea": "Mauna Kea", 
+                "Alborz": "Damavand"
+            }
+        },
+        {
+            "topicName": "Státy a poloostrovy",
+            "concepts": {
+                "Švédsko": "Skandinávský pol.", 
+                "Dánsko": "Jutský pol.", 
+                "Itálie": "Apeninský pol.",
+                "Španělsko": "Pyrenejský pol.", 
+                "Turecko": "pol. Malá Asie",
+                "Bulharsko": "Balkánský pol.", 
+                "Indie": "pol. Přední Indie",
+                "Thajsko": "pol. Zadní Indie", 
+                "Omán": "Arabský pol.", 
+                "Vietnam": "Indočína"
+            }
+        },
+        {
+            "topicName": "Počet obyvatel států",
+            "concepts": {
+                "Japonsko": "127 mil.", 
+                "Německo": "84,3 mil.", 
+                "Francie": "65 mil.",
+                "USA": "331 mil.", 
+                "Velká Británie": "67 mil.", 
+                "Čína": "1,4 mld.",
+                "Brazílie": "217 mil.",
+                "Indie": "1,426 mld.", 
+                "Indonésie": "272 mil.",
+                "Rusko": "146,1 mil."
+            }
+        },
+        {
+            "topicName": "Města u řek",
+            "concepts": {
+                "Kyjev": "Dněpr", 
+                "Řím": "Tibera", 
+                "Varšava": "Visla", 
+                "Vídeň": "Dunaj",
+                "Londýn": "Temže", 
+                "Paříž": "Seina", 
+                "New York": "Hudson", 
+                "Manaus": "Amazonka",
+                "Karáči": "Indus", 
+                "Québec": "řeka sv. Vavřince"
+            }
+        },
+        {
+            "topicName": "Těžba surovin",
+            "concepts": {
+                "Saúdská Arábie": "ropa", 
+                "Rusko": "ropa, zlato",
+                "Jihoafrická republika": "diamanty, zlato", 
+                "Maroko": "fosfáty",
+                "Švédsko": "železná ruda", 
+                "Kanada": "azbest", 
+                "Mexiko": "stříbro",
+                "Polsko": "černé uhlí", 
+                "Chile": "měď", 
+                "Austrálie": "bauxit"
+            }
+        },
+        {
+            "topicName": "Zemědělství",
+            "concepts": {
+                "Kanada": "obilí", 
+                "Argentina": "obilí, tabák", 
+                "USA": "obilí, bavlna",
+                "Španělsko": "citrusy, olivovník", 
+                "Indonésie": "koření", 
+                "Srí Lanka": "čajovník",
+                "Kolumbie": "kávovník", 
+                "Kuba": "cukrová třtina", 
+                "Írák": "fíkovník",
+                "Řecko": "olivovník"
+            }
+        },
+        {
+            "topicName": "Zvířata",
+            "concepts": {
+                "panda": "Čína", 
+                "tučňák": "Chile", 
+                "bizon": "USA", 
+                "koala": "Austrálie",
+                "kivi": "Nový Zéland", 
+                "lama": "Peru", 
+                "kobra": "Indie", 
+                "jak": "Nepál",
+                "gepard": "Jižní Afrika", 
+                "puma": "Jižní Amerika"
+            }
+        }
+    ],
+
+    "czechia": [
+
+    ]
+}

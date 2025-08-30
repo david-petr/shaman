@@ -12,6 +12,10 @@ document.getElementById("countries-shapes").addEventListener("click", () => {
     localStorage.setItem("preferences", JSON.stringify( {continent: continent.value} ))
     window.location.href = "../html/countries-shapes/set.html"
 })
+document.getElementById("connectors").addEventListener("click", () => {
+    localStorage.setItem("preferences", JSON.stringify( { href: "world"} ))
+    window.location.href = "../html/connectors/set.html"
+})
 
 // ==== accent color => css variables ====
 window.accentColor.get().then(color => {

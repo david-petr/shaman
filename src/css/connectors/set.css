@@ -1,0 +1,52 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #ddd;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #242424;
+  }
+}
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body #backg {
+  min-width: 100vw;
+  min-height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#settings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 500px;
+  background-color: var(--background-color);
+  border-radius: 20px;
+  box-shadow: 0px 0px 40px #000;
+  padding: 50px;
+}
+#settings #scroll-box {
+  overflow-y: scroll;
+  height: 75%;
+  width: 500px;
+  border: 2px solid #9f9f9f;
+  border-radius: 20px;
+  padding: 20px;
+}
+#settings #scroll-box p {
+  padding: 10px;
+}
+#settings #scroll-box p:hover {
+  cursor: pointer;
+  background-color: var(--accent-color);
+  border-radius: 20px;
+}/*# sourceMappingURL=set.css.map */
