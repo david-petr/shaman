@@ -89,8 +89,8 @@ window.accentColor.onUpdated((color) => {
 document.getElementById("close").addEventListener("click", () => {
     if(href === "world"){
         window.location.href = "../../html/world.html"
-    } else if(href === ""){
-        
+    } else if(href === "czechia"){
+        window.location.href = "../../html/czechia.html"
     }
 })
 

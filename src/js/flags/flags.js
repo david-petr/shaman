@@ -97,7 +97,7 @@ const update = () => {
             button.classList.add("disabled-btn")
         })
 
-        document.getElementById("task").querySelector("p").textContent = "Všechny země uhodnuty! Gratulujeme!"
+        document.getElementById("task").querySelector("p").textContent = "Všechny vlajky uhodnuty! Gratulujeme!"
     }
 }
 
