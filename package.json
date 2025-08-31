@@ -1,7 +1,7 @@
 {
   "name": "shaman",
   "author": "David Petr",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Aplikace na prověřování zeměpisných znalostí",
   "main": "main.js",
   "scripts": {

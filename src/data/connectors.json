@@ -393,6 +393,215 @@
     ],
 
     "czechia": [
-
+        {
+            "topicName": "České názvy měst",
+            "concepts": {
+                "Regensburg": "Řezno",
+                "Miskolcz": "Miškovec",
+                "Cottbus": "Chotěbuz",
+                "Győr": "Ráb", 
+                "Brandenburg": "Braniboř", 
+                "Klagenfurt": "Celovec",
+                "Chemnitz": "Saská Kamenice", 
+                "Merseburg": "Meziboř",
+                "Graz": "Štýrský Hradec", 
+                "Pésc": "Pětikostelí"
+            }
+        },
+        {
+            "topicName": "Průmysl 1",
+            "concepts": {
+                "Vitana": "Byšice", 
+                "Walmark": "Třinec", 
+                "Madeta": "České Budějovice", 
+                "Opavia": "Opava",
+                "Botas": "Skuteč", 
+                "Zentiva": "Praha", 
+                "Moira": "Strakonice", 
+                "Hannah": "Plzeň",
+                "Krpa": "Hostinné", 
+                "Hamé": "Babice"
+            }
+        },
+        {
+            "topicName": "Průmysl 2",
+            "concepts": {
+                "Crystalex": "Nový Bor", 
+                "Kunín": "Kunín", 
+                "Škoda Transportation": "Plzeň",
+                "Nestlé": "Praha", 
+                "Rückl crystal": "Nižbor", 
+                "Paramo": "Pardubice", 
+                "ETA": "Hlinsko",
+                "FAB": "Rychnov nad Kněžnou", 
+                "Spokar": "Pelhřimov", 
+                "Litex": "Litmoyšl"
+            }
+        },
+        {
+            "topicName": "Průmysl 3",
+            "concepts": {
+                "Gumotex": "Břeclav", 
+                "Jitex": "Písek", 
+                "Preciosa": "Jablonec nad Nisou",
+                "Bohemia chips": "Choustník", 
+                "Gufex": "Kateřinice", 
+                "Kavalierglass": "Sázava",
+                "Olma": "Olomouc", 
+                "Prabos": "Slavičín", 
+                "Tescoma": "Zlín", 
+                "Spolana": "Neratovice"
+            }
+        },
+        {
+            "topicName": "Pohoří 1",
+            "concepts": {
+                "Krušné hory": "Klínovec", 
+                "Slavkovský les": "Lesný", 
+                "Český les": "Čerchov",
+                "Šumava": "Plechý", 
+                "Doupovské hory": "Hradiště", 
+                "Brdská vrchovina": "Tok",
+                "Lužické hory": "Luž", 
+                "České středohoří": "Milešovka", 
+                "Jizerské hory": "Smrk",
+                "Krkonoše": "Sněžka"
+            }
+        },
+        {
+            "topicName": "Pohoří 2",
+            "concepts": {
+                "Orlické hory": "Velká Deštná", 
+                "Železné hory": "Vestec",
+                "Českomoravská vrchovina": "Javořice", 
+                "Žďárské vrchy": "Devět skal",
+                "Hrubý Jeseník": "Praděd", 
+                "Nízký Jeseník": "Slunečná", 
+                "Drahanská vrchovina": "Skalky",
+                "Moravskoslezké Beskydy": "Lysá hora", 
+                "Bílé Karpaty": "Velká Javořina",
+                "Králický Sněžník": "Králický Sněžník"
+            }
+        },
+        {
+            "topicName": "Města u řek 1",
+            "concepts": {
+                "Znojmo": "Dyje", 
+                "Tachov": "Mže", 
+                "Litovel": "Morava", 
+                "Žatec": "Ohře",
+                "Třebíč": "Jihlava", 
+                "Děčín": "Labe", 
+                "Opava": "Opava", 
+                "Liberec": "Nisa",
+                "Jindřichův Hradec": "Nežárka", 
+                "Vsetín": "Bečva"
+            }
+        },
+        {
+            "topicName": "Města u řek 2",
+            "concepts": {
+               "Nymburk": "Labe", 
+               "Most": "Bílina", 
+               "Tábor": "Lužnice", 
+               "Zlín": "Dřevnice",
+                "Otrokovice": "Morava", 
+                "Vyškov": "Haná", 
+                "Choceň": "Tichá Orlice",
+                "Jičín": "Cidlina", 
+                "Hronov": "Metuje", 
+                "Kralupy": "Vltava" 
+            }
+        },
+        {
+            "topicName": "Města u řek 3",
+            "concepts": {
+                "Český Krumlov": "Vltava", 
+                "Písek": "Otava", 
+                "Valašské Meziříčí": "Bečva",
+                "Havlíčkův Brod": "Sázava", 
+                "Česká Lípa": "Ploučnice", 
+                "Kadaň": "Ohře",
+                "Vodňany": "Blanice", 
+                "Uherský Brod": "Olšava", 
+                "Jihlava": "Jihlava",
+                "Frýdek-Místek": "Ostravice"
+            }
+        },
+        {
+            "topicName": "Města u řek 4",
+            "concepts": {
+                "Mladá Boleslav": "Jizera", 
+                "Jablonec": "Nisa", 
+                "Třinec": "Olše",
+                "Kroměříž": "Morava", 
+                "Trutnov": "Úpa", 
+                "Kolín": "Labe",
+                "Stříbro": "Mže", 
+                "Strakonice": "Otava", 
+                "Hluboká": "Vltava",
+                "Blansko": "Svitava"
+            }
+        },
+        {
+            "topicName": "Všehochuť 1",
+            "concepts": {
+                "Sychrov": "Zámek", 
+                "Máchovo jezero": "Bezděz", 
+                "1603": "Sněžka", 
+                "115": "Hřeňsko",
+                "Liberec": "Nisa", 
+                "Jablonec": "bižuterie", 
+                "Jánské lázně": "Krkonoše",
+                "Jizera": "Labe", 
+                "Jiříkov": "Německo", 
+                "Trutnov": "elektrárna"
+            }
+        },
+        {
+            "topicName": "Všehochuť 2",
+            "concepts": {
+                "Vysoké Mýto": "strojírenský průmysl", 
+                "Pardubice": "chemický průmysl",
+                "Opočno": "zámek", 
+                "Bohdaneš": "lázně", 
+                "Metuje": "Adršpašsko-teplické skály",
+                "Česká Skalice": "Ratibořice", 
+                "Pastviny": "Divoká Orlice",
+                "Sečská přehrada": "Chrudimka", 
+                "Chvaletice": "Opatovice",
+                "Ústí nad Orlicí": "textilní průmysl"
+            }
+        },
+        {
+            "topicName": "Všehochuť 3",
+            "concepts": {
+                "Jáchymov": "lázně", 
+                "Sušice": "dřevařský průmysl", 
+                "Sokolov": "hnědé uhlí",
+                "Plzeň": "Berounka", 
+                "trolejbusy": "Ostrov nad Ohří", 
+                "Rokycany": "hutnictví",
+                "Karlovy Vary": "porcelán", 
+                "Cheb": "Pomezí", 
+                "Ohře": "přehrada Skalka",
+                "Domažlice": "Chodsko"
+            }
+        },
+        {
+            "topicName": "Všehochuť 4",
+            "concepts": {
+                "Milešovka": "České středohoří", 
+                "Chomutov": "hutnický průmysl",
+                "Klínovec": "Krušné hory", 
+                "Žatec": "chmel", 
+                "Labe": "Děčín", 
+                "Štětí": "papírny",
+                "Litvínov": "rafinérie ropy", 
+                "Ohře": "Nechranická přehrada",
+                "Ústí nad Labem": "chemický průmysl", 
+                "Vranov": "Dyje"
+            }
+        }
     ]
 }
