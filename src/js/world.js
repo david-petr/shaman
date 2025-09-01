@@ -16,6 +16,9 @@ document.getElementById("connectors").addEventListener("click", () => {
     localStorage.setItem("preferences", JSON.stringify( { href: "world"} ))
     window.location.href = "../html/connectors/set.html"
 })
+document.getElementById("country-finding").addEventListener("click", () => {
+    window.location.href = "../html/country-finding/main.html"
+})
 
 // ==== accent color => css variables ====
 window.accentColor.get().then(color => {

@@ -1,0 +1,63 @@
+@import "../partials/mixins";
+
+@media (prefers-color-scheme: light){
+    :root {
+        --background-color: #ddd;
+        --text-color: #000;
+    }
+}
+
+@media (prefers-color-scheme: dark){
+    :root {
+        --background-color: #242424;
+        --text-color: #fff;
+    }
+}
+
+#input-section {
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 100px;
+    border: 15px solid var(--accent-color);
+    border-top: 5px solid var(--accent-color);
+    z-index: 500;
+    border-radius: 0px 0px 40px 40px;
+    box-shadow: 0px 0px 40px #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    #input {
+        width: 80%;
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+
+        input {
+            background: none;
+            color: var(--text-color);
+            border-radius: 18px;
+            border: 2px solid var(--darken-accent-color);
+            outline: none;
+            height: 100%;
+            width: 75%;
+            padding: 10px;
+            font-size: 16px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #enter-conuntry {
+            @include button(100%, 16px, 15px, 20%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
