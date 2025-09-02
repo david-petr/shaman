@@ -40,17 +40,43 @@ body {
   display: flex;
   justify-content: space-between;
 }
-#input-section #input input {
+#input-section #input #input-option {
+  position: relative;
+  width: 75%;
+}
+#input-section #input #input-option input {
   background: none;
   color: var(--text-color);
   border-radius: 18px;
   border: 2px solid var(--darken-accent-color);
   outline: none;
   height: 100%;
-  width: 75%;
+  width: 100%;
   padding: 10px;
   font-size: 16px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
+#input-section #input #input-option #options {
+  display: none;
+  position: absolute;
+  background: var(--background-color);
+  width: 100%;
+  border: 2px solid var(--darken-accent-color);
+  border-top: none;
+  padding: 20px;
+  border-radius: 0px 0px 18px 18px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.6117647059);
+  flex-direction: column;
+  gap: 15px;
+}
+#input-section #input #input-option #options div {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#input-section #input #input-option #options div img {
+  height: 15px;
 }
 #input-section #input #enter-conuntry {
   background-color: var(--accent-color);

@@ -46,17 +46,47 @@ body {
         display: flex;
         justify-content: space-between;
 
-        input {
-            background: none;
-            color: var(--text-color);
-            border-radius: 18px;
-            border: 2px solid var(--darken-accent-color);
-            outline: none;
-            height: 100%;
+        #input-option {
+            position: relative;
             width: 75%;
-            padding: 10px;
-            font-size: 16px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+
+            input {
+                background: none;
+                color: var(--text-color);
+                border-radius: 18px;
+                border: 2px solid var(--darken-accent-color);
+                outline: none;
+                height: 100%;
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+            }
+
+            #options {
+                display: none;
+                position: absolute;
+                background: var(--background-color);
+                width: 100%;
+                border: 2px solid var(--darken-accent-color);
+                border-top: none;
+                padding: 20px;
+                border-radius: 0px 0px 18px 18px;
+                box-shadow: 0px 10px 10px #0000009c;
+                flex-direction: column;
+                gap: 15px;
+
+                div {
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    img {
+                        height: 15px;
+                    }
+                }
+            }
         }
 
         #enter-conuntry {

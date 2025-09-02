@@ -1,13 +1,58 @@
 // ==== Globální proměnné ====
 let data
-
+const countryInput = document.getElementById("country-input")
+const countryOptions = document.getElementById("options")
+const inputContent = document.getElementById("input-option")
 
 // ==== functions ====
+function countryOptionHandler() {
+    const id = this.id
+
+    const clickedCountryName = document.getElementById(id).querySelector("p").textContent
+    countryInput.value = clickedCountryName
+}
+
+const removeDiacritics = (string) => {
+    const normalizedString = string.normalize("NFD")
+
+    return normalizedString.replace(/[\u0300-\u036f]/g, "")
+}
+
+function countryInputHandler(e) {
+    const textContent = e.target.value
+
+    const countries = data.countries.filter((country) => {
+        const countryName = removeDiacritics(country.name.toLowerCase())
+
+        return countryName.includes(removeDiacritics(textContent.toLowerCase()))
+    })
+
+    countryOptions.innerHTML = ""
+
+    countryOptions.style.display = "flex"
+    countryInput.style.borderRadius = "18px 18px 0px 0px"
+
+    countries.forEach((country, index) => {
+        if (index <= 10) {
+            const div = document.createElement("div")
+            div.id = country.id
+            div.addEventListener("click", countryOptionHandler)
+
+            const p = document.createElement("p")
+            p.textContent = country.name
+            div.appendChild(p)
+
+            const img = document.createElement("img")
+            img.setAttribute("src", `../../img/flags-small/${country.id} (Custom).jpeg`)
+            div.appendChild(img)
+
+            countryOptions.appendChild(div)
+        }
+    })
+}
+
 const initializeGame = async () => {
     data = await DataImport.getData("../../data/country-finding.json")
-
-    console.log(data)
-
 
     // ==== Nastavení viewBox pro mapu ====
     let focusCountry = data.countries.filter(country => {
@@ -43,7 +88,7 @@ const initializeGame = async () => {
         const deltaX = e.clientX - startX
         const deltaY = e.clientY - startY
 
-        
+
         const cssScale = parseFloat(document.documentElement.style.getPropertyValue("--scale"))
         scale = (viewBox[2] / worldMap.clientWidth) * (1 / cssScale)
 
@@ -64,14 +109,14 @@ const initializeGame = async () => {
         e.preventDefault()
 
         let scale = parseFloat(document.documentElement.style.getPropertyValue("--scale"))
-        
-        if(e.deltaY < 0){
+
+        if (e.deltaY < 0) {
             scale += 0.5
         } else {
             scale -= 0.5
         }
 
-        if(scale >= 1){
+        if (scale >= 1) {
             document.documentElement.style.setProperty("--scale", scale)
         }
     })
@@ -82,21 +127,17 @@ const initializeGame = async () => {
     titles.forEach((title) => {
         title.remove()
     })
+
+    countryInput.addEventListener("input", countryInputHandler)
+    countryInput.addEventListener("blur", () => {
+        if(isOptionClicked){
+            countryOptions.style.display = "none"
+            countryInput.style.borderRadius = "18px"
+        }
+    })
 }
 
 document.addEventListener("DOMContentLoaded", initializeGame)
-
-
-
-
-
-
-
-
-
-
-
-
 
 // ==== accent color => css variables ====
 window.accentColor.get().then(color => {
