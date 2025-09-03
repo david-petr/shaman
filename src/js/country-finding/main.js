@@ -1,15 +1,34 @@
 // ==== Globální proměnné ====
 let data
+let isCountryOptionsActive = false
 const countryInput = document.getElementById("country-input")
 const countryOptions = document.getElementById("options")
 const inputContent = document.getElementById("input-option")
+const enterCountryButton = document.getElementById("enter-conuntry")
 
 // ==== functions ====
-function countryOptionHandler() {
-    const id = this.id
+function enterCountryButtonHandler() {
+    const id = enterCountryButton.dataset.id
 
-    const clickedCountryName = document.getElementById(id).querySelector("p").textContent
-    countryInput.value = clickedCountryName
+
+}
+
+function countryOptionHandler(e) {
+    const closestDiv = e.target.closest("div")
+    
+    if(closestDiv && closestDiv.parentElement.id === "options"){
+        isCountryOptionsActive = true
+
+        countryOptions.style.display = "none"
+        countryInput.style.borderRadius = "18px"
+    
+        const clickedCountryName = closestDiv.querySelector("p").textContent
+        countryInput.value = clickedCountryName
+
+        isCountryOptionsActive = false
+
+        enterCountryButton.dataset.id = closestDiv.id
+    }
 }
 
 const removeDiacritics = (string) => {
@@ -32,23 +51,32 @@ function countryInputHandler(e) {
     countryOptions.style.display = "flex"
     countryInput.style.borderRadius = "18px 18px 0px 0px"
 
-    countries.forEach((country, index) => {
-        if (index <= 10) {
-            const div = document.createElement("div")
-            div.id = country.id
-            div.addEventListener("click", countryOptionHandler)
+    if(countries.length === 0){
+        const div = document.createElement("div")
+        const p = document.createElement("p")
+        p.textContent = "Žádné výsledky"
+        div.appendChild(p)
 
-            const p = document.createElement("p")
-            p.textContent = country.name
-            div.appendChild(p)
+        countryOptions.appendChild(div)
+    } else {
+        countries.forEach((country, index) => {
+            if (index <= 10) {
+                const div = document.createElement("div")
+                div.id = country.id
+    
+                const p = document.createElement("p")
+                p.textContent = country.name
+                div.appendChild(p)
+    
+                const img = document.createElement("img")
+                img.setAttribute("src", `../../img/flags-small/${country.id} (Custom).jpeg`)
+                div.appendChild(img)
+    
+                countryOptions.appendChild(div)
+            }
+        })
+    }
 
-            const img = document.createElement("img")
-            img.setAttribute("src", `../../img/flags-small/${country.id} (Custom).jpeg`)
-            div.appendChild(img)
-
-            countryOptions.appendChild(div)
-        }
-    })
 }
 
 const initializeGame = async () => {
@@ -128,11 +156,22 @@ const initializeGame = async () => {
         title.remove()
     })
 
+    // ==== eventy - nabítka ====
+    document.querySelector("body").addEventListener("click", countryOptionHandler)
     countryInput.addEventListener("input", countryInputHandler)
     countryInput.addEventListener("blur", () => {
-        if(isOptionClicked){
-            countryOptions.style.display = "none"
-            countryInput.style.borderRadius = "18px"
+        setTimeout( () => {
+            if(!isCountryOptionsActive){
+                countryOptions.style.display = "none"
+                countryInput.style.borderRadius = "18px"
+            }
+        }, 200)
+    })
+
+    enterCountryButton.addEventListener("click", enterCountryButtonHandler)
+    document.querySelector("body").addEventListener("keydown", (e) => {
+        if(e.key === "Enter"){
+            enterCountryButtonHandler()
         }
     })
 }
