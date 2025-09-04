@@ -97,6 +97,11 @@
     ],
 
     "colors": {
-        
+        "first": "#ffffff",
+        "second": "#fc9999",
+        "third": "#fa5050",
+        "fourth": "#ff2828",
+        "fifth": "#ff0000",
+        "right": "#1dad01"
     }
 }

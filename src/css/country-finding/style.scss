@@ -74,13 +74,18 @@ body {
                 border-radius: 0px 0px 18px 18px;
                 box-shadow: 0px 10px 10px #0000009c;
                 flex-direction: column;
-                gap: 15px;
 
                 div {
                     cursor: pointer;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    padding: 10px;
+
+                    &:hover {
+                        background-color: var(--darken-accent-color);
+                        border-radius: 18px;
+                    }
 
                     img {
                         height: 15px;
@@ -94,6 +99,31 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+    }
+}
+
+#guessed-countries {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 500px;
+    background-color: var(--background-color);
+    z-index: 500;
+    border: 10px solid var(--accent-color);
+    border-bottom: none;
+    border-right: none;
+    border-radius: 20px 0px 0px 0px;
+    padding: 20px;
+
+    #guessed-countries-section-content div {
+        padding: 10px;
+        border-bottom: 1px solid var(--darken-accent-color);
+        display: flex;
+        justify-content: space-between;
+
+        img {
+            height: 20px;
         }
     }
 }

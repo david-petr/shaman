@@ -67,13 +67,17 @@ body {
   border-radius: 0px 0px 18px 18px;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.6117647059);
   flex-direction: column;
-  gap: 15px;
 }
 #input-section #input #input-option #options div {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+}
+#input-section #input #input-option #options div:hover {
+  background-color: var(--darken-accent-color);
+  border-radius: 18px;
 }
 #input-section #input #input-option #options div img {
   height: 15px;
@@ -96,6 +100,29 @@ body {
 }
 #input-section #input #enter-conuntry:hover {
   background-color: var(--darken-accent-color);
+}
+
+#guessed-countries {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 500px;
+  background-color: var(--background-color);
+  z-index: 500;
+  border: 10px solid var(--accent-color);
+  border-bottom: none;
+  border-right: none;
+  border-radius: 20px 0px 0px 0px;
+  padding: 20px;
+}
+#guessed-countries #guessed-countries-section-content div {
+  padding: 10px;
+  border-bottom: 1px solid var(--darken-accent-color);
+  display: flex;
+  justify-content: space-between;
+}
+#guessed-countries #guessed-countries-section-content div img {
+  height: 20px;
 }
 
 #map-box {
