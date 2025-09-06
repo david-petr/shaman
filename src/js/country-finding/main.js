@@ -10,6 +10,9 @@ const countryOptions = document.getElementById("options")
 const inputContent = document.getElementById("input-option")
 const enterCountryButton = document.getElementById("enter-conuntry")
 const guessedCountriesSection = document.getElementById("guessed-countries")
+const helpButton = document.getElementById("help-icon")
+const helpDialog = document.getElementById("help-dialog")
+const closeDialogButton = document.getElementById("close-dialog")
 
 // ==== functions ====
 const getAngle = (guessedCountry, randomCountry) => {
@@ -102,11 +105,13 @@ function enterCountryButtonHandler() {
             const img = document.createElement("img")
             img.setAttribute("src", `../../img/flags-small/${focusCountry.id} (Custom).jpeg`)
             infoDiv.appendChild(img)
-        
-            const arrow = document.createElement("p")
-            arrow.textContent = "↑"
-            arrow.style.transform = `rotate(${angle}deg)`
-            infoDiv.appendChild(arrow)
+            
+            if(distanceInKm !== 0){
+                const arrow = document.createElement("p")
+                arrow.textContent = "↑"
+                arrow.style.transform = `rotate(${angle}deg)`
+                infoDiv.appendChild(arrow)
+            }
     
             const km = document.createElement("p")
             km.textContent = Math.floor(distanceInKm) + " km"
@@ -290,9 +295,23 @@ const initializeGame = async () => {
     })
 
     // ==== vylosování náhodné země ====
-    randomCountry = Random.randomElement(data.countries)
+    // randomCountry = Random.randomElement(data.countries)
+    randomCountry = { "id": "cz", "name": "Česká republika", "position": {"x": 160, "y": -230, "scale": 23} }
 
     guessedCountriesSection.style.height = "60px"
+
+    // ==== otevření a zavření nápovědy ====
+    helpButton.addEventListener("click", () => {
+        helpDialog.showModal()
+    })
+    closeDialogButton.addEventListener("click", () => {
+        helpDialog.close()
+    })
+
+    // ==== zavření okna ====
+    document.getElementById("close").addEventListener("click", () => {
+        window.location.href = "../../html/world.html"
+    })
 }
 
 document.addEventListener("DOMContentLoaded", initializeGame)
