@@ -114,14 +114,35 @@ body {
   border-right: none;
   border-radius: 20px 0px 0px 0px;
   padding: 20px;
+  max-height: 60vh;
 }
-#guessed-countries #guessed-countries-section-content div {
+#guessed-countries::-webkit-scrollbar {
+  width: 5px;
+}
+#guessed-countries::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 10px;
+}
+#guessed-countries::-webkit-scrollbar-thumb:hover {
+  background-color: var(--darken-accent-color);
+  cursor: default;
+}
+#guessed-countries::-webkit-scrollbar-track {
+  background-color: none;
+  margin: 10px;
+}
+#guessed-countries #guessed-countries-section-content > div {
   padding: 10px;
   border-bottom: 1px solid var(--darken-accent-color);
   display: flex;
   justify-content: space-between;
 }
-#guessed-countries #guessed-countries-section-content div img {
+#guessed-countries #guessed-countries-section-content > div .info {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+#guessed-countries #guessed-countries-section-content > div .info img {
   height: 20px;
 }
 

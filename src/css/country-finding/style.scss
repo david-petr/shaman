@@ -115,15 +115,39 @@ body {
     border-right: none;
     border-radius: 20px 0px 0px 0px;
     padding: 20px;
+    max-height: 60vh;
 
-    #guessed-countries-section-content div {
+    &::-webkit-scrollbar {
+            width: 5px;
+        }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--accent-color);
+        border-radius: 10px;
+
+        &:hover {
+            background-color: var(--darken-accent-color);
+            cursor: default;
+        }
+    }
+    &::-webkit-scrollbar-track {
+        background-color: none;
+        margin: 10px;
+    }
+
+    #guessed-countries-section-content > div {
         padding: 10px;
         border-bottom: 1px solid var(--darken-accent-color);
         display: flex;
         justify-content: space-between;
 
-        img {
-            height: 20px;
+        .info {
+            display: flex;
+            justify-content: space-between;
+            width: 30%;
+
+            img {
+                height: 20px;
+            }
         }
     }
 }

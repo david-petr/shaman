@@ -4,6 +4,7 @@ let isCountryOptionsActive = false
 let worldMap
 let randomCountry
 let guessedCountriesSectionContent
+let enteredCountries = []
 const countryInput = document.getElementById("country-input")
 const countryOptions = document.getElementById("options")
 const inputContent = document.getElementById("input-option")
@@ -31,6 +32,8 @@ const countryColorizer = (guessedCountry, randomCountry) => {
 
     const distanceInPixels = Math.sqrt( a2 + b2 )
 
+    const distanceInKm = distanceInPixels * 13.4
+
     let color
 
     if(distanceInPixels === 0){
@@ -54,56 +57,73 @@ const countryColorizer = (guessedCountry, randomCountry) => {
     guessedCountryElement.querySelectorAll("path").forEach((pathEl) => {
         pathEl.style.fill = color
     })
+
+    return distanceInKm
 }
 
 function enterCountryButtonHandler() {
     const id = enterCountryButton.dataset.id
 
     if(id){
-        
         let focusCountry = data.countries.filter( country => {
             return country.id === id
         })
         focusCountry = focusCountry[0]
-        countryColorizer(focusCountry, randomCountry)
+
+        if(!enteredCountries.includes(focusCountry)){
+            enteredCountries.push(focusCountry)
     
-        const angle = getAngle(focusCountry, randomCountry)
-        console.log("Uhel: " + angle)
+            const distanceInKm = countryColorizer(focusCountry, randomCountry)
         
-        worldMap.setAttribute("viewBox", `${focusCountry.position.x} ${focusCountry.position.y} 2500 1000`)
-        const scale = Math.floor(focusCountry.position.scale / 2)
-        document.documentElement.style.setProperty("--scale", (scale < 1)? 1 : scale)
+            const angle = getAngle(focusCountry, randomCountry)
+            
+            worldMap.setAttribute("viewBox", `${focusCountry.position.x} ${focusCountry.position.y} 2500 1000`)
+            const scale = Math.floor(focusCountry.position.scale / 2)
+            document.documentElement.style.setProperty("--scale", (scale < 1)? 1 : scale)
+        
+            if(!document.getElementById("guessed-countries-section-content")){
+                guessedCountriesSection.innerHTML = ""
+        
+                guessedCountriesSectionContent = document.createElement("div")
+                guessedCountriesSectionContent.id = "guessed-countries-section-content"
+                guessedCountriesSection.appendChild(guessedCountriesSectionContent)
+            }
+        
+            const guessedCountryElement = document.createElement("div")
+        
+            const p = document.createElement("p")
+            p.textContent = focusCountry.name
+            guessedCountryElement.appendChild(p)
     
-        if(!document.getElementById("guessed-countries-section-content")){
-            guessedCountriesSection.innerHTML = ""
+            const infoDiv = document.createElement("div")
+            infoDiv.classList.add("info")
+            guessedCountryElement.appendChild(infoDiv)
+        
+            const img = document.createElement("img")
+            img.setAttribute("src", `../../img/flags-small/${focusCountry.id} (Custom).jpeg`)
+            infoDiv.appendChild(img)
+        
+            const arrow = document.createElement("p")
+            arrow.textContent = "↑"
+            arrow.style.transform = `rotate(${angle}deg)`
+            infoDiv.appendChild(arrow)
     
-            guessedCountriesSectionContent = document.createElement("div")
-            guessedCountriesSectionContent.id = "guessed-countries-section-content"
-            guessedCountriesSection.appendChild(guessedCountriesSectionContent)
+            const km = document.createElement("p")
+            km.textContent = Math.floor(distanceInKm) + " km"
+            infoDiv.appendChild(km)
+        
+            guessedCountriesSectionContent.appendChild(guessedCountryElement)
+        
+            const height = parseInt(guessedCountriesSection.style.height)
+            guessedCountriesSection.style.height = height + 41 + "px"
+        
+            countryInput.value = ""
+            enterCountryButton.dataset.id = ""
+    
+            if(innerHeight / 10 * 6 < parseInt(guessedCountriesSection.style.height)){
+                guessedCountriesSection.style.overflowY = "scroll"
+            }
         }
-    
-        const guessedCountryElement = document.createElement("div")
-    
-        const p = document.createElement("p")
-        p.textContent = focusCountry.name
-        guessedCountryElement.appendChild(p)
-    
-        const img = document.createElement("img")
-        img.setAttribute("src", `../../img/flags-small/${focusCountry.id} (Custom).jpeg`)
-        guessedCountryElement.appendChild(img)
-    
-        const arrow = document.createElement("p")
-        arrow.textContent = "↑"
-        arrow.style.transform = `rotate(${angle}deg)`
-        guessedCountryElement.appendChild(arrow)
-    
-        guessedCountriesSectionContent.appendChild(guessedCountryElement)
-    
-        const height = parseInt(guessedCountriesSection.style.height)
-        guessedCountriesSection.style.height = height + 41 + "px"
-    
-        countryInput.value = ""
-        enterCountryButton.dataset.id = ""
     }
 }
 
@@ -271,9 +291,8 @@ const initializeGame = async () => {
 
     // ==== vylosování náhodné země ====
     randomCountry = Random.randomElement(data.countries)
-    console.log(randomCountry)
 
-    guessedCountriesSection.style.height = "100px"
+    guessedCountriesSection.style.height = "60px"
 }
 
 document.addEventListener("DOMContentLoaded", initializeGame)

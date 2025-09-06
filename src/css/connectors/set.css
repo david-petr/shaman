@@ -66,7 +66,7 @@ body #backg {
   border-radius: 20px;
 }
 #settings #scroll-box::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 #settings #scroll-box::-webkit-scrollbar-thumb {
   background-color: var(--accent-color);
