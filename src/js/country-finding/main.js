@@ -295,8 +295,7 @@ const initializeGame = async () => {
     })
 
     // ==== vylosování náhodné země ====
-    // randomCountry = Random.randomElement(data.countries)
-    randomCountry = { "id": "cz", "name": "Česká republika", "position": {"x": 160, "y": -230, "scale": 23} }
+    randomCountry = Random.randomElement(data.countries)
 
     guessedCountriesSection.style.height = "60px"
 
