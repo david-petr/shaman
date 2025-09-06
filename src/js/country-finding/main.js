@@ -12,18 +12,16 @@ const guessedCountriesSection = document.getElementById("guessed-countries")
 
 // ==== functions ====
 const getAngle = (guessedCountry, randomCountry) => {
-    // Rozdíl X, zůstává stejný
-    const deltaX = randomCountry.position.x - guessedCountry.position.x;
-    
-    // Invertovaný rozdíl Y, aby odpovídal souřadnicím SVG
-    const deltaY = guessedCountry.position.y - randomCountry.position.y;
+    const deltaY = randomCountry.position.y - guessedCountry.position.y
+    const deltaX = randomCountry.position.x - guessedCountry.position.x
 
-    const angleRad = Math.atan2(deltaY, deltaX);
+    const angleInRadians = Math.atan2(deltaY, deltaX)
 
-    let angleDeg = angleRad * (180 / Math.PI);
-    angleDeg = (angleDeg + 360) % 360;
+    const angleInDegrees = angleInRadians * (180 / Math.PI)
 
-    return angleDeg;
+    const adjustedAngle = angleInDegrees + 90
+
+    return adjustedAngle
 }
 
 const countryColorizer = (guessedCountry, randomCountry) => {
@@ -37,15 +35,17 @@ const countryColorizer = (guessedCountry, randomCountry) => {
 
     if(distanceInPixels === 0){
         color = data.colors.right
-    } else if(distanceInPixels < 100){
-        color = data.colors.fifth
+    } else if(distanceInPixels < 150){
+        color = data.colors.sixth
     } else if(distanceInPixels < 200){
-        color = data.colors.fourth
+        color = data.colors.fifth
     } else if(distanceInPixels < 500){
-        color = data.colors.third
+        color = data.colors.fourth
     } else if(distanceInPixels < 700){
-        color = data.colors.second
+        color = data.colors.third
     } else if(distanceInPixels < 1500){
+        color = data.colors.second
+    } else {
         color = data.colors.first
     }
 
@@ -58,49 +58,53 @@ const countryColorizer = (guessedCountry, randomCountry) => {
 
 function enterCountryButtonHandler() {
     const id = enterCountryButton.dataset.id
+
+    if(id){
+        
+        let focusCountry = data.countries.filter( country => {
+            return country.id === id
+        })
+        focusCountry = focusCountry[0]
+        countryColorizer(focusCountry, randomCountry)
     
-    let focusCountry = data.countries.filter( country => {
-        return country.id === id
-    })
-    focusCountry = focusCountry[0]
-    countryColorizer(focusCountry, randomCountry)
-
-    const angle = getAngle(focusCountry, randomCountry)
-    console.log(angle)
+        const angle = getAngle(focusCountry, randomCountry)
+        console.log("Uhel: " + angle)
+        
+        worldMap.setAttribute("viewBox", `${focusCountry.position.x} ${focusCountry.position.y} 2500 1000`)
+        const scale = Math.floor(focusCountry.position.scale / 2)
+        document.documentElement.style.setProperty("--scale", (scale < 1)? 1 : scale)
     
-    worldMap.setAttribute("viewBox", `${focusCountry.position.x} ${focusCountry.position.y} 2500 1000`)
-    const scale = Math.floor(focusCountry.position.scale / 2)
-    document.documentElement.style.setProperty("--scale", (scale < 1)? 1 : scale)
-
-    if(!document.getElementById("guessed-countries-section-content")){
-        guessedCountriesSection.innerHTML = ""
-
-        guessedCountriesSectionContent = document.createElement("div")
-        guessedCountriesSectionContent.id = "guessed-countries-section-content"
-        guessedCountriesSection.appendChild(guessedCountriesSectionContent)
+        if(!document.getElementById("guessed-countries-section-content")){
+            guessedCountriesSection.innerHTML = ""
+    
+            guessedCountriesSectionContent = document.createElement("div")
+            guessedCountriesSectionContent.id = "guessed-countries-section-content"
+            guessedCountriesSection.appendChild(guessedCountriesSectionContent)
+        }
+    
+        const guessedCountryElement = document.createElement("div")
+    
+        const p = document.createElement("p")
+        p.textContent = focusCountry.name
+        guessedCountryElement.appendChild(p)
+    
+        const img = document.createElement("img")
+        img.setAttribute("src", `../../img/flags-small/${focusCountry.id} (Custom).jpeg`)
+        guessedCountryElement.appendChild(img)
+    
+        const arrow = document.createElement("p")
+        arrow.textContent = "↑"
+        arrow.style.transform = `rotate(${angle}deg)`
+        guessedCountryElement.appendChild(arrow)
+    
+        guessedCountriesSectionContent.appendChild(guessedCountryElement)
+    
+        const height = parseInt(guessedCountriesSection.style.height)
+        guessedCountriesSection.style.height = height + 41 + "px"
+    
+        countryInput.value = ""
+        enterCountryButton.dataset.id = ""
     }
-
-    const guessedCountryElement = document.createElement("div")
-
-    const p = document.createElement("p")
-    p.textContent = focusCountry.name
-    guessedCountryElement.appendChild(p)
-
-    const img = document.createElement("img")
-    img.setAttribute("src", `../../img/flags-small/${focusCountry.id} (Custom).jpeg`)
-    guessedCountryElement.appendChild(img)
-
-    const arrow = document.createElement("p")
-    arrow.textContent = "↑"
-    arrow.style.transform = `rotate(${angle}deg)`
-    guessedCountryElement.appendChild(arrow)
-
-    guessedCountriesSectionContent.appendChild(guessedCountryElement)
-
-    const height = parseInt(guessedCountriesSection.style.height)
-    guessedCountriesSection.style.height = height + 41 + "px"
-
-    countryInput.value = ""
 }
 
 function countryOptionHandler(e) {

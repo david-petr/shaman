@@ -66,7 +66,6 @@
         { "id": "uz", "name": "Uzbekistán", "position": {"x": 500, "y": -160, "scale": 10.25} },
         { "id": "kz", "name": "Kazachstán", "position": {"x": 510, "y": -215, "scale": 7} },
         { "id": "kg", "name": "Kyrgyzstán", "position": {"x": 580, "y": -160, "scale": 14.5} },
-        { "id": "ru", "name": "Rusko", "position": {"x": 680, "y": -300, "scale": 2.5} },
         { "id": "tm", "name": "Turkmenistán", "position": {"x": 470, "y": -140, "scale": 7} },
 
 
@@ -98,10 +97,11 @@
 
     "colors": {
         "first": "#ffffff",
-        "second": "#fc9999",
-        "third": "#fa5050",
-        "fourth": "#ff2828",
-        "fifth": "#ff0000",
+        "second": "#ffcfcf",
+        "third": "#fc9999",
+        "fourth": "#fa5050",
+        "fifth": "#ff2828",
+        "sixth": "#ff0000",
         "right": "#1dad01"
     }
 }
