@@ -212,7 +212,7 @@ body {
   padding: 5px 0px;
 }
 #help-dialog div img {
-  height: 60vh;
+  height: 50vh;
 }
 #help-dialog::backdrop {
   background: linear-gradient(rgba(0, 0, 0, 0.7450980392), rgba(0, 0, 0, 0.7450980392));

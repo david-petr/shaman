@@ -102,3 +102,16 @@ document.getElementById("world").addEventListener("click", () => {
     })
   }
 })
+document.getElementById("czech").addEventListener("click", () => {
+  if(window.newWindow){
+    window.newWindow.openNewWindow({
+      width: null,
+      height: null,
+      resizable: true,
+      fullscreen: true,
+      file: "czechia.html",
+      title: "Česko",
+      openDevTools: false
+    })
+  }
+})
