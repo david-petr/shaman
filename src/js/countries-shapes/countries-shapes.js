@@ -233,7 +233,6 @@ document.getElementById("close-btn").addEventListener("click", () => {
 //     }
 
 //     document.getElementById("confirm").addEventListener("click", () => {
-//         console.log(guessedCountry.name)
-//         console.log(`"x": ${x}, "y": ${y}, "scale": ${Number(document.documentElement.style.getPropertyValue("--scale"))}`)
+//         console.log(`{ "id": "${guessedCountry.id}", "name": "${guessedCountry.name}", "position": {"x": ${x}, "y": ${y}, "scale": ${Number(document.documentElement.style.getPropertyValue("--scale"))}} }`)
 //     })
 // })
