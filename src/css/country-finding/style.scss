@@ -116,6 +116,7 @@ body {
     border-radius: 20px 0px 0px 0px;
     padding: 20px;
     max-height: 60vh;
+    box-shadow: 0px 0px 10px #000000b9;
 
     &::-webkit-scrollbar {
             width: 5px;
@@ -168,6 +169,7 @@ body {
     border-left: none;
     border-radius: 0px 20px 0px 0px;
     z-index: 500;
+    box-shadow: 0px 0px 10px #000000b9;
 
     button {
         @include button(30px, 16px, 15px, 75px);
@@ -187,7 +189,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    border: none;
     border: 10px solid var(--accent-color);
     border-radius: 20px;
     outline: none;
@@ -211,6 +212,39 @@ body {
 
         img {
             height: 50vh;
+        }
+    }
+
+    &::backdrop {
+        background: linear-gradient(#000000be, #000000be);
+    }
+}
+
+#end-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+    border: 10px solid var(--accent-color);
+    border-radius: 20px;
+    padding: 20px;
+    width: 500px;
+    height: 250px;
+
+    div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        button {
+            @include button (50px, 16px, 15px, 175px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 

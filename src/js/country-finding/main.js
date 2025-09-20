@@ -13,6 +13,8 @@ const guessedCountriesSection = document.getElementById("guessed-countries")
 const helpButton = document.getElementById("help-icon")
 const helpDialog = document.getElementById("help-dialog")
 const closeDialogButton = document.getElementById("close-dialog")
+const foundCountries = JSON.parse(localStorage.getItem("foundCountries"))
+const guessedCountriesList = []
 
 // ==== functions ====
 const getAngle = (guessedCountry, randomCountry) => {
@@ -64,6 +66,62 @@ const countryColorizer = (guessedCountry, randomCountry) => {
     return distanceInKm
 }
 
+const insertGuessedCountriesToDom = (guessedCountriesList) => {
+
+    guessedCountriesList.sort((a, b) => a.distanceInKm - b.distanceInKm)
+
+    if(!document.getElementById("guessed-countries-section-content")){
+        guessedCountriesSection.innerHTML = ""
+
+        guessedCountriesSectionContent = document.createElement("div")
+        guessedCountriesSectionContent.id = "guessed-countries-section-content"
+        guessedCountriesSection.appendChild(guessedCountriesSectionContent)
+    }
+
+    guessedCountriesSectionContent.innerHTML = ""
+    guessedCountriesSection.style.height = "60px"
+    
+    guessedCountriesList.forEach( country => {
+        const guessedCountryElement = document.createElement("div")
+
+        const p = document.createElement("p")
+        p.textContent = country.name
+        guessedCountryElement.appendChild(p)
+    
+        const infoDiv = document.createElement("div")
+        infoDiv.classList.add("info")
+        guessedCountryElement.appendChild(infoDiv)
+    
+        const img = document.createElement("img")
+        img.setAttribute("src", `../../img/flags-small/${country.id} (Custom).jpeg`)
+        infoDiv.appendChild(img)
+        
+        if(country.distanceInKm !== 0){
+            const arrow = document.createElement("p")
+            arrow.textContent = "↑"
+            arrow.style.transform = `rotate(${country.angle}deg)`
+            infoDiv.appendChild(arrow)
+        }
+    
+        const km = document.createElement("p")
+        km.textContent = Math.floor(country.distanceInKm) + " km"
+        infoDiv.appendChild(km)
+    
+        guessedCountriesSectionContent.appendChild(guessedCountryElement)
+    
+        const height = parseInt(guessedCountriesSection.style.height)
+        guessedCountriesSection.style.height = height + 41 + "px"
+    
+        countryInput.value = ""
+        enterCountryButton.dataset.id = ""
+    
+        if(innerHeight / 10 * 6 < parseInt(guessedCountriesSection.style.height)){
+            guessedCountriesSection.style.overflowY = "scroll"
+            guessedCountriesSection.scrollTop = 0
+        }
+    })
+}
+
 function enterCountryButtonHandler() {
     const id = enterCountryButton.dataset.id
 
@@ -83,50 +141,22 @@ function enterCountryButtonHandler() {
             worldMap.setAttribute("viewBox", `${focusCountry.position.x} ${focusCountry.position.y} 2500 1000`)
             const scale = Math.floor(focusCountry.position.scale / 2)
             document.documentElement.style.setProperty("--scale", (scale < 1)? 1 : scale)
+
+            guessedCountriesList.push( {...focusCountry, angle: angle, distanceInKm: distanceInKm} )
         
-            if(!document.getElementById("guessed-countries-section-content")){
-                guessedCountriesSection.innerHTML = ""
-        
-                guessedCountriesSectionContent = document.createElement("div")
-                guessedCountriesSectionContent.id = "guessed-countries-section-content"
-                guessedCountriesSection.appendChild(guessedCountriesSectionContent)
-            }
-        
-            const guessedCountryElement = document.createElement("div")
-        
-            const p = document.createElement("p")
-            p.textContent = focusCountry.name
-            guessedCountryElement.appendChild(p)
-    
-            const infoDiv = document.createElement("div")
-            infoDiv.classList.add("info")
-            guessedCountryElement.appendChild(infoDiv)
-        
-            const img = document.createElement("img")
-            img.setAttribute("src", `../../img/flags-small/${focusCountry.id} (Custom).jpeg`)
-            infoDiv.appendChild(img)
-            
-            if(distanceInKm !== 0){
-                const arrow = document.createElement("p")
-                arrow.textContent = "↑"
-                arrow.style.transform = `rotate(${angle}deg)`
-                infoDiv.appendChild(arrow)
-            }
-    
-            const km = document.createElement("p")
-            km.textContent = Math.floor(distanceInKm) + " km"
-            infoDiv.appendChild(km)
-        
-            guessedCountriesSectionContent.appendChild(guessedCountryElement)
-        
-            const height = parseInt(guessedCountriesSection.style.height)
-            guessedCountriesSection.style.height = height + 41 + "px"
-        
-            countryInput.value = ""
-            enterCountryButton.dataset.id = ""
-    
-            if(innerHeight / 10 * 6 < parseInt(guessedCountriesSection.style.height)){
-                guessedCountriesSection.style.overflowY = "scroll"
+            insertGuessedCountriesToDom(guessedCountriesList)
+
+            if(distanceInKm === 0){
+                const expiredAt = Date.now() + 12 * 60 * 60 * 1000
+                if(foundCountries){
+                    localStorage.setItem("foundCountries", JSON.stringify( { countries: [...foundCountries.countries, focusCountry.id], timeStamp: expiredAt } ))
+                } else {
+                    localStorage.setItem("foundCountries", JSON.stringify( { countries: [focusCountry.id], timeStamp: expiredAt } ))
+                }
+
+                const endDialog = document.getElementById("end-dialog")
+                document.getElementById("mystery-country").textContent = focusCountry.name
+                endDialog.showModal()
             }
         }
     }
@@ -294,8 +324,24 @@ const initializeGame = async () => {
         }
     })
 
+    // ==== odstranění již uhodnutých zemí (pokud vyprší čas) ====
+    if(foundCountries && Date.now() > foundCountries.timeStamp){
+        foundCountries.countries = []
+    }
+
     // ==== vylosování náhodné země ====
-    randomCountry = Random.randomElement(data.countries)
+    let filtredCountries
+    if(foundCountries && foundCountries.countries){
+        filtredCountries = data.countries.filter( country => {
+            if(!foundCountries.countries.includes(country.id)){
+                return country
+            }
+        })
+    } else {
+        filtredCountries = [...data.countries]
+    }
+
+    randomCountry = Random.randomElement(filtredCountries)
 
     guessedCountriesSection.style.height = "60px"
 
@@ -310,6 +356,16 @@ const initializeGame = async () => {
     // ==== zavření okna ====
     document.getElementById("close").addEventListener("click", () => {
         window.location.href = "../../html/world.html"
+    })
+
+    // ==== zavření okna pomocí end-dialog ====
+    document.getElementById("close2").addEventListener("click", () => {
+        window.location.href = "../../html/world.html"
+    })
+
+    // ==== resetování okna a nový začátek ====
+    document.getElementById("reset-and-start").addEventListener("click", () => {
+        location.reload()
     })
 }
 

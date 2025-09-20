@@ -115,6 +115,7 @@ body {
   border-radius: 20px 0px 0px 0px;
   padding: 20px;
   max-height: 60vh;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7254901961);
 }
 #guessed-countries::-webkit-scrollbar {
   width: 5px;
@@ -162,6 +163,7 @@ body {
   border-left: none;
   border-radius: 0px 20px 0px 0px;
   z-index: 500;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7254901961);
 }
 #help button {
   background-color: var(--accent-color);
@@ -192,7 +194,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
-  border: none;
   border: 10px solid var(--accent-color);
   border-radius: 20px;
   outline: none;
@@ -215,6 +216,49 @@ body {
   height: 50vh;
 }
 #help-dialog::backdrop {
+  background: linear-gradient(rgba(0, 0, 0, 0.7450980392), rgba(0, 0, 0, 0.7450980392));
+}
+
+#end-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  outline: none;
+  border: 10px solid var(--accent-color);
+  border-radius: 20px;
+  padding: 20px;
+  width: 500px;
+  height: 250px;
+}
+#end-dialog div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#end-dialog div button {
+  background-color: var(--accent-color);
+  height: 50px;
+  font-size: 16px;
+  padding: 15px;
+  width: 175px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#end-dialog div button:hover {
+  background-color: var(--darken-accent-color);
+}
+#end-dialog::backdrop {
   background: linear-gradient(rgba(0, 0, 0, 0.7450980392), rgba(0, 0, 0, 0.7450980392));
 }
 
