@@ -105,6 +105,7 @@
         { "id": "na", "name": "Namibie", "position": {"x": 185, "y": 395, "scale": 6} },
 
 
+
         { "id": "in", "name": "Indie", "position": {"x": 655, "y": 10, "scale": 5.75} },
         { "id": "pk", "name": "Pákistán", "position": {"x": 560, "y": -65, "scale": 11.75} },
         { "id": "np", "name": "Nepál", "position": {"x": 675, "y": -45, "scale": 15} },
@@ -116,12 +117,42 @@
         { "id": "iq", "name": "Irák", "position": {"x": 370, "y": -90, "scale": 11.5} },
         { "id": "ir", "name": "Írán", "position": {"x": 450, "y": -80, "scale": 5.5} },
         { "id": "ae", "name": "Spojené arabské emiráty", "position": {"x": 455, "y": -10, "scale": 22.25} },
-        { "id": "tr", "name": "Turecko", "position": {"x": 310, "y": -140, "scale": 13.5} },
         { "id": "sa", "name": "Saúdská Arábie", "position": {"x": 385, "y": -10, "scale": 6.75} },
         { "id": "uz", "name": "Uzbekistán", "position": {"x": 500, "y": -160, "scale": 10.25} },
         { "id": "kz", "name": "Kazachstán", "position": {"x": 510, "y": -215, "scale": 7} },
         { "id": "kg", "name": "Kyrgyzstán", "position": {"x": 580, "y": -160, "scale": 14.5} },
         { "id": "tm", "name": "Turkmenistán", "position": {"x": 470, "y": -140, "scale": 7} },
+        { "id": "ye", "name": "Jemen", "position": {"x": 410, "y": 60, "scale": 8.25} },
+        { "id": "az", "name": "Ázerbájdžán", "position": {"x": 390, "y": -150, "scale": 7} },
+        { "id": "tl", "name": "Východní Timor", "position": {"x": 1005, "y": 275, "scale": 10.75} },
+        { "id": "lk", "name": "Srí Lanka", "position": {"x": 665, "y": 135, "scale": 8.75} },
+        { "id": "bn", "name": "Brunej", "position": {"x": 925, "y": 160, "scale": 15.5} },
+        { "id": "lb", "name": "Libanon", "position": {"x": 310, "y": -95, "scale": 14.75} },
+        { "id": "kp", "name": "Severní Korea", "position": {"x": 945, "y": -145, "scale": 8.75} },
+        { "id": "th", "name": "Thajsko", "position": {"x": 815, "y": 80, "scale": 5} },
+        { "id": "il", "name": "Izrael", "position": {"x": 310, "y": -70, "scale": 6.25} },
+        { "id": "sy", "name": "Sýrie", "position": {"x": 335, "y": -105, "scale": 7.5} },
+        { "id": "mv", "name": "Maledivy", "position": {"x": 590, "y": 170, "scale": 19.75} },
+        { "id": "sg", "name": "Singapur", "position": {"x": 845, "y": 185, "scale": 21.5} },
+        { "id": "bt", "name": "Bhútán", "position": {"x": 725, "y": -40, "scale": 14} },
+        { "id": "kr", "name": "Jižní Korea", "position": {"x": 970, "y": -115, "scale": 11} },
+        { "id": "ge", "name": "Gruzie", "position": {"x": 360, "y": -165, "scale": 11.75} },
+        { "id": "mm", "name": "Myanmar", "position": {"x": 780, "y": 35, "scale": 5.75} },
+        { "id": "kw", "name": "Kuvajt", "position": {"x": 405, "y": -55, "scale": 11} },
+        { "id": "bd", "name": "Bangladéš", "position": {"x": 725, "y": -5, "scale": 12} },
+        { "id": "ps", "name": "Palestina", "position": {"x": 310, "y": -75, "scale": 15} },
+        { "id": "vn", "name": "Vietnam", "position": {"x": 845, "y": 60, "scale": 7.5} },
+        { "id": "la", "name": "Laos", "position": {"x": 835, "y": 45, "scale": 9} },
+        { "id": "kh", "name": "Kambodža", "position": {"x": 850, "y": 90, "scale": 10.5} },
+        { "id": "qa", "name": "Katar", "position": {"x": 435, "y": -20, "scale": 14.5} },
+        { "id": "am", "name": "Arménie", "position": {"x": 375, "y": -150, "scale": 14.25} },
+        { "id": "jo", "name": "Jordánsko", "position": {"x": 325, "y": -70, "scale": 12.5} },
+        { "id": "bh", "name": "Bahrajn", "position": {"x": 425, "y": -30, "scale": 17.25} },
+        { "id": "mn", "name": "Mongolsko", "position": {"x": 750, "y": -205, "scale": 5.75} },
+        { "id": "my", "name": "Malajsie", "position": {"x": 870, "y": 165, "scale": 4.75} },
+        { "id": "om", "name": "Omán", "position": {"x": 470, "y": 15, "scale": 6.5} },
+        { "id": "tj", "name": "Tádžikistán", "position": {"x": 560, "y": -135, "scale": 9.75} },
+
 
 
         { "id": "ca", "name": "Kanada", "position": {"x": -520, "y": -335, "scale": 2.75} },
@@ -132,6 +163,22 @@
         { "id": "mx", "name": "Mexiko", "position": {"x": -695, "y": -5, "scale": 6.5} },
         { "id": "gt", "name": "Guatemala", "position": {"x": -625, "y": 60, "scale": 12.75} },
         { "id": "bs", "name": "Bahamy", "position": {"x": -515, "y": -10, "scale": 10.25} },
+        { "id": "hn", "name": "Honduras", "position": {"x": -600, "y": 70, "scale": 6} },
+        { "id": "ht", "name": "Haiti", "position": {"x": -495, "y": 40, "scale": 13} },
+        { "id": "sv", "name": "Salvador", "position": {"x": -625, "y": 80, "scale": 12.25} },
+        { "id": "ag", "name": "Antigua a Barbuda", "position": {"x": -415, "y": 50, "scale": 12} },
+        { "id": "gd", "name": "Grenada", "position": {"x": -415, "y": 95, "scale": 14.5} },
+        { "id": "bb", "name": "Barbados", "position": {"x": -400, "y": 85, "scale": 16.25} },
+        { "id": "tt", "name": "Trinidad a Tobago", "position": {"x": -415, "y": 105, "scale": 16.25} },
+        { "id": "ni", "name": "Nikaragua", "position": {"x": -595, "y": 85, "scale": 8.75} },
+        { "id": "vc", "name": "Svatý Vincenc a Grenadiny", "position": {"x": -415, "y": 80, "scale": 16.5} },
+        { "id": "lc", "name": "Svatá Lucie", "position": {"x": -410, "y": 75, "scale": 13.75} },
+        { "id": "jm", "name": "Jamajka", "position": {"x": -530, "y": 40, "scale": 14.25} },
+        { "id": "kn", "name": "Svatý Kryštof a Nevis", "position": {"x": -425, "y": 50, "scale": 18} },
+        { "id": "cr", "name": "Kostarika", "position": {"x": -595, "y": 115, "scale": 13.25} },
+        { "id": "dm", "name": "Dominika", "position": {"x": -415, "y": 65, "scale": 13.75} },
+        { "id": "bz", "name": "Belize", "position": {"x": -620, "y": 50, "scale": 12.75} },
+
 
 
         { "id": "ec", "name": "Ekvádor", "position": {"x": -580, "y": 210, "scale": 12.25} },
@@ -142,12 +189,27 @@
         { "id": "ve", "name": "Venezuela", "position": {"x": -455, "y": 140, "scale": 8.25} },
         { "id": "ar", "name": "Argentina", "position": {"x": -410, "y": 530, "scale": 4.5} },
         { "id": "bo", "name": "Bolívie", "position": {"x": -440, "y": 340, "scale": 6} },
+        { "id": "uy", "name": "Uruguay", "position": {"x": -355, "y": 485, "scale": 5.75} },
+        { "id": "py", "name": "Paraguay", "position": {"x": -385, "y": 400, "scale": 7.75} },
+        { "id": "sr", "name": "Surinam", "position": {"x": -380, "y": 170, "scale": 9.5} },
+        { "id": "gy", "name": "Guyana", "position": {"x": -400, "y": 160, "scale": 10.75} },
+
 
 
         { "id": "pg", "name": "Papua-Nová Guinea", "position": {"x": 1175, "y": 255, "scale": 8.25} },
         { "id": "au", "name": "Austrálie", "position": {"x": 1065, "y": 415, "scale": 4.5} },
         { "id": "fj", "name": "Fidži", "position": {"x": 1390, "y": 355, "scale": 9.5} },
-        { "id": "nz", "name": "Nový Zéland", "position": {"x": 1255, "y": 560, "scale": 7} }
+        { "id": "nz", "name": "Nový Zéland", "position": {"x": 1255, "y": 560, "scale": 7} },
+        { "id": "pw", "name": "Palau", "position": {"x": 1075, "y": 135, "scale": 10} },
+        { "id": "fm", "name": "Mikronésie", "position": {"x": 1255, "y": 140, "scale": 22.25} },
+        { "id": "sb", "name": "Šalamounovy ostrovy", "position": {"x": 1275, "y": 280, "scale": 8.5} },
+        { "id": "vu", "name": "Vanuatu", "position": {"x": 1315, "y": 345, "scale": 10.5} },
+        { "id": "nr", "name": "Nauru", "position": {"x": 1315, "y": 180, "scale": 15.5} },
+        { "id": "to", "name": "Tonga", "position": {"x": 1445, "y": 370, "scale": 16.75} },
+        { "id": "ki", "name": "Kiribati", "position": {"x": 1380, "y": 180, "scale": 17.5} },
+        { "id": "tv", "name": "Tuvalu", "position": {"x": 1410, "y": 275, "scale": 22.25} },
+        { "id": "ws", "name": "Samoa", "position": {"x": 1475, "y": 320, "scale": 17.25} },
+        { "id": "mh", "name": "Marshallovy ostrovy", "position": {"x": 1355, "y": 140, "scale": 27} }
     ],
 
     "colors": {
