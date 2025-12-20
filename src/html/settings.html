@@ -51,18 +51,20 @@
             </div>
         </div>
 
-        <!-- <div class="input">
-            <label for="color">Akcentní barva</label>
+        <div class="color">
+            <label for="color">Akcentní barva:</label>
             <input type="color" id="color" name="color">
-        </div> -->
+        </div>
 
         <div>
             <p>Verze: <span id="version"></span></p>
         </div>
     </section>
 
-    <button id="exit" onclick="window.location.href='../index.html'">Zpět</button>
-    <button id="reset">Resetovat</button>
+    <div id="buttons">
+        <button id="reset">Resetovat</button>
+        <button id="exit" onclick="window.location.href='../index.html'">Zpět</button>
+    </div>
 
     <script src="../classes/Color.js"></script>
     <script src="../js/settings.js"></script>

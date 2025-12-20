@@ -53,6 +53,40 @@ body section h1 {
   transition: 0.2s;
 }
 
+.color {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.color input[type=color] {
+  --webkit-appearance: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: none;
+  margin-left: 10px;
+}
+.color input[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.color input[type=color]::-webkit-color-swatch {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+.color input[type=color]::-moz-color-swatch {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: end;
+  width: 100%;
+  margin-top: 50px;
+}
+
 #exit {
   background-color: var(--accent-color);
   height: 40px;
@@ -85,7 +119,7 @@ body section h1 {
   outline: none;
   cursor: pointer;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
 }

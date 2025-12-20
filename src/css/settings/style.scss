@@ -65,6 +65,45 @@ body {
     }
 }
 
+.color {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    input[type="color"] {
+
+        --webkit-appearance: none;
+        border: none;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        background: none;
+        margin-left: 10px;
+    
+        &::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+    
+        &::-webkit-color-swatch {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+    
+        &::-moz-color-swatch {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+    }
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+    width: 100%;
+    margin-top: 50px;
+}
+
 #exit {
     @include button(40px, 16px, 15px, 100px);
     display: flex;
@@ -74,7 +113,7 @@ body {
 #reset {
     @include button(40px, 16px, 15px, 100px);
 
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
 }

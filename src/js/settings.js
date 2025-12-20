@@ -38,7 +38,7 @@ const clickHandler = async (mode) => {
     }
 }
 
-// ==== resetování do "továrního nastavení" ====
+// ==== načtení předvoleb ====
 const initHandler = async () => {
     try {
         // ==== nastavení aktuálního modu ====
@@ -71,15 +71,35 @@ const initHandler = async () => {
     }
 }
 
+const resetHandler = async () => {
+    // ==== systemový režim ====
+    window.darkMode.system()
+
+    const allModes = document.querySelectorAll(".mode")
+    allModes.forEach( mode => {
+        mode.classList.remove("active")
+
+        if(mode.id === "system"){
+            mode.classList.add("active")
+        }
+    })
+
+    // ==== resetování barvy ====
+    window.accentColor.system().then(color => {
+        const colorInput = document.getElementById("color")
+        colorInput.value = Color.makeHexOpaque(color)
+        window.accentColor.update(color)
+    })
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     // ==== accent color ====
-    // const colorInput = document.getElementById("color")
-    // window.accentColor.get().then(color => colorInput.value = Color.makeHexOpaque(color))
+    const colorInput = document.getElementById("color")
+    window.accentColor.get().then(color => colorInput.value = Color.makeHexOpaque(color))
 
-    // colorInput.addEventListener("change", (event) => {
-    //     window.accentColor.update(event.target.value)
-    //     resetHandler()
-    // })
+    colorInput.addEventListener("change", (event) => {
+        window.accentColor.update(event.target.value)
+    })
 
     // ==== nastavení verze ====
     window.appAPI.onAppVersion((version) => {
@@ -87,4 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     initHandler()
+
+    // ==== resetování do "továrního nastavení" ====
+    document.getElementById("reset").addEventListener("click", resetHandler)
 })

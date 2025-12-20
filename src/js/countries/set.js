@@ -5,18 +5,34 @@ const href = preferences.href
 let data = null
 
 // ==== functions ====
+const changeStaus = (id) => {
+    const checkbox = document.getElementById(id)
+
+    if(checkbox.dataset.checked === "true"){
+        checkbox.style.background = "none"
+        const tick = checkbox.querySelector("div")
+        tick.style.display = "none"
+        checkbox.dataset.checked = false
+    } else {
+        checkbox.style.background = "var(--accent-color)"
+        const tick = checkbox.querySelector("div")
+        tick.style.display = "flex"
+        checkbox.dataset.checked = true
+    }
+}
+
 const update = (data, continent) => {
     const checkboxes = Array.from(document.querySelectorAll(".checkbox"))
     const checked = checkboxes.filter((checkbox) => {
-        return checkbox.checked === true
+        return checkbox.dataset.checked === "true"
     })
-
+    
     const labels = checked.map((checkbox) => {
-        return document.querySelector(`label[for="${checkbox.id}"]`).textContent
+        const checkboxContent = checkbox.parentElement
+        return checkboxContent.querySelector("label").textContent
     })
-
+    
     let countries = [...data[continent].countries]
-
 
     countries = countries.filter((country) => {
         return labels.includes(country.region)
@@ -34,10 +50,11 @@ document.getElementById("start").addEventListener("click", () => {
     // ==== regiony ke zkoušení ====
     const checkboxes = Array.from(document.querySelectorAll(".checkbox"))
     const checked = checkboxes.filter((checkbox) => {
-        return checkbox.checked === true
+        return checkbox.dataset.checked === "true"
     })
     const labels = checked.map((checkbox) => {
-        return document.querySelector(`label[for="${checkbox.id}"]`).textContent
+        const checkboxContent = checkbox.parentElement
+        return checkboxContent.querySelector("label").textContent
     })
     preferences.regions = labels
 
@@ -54,7 +71,7 @@ document.getElementById("start").addEventListener("click", () => {
     window.location.href = "../../html/countries/map.html"
 })
 
-// načtení počtu otázek
+// ==== načtení počtu otázek ====
 document.addEventListener("DOMContentLoaded", async () => {
     data = await DataImport.getData("../../data/map.json")
 
@@ -70,24 +87,31 @@ document.addEventListener("DOMContentLoaded", async () => {
         const id = labelName.substring(0, 3).toLowerCase()
 
         const div = document.createElement("div")
+        div.classList.add("checkbox-content")
 
-        const checkbox = document.createElement("input")
-        checkbox.setAttribute("type", "checkbox")
+        const checkbox = document.createElement("div")
         checkbox.setAttribute("id", id)
         checkbox.classList.add("checkbox")
 
+        const tick = document.createElement("div")
+        tick.classList.add("tick")
+        tick.innerHTML = '<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.89163 13.2687L9.16582 17.5427L18.7085 8" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+        checkbox.appendChild(tick)
+
         // ==== checkbox => aktualizace při výběru ====
-        checkbox.addEventListener("change", () => {
+        div.addEventListener("click", () => {
+            changeStaus(id)
             update(data, continent)
         })
 
         if (id !== "asi") {
-            checkbox.checked = true
+            checkbox.style.backgroundColor = "var(--accent-color)"
+            tick.style.display = "flex"
+            checkbox.dataset.checked = true
         }
 
         const label = document.createElement("label")
         label.textContent = labelName
-        label.setAttribute("for", id)
 
         div.appendChild(checkbox)
         div.appendChild(label)
