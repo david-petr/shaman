@@ -16,7 +16,7 @@
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
-    "electron": "^37.2.3",
+    "electron": "^37.10.3",
     "electron-builder": "^26.0.12"
   },
   "build": {
@@ -38,7 +38,9 @@
       "allowToChangeInstallationDirectory": true,
       "perMachine": true,
       "createDesktopShortcut": true,
-      "installerLanguages": ["cs_CZ"]
+      "installerLanguages": [
+        "cs_CZ"
+      ]
     },
     "directories": {
       "output": "dist"

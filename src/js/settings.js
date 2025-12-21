@@ -90,9 +90,12 @@ const resetHandler = async () => {
         colorInput.value = Color.makeHexOpaque(color)
         window.accentColor.update(color)
     })
+
+    // ==== zmizení tlačítka ====
+    document.getElementById("reset").style.display = "none"
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     // ==== accent color ====
     const colorInput = document.getElementById("color")
     window.accentColor.get().then(color => colorInput.value = Color.makeHexOpaque(color))
@@ -110,4 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ==== resetování do "továrního nastavení" ====
     document.getElementById("reset").addEventListener("click", resetHandler)
+
+    // ==== zobrazení tlačítka reset pokud nejsou nastaveny defaultní hodnoty ====
+    let userMode = await window.darkMode.user()
+    let systemAccentColor = await window.accentColor.system()
+    let accentColor = await window.accentColor.get()
+
+    if(userMode !== "system" || systemAccentColor !== accentColor){
+        document.getElementById("reset").style.display = "flex"
+    }
 })

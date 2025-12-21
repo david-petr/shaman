@@ -27,6 +27,8 @@ const update = () => {
     if (guessedCountryId) {
         remainingCountriesToGuess = remainingCountriesToGuess.filter(country => country.id !== guessedCountryId)
     }
+    
+    draggableWindow.updateInfoBox(remainingCountriesToGuess.length, countOfWrongAnswers)
 
     if (remainingCountriesToGuess.length > 0) {
         const nextRandomCountry = Random.randomElement(remainingCountriesToGuess)
@@ -34,8 +36,6 @@ const update = () => {
             currentCountryElement.textContent = nextRandomCountry.name
             currentCountryElement.dataset.id = nextRandomCountry.id
         }
-
-        draggableWindow.updateInfoBox(remainingCountriesToGuess.length, countOfWrongAnswers)
     } else {
         currentCountryElement.textContent = "Všechny země uhodnuty! Gratulujeme!"
         currentCountryElement.dataset.id = ""

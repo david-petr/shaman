@@ -112,8 +112,7 @@ body {
 }
 #reset {
     @include button(40px, 16px, 15px, 100px);
-
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
