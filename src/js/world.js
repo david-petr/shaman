@@ -19,6 +19,9 @@ document.getElementById("connectors").addEventListener("click", () => {
 document.getElementById("country-finding").addEventListener("click", () => {
     window.location.href = "../html/country-finding/main.html"
 })
+document.getElementById("cities").addEventListener("click", () => {
+    window.location.href = "../html/cities/main.html"
+})
 
 // ==== accent color => css variables ====
 window.accentColor.get().then(color => {

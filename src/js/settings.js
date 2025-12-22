@@ -8,6 +8,19 @@ window.accentColor.onUpdated((color) => {
     document.documentElement.style.setProperty("--darken-accent-color", Color.makeHexOpaque(Color.darken(color, 20)))
 })
 
+// ==== zobrazení tlačítka reset pokud nejsou nastaveny defaultní hodnoty ====
+const isDefault = async () => {
+    let userMode = await window.darkMode.user()
+    let systemAccentColor = await window.accentColor.system()
+    let accentColor = await window.accentColor.get()
+
+    if(userMode !== "system" || systemAccentColor !== accentColor){
+        document.getElementById("reset").style.display = "flex"
+    } else {
+        document.getElementById("reset").style.display = "none"
+    }
+}
+
 const clickHandler = async (mode) => {
     try {
         let userMode = await window.darkMode.user()
@@ -32,6 +45,8 @@ const clickHandler = async (mode) => {
         if(mode === userModeIfSystem){
             window.darkMode.setThemeManual(mode)
         }
+
+        isDefault()
 
     } catch (e){
         console.error(e)
@@ -66,6 +81,8 @@ const initHandler = async () => {
             }
         })
 
+        isDefault()
+
     } catch (e) {
         console.error(e)
     }
@@ -95,13 +112,14 @@ const resetHandler = async () => {
     document.getElementById("reset").style.display = "none"
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
     // ==== accent color ====
     const colorInput = document.getElementById("color")
     window.accentColor.get().then(color => colorInput.value = Color.makeHexOpaque(color))
 
     colorInput.addEventListener("change", (event) => {
         window.accentColor.update(event.target.value)
+        isDefault()
     })
 
     // ==== nastavení verze ====
@@ -113,13 +131,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // ==== resetování do "továrního nastavení" ====
     document.getElementById("reset").addEventListener("click", resetHandler)
-
-    // ==== zobrazení tlačítka reset pokud nejsou nastaveny defaultní hodnoty ====
-    let userMode = await window.darkMode.user()
-    let systemAccentColor = await window.accentColor.system()
-    let accentColor = await window.accentColor.get()
-
-    if(userMode !== "system" || systemAccentColor !== accentColor){
-        document.getElementById("reset").style.display = "flex"
-    }
 })

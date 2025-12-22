@@ -1,0 +1,43 @@
+@import "../partials/mixins";
+@import "../partials/functions";
+
+@media (prefers-color-scheme: light){
+    :root {
+        --background-color: #ddd;
+    }
+}
+
+@media (prefers-color-scheme: dark){
+    :root {
+        --background-color: #242424;
+    }
+}
+
+body {
+    height: 100vh;
+
+    main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        background-color: var(--background-color);
+
+        height: 510px;
+        width: 660px;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 40px #000;
+
+        #buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            button {
+                @include button(70px, 20px, 15px, 280px);
+            }
+        }
+    }
+}

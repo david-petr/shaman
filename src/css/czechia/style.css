@@ -1,0 +1,47 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #ddd;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #242424;
+  }
+}
+body {
+  height: 100vh;
+}
+body main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: var(--background-color);
+  height: 510px;
+  width: 660px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 40px #000;
+}
+body main #buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+body main #buttons button {
+  background-color: var(--accent-color);
+  height: 70px;
+  font-size: 20px;
+  padding: 15px;
+  width: 280px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
+body main #buttons button:hover {
+  background-color: var(--darken-accent-color);
+}/*# sourceMappingURL=style.css.map */

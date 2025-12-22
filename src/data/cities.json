@@ -1,0 +1,13 @@
+{
+    "europe": {
+        "cities": [
+            { "type": "capital-city", "name": "Praha", "landId": "cz", "region": "Střední Evropa", "position": {} },
+            { "type": "city", "name": "Ostrava", "landId": "cz", "region": "Střední Evropa", "position": {} },
+            { "type": "city", "name": "Brno", "landId": "cz", "region": "Střední Evropa", "position": {} },
+            { "type": "city", "name": "Plzeň", "landId": "cz", "region": "Střední Evropa", "position": {} },
+            { "type": "capital-city", "name": "Bratislava", "landId": "sk", "region": "Střední Evropa", "position": {} },
+            { "type": "city", "name": "Košice", "landId": "sk", "region": "Střední Evropa", "position": {} }
+        ],
+        "mapPosition": { "x": 900, "y": -50, "width": 1000, "height": 600, "scale": 1.75 }
+    }
+}
