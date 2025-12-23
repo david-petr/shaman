@@ -31,7 +31,27 @@
             { "id": 28, "type": "capital-city", "name": "Vídeň", "landId": "at", "region": "Střední Evropa", "position": {"x": 86.18, "y": 22.99} },
             { "id": 29, "type": "city", "name": "Salzburg", "landId": "at", "region": "Střední Evropa", "position": {"x": 45.29, "y": 44.78} },
             { "id": 30, "type": "city", "name": "Graz", "landId": "at", "region": "Střední Evropa", "position": {"x": 80.22, "y": 62.61} },
-            { "id": 31, "type": "city", "name": "Linz", "landId": "at", "region": "Střední Evropa", "position": {"x": 63.18, "y": 30.92} }
+            { "id": 31, "type": "city", "name": "Linz", "landId": "at", "region": "Střední Evropa", "position": {"x": 63.18, "y": 30.92} },
+            { "id": 32, "type": "capital-city", "name": "Budapešť", "landId": "hu", "region": "Střední Evropa", "position": {"x": 43.83, "y": 42.76} },
+            { "id": 33, "type": "city", "name": "Debrecín", "landId": "hu", "region": "Střední Evropa", "position": {"x": 78.18, "y": 39.41} },
+            { "id": 34, "type": "city", "name": "Segedín", "landId": "hu", "region": "Střední Evropa", "position": {"x": 63.21, "y": 71.22} },
+            { "id": 35, "type": "capital-city", "name": "Bern", "landId": "ch", "region": "Střední Evropa", "position": {"x": 32.31, "y": 50.48} },
+            { "id": 36, "type": "city", "name": "Ženeva", "landId": "ch", "region": "Střední Evropa", "position": {"x": 12.76, "y": 60.30} },
+            { "id": 37, "type": "city", "name": "Basilej", "landId": "ch", "region": "Střední Evropa", "position": {"x": 37.52, "y": 13.64} },
+
+            { "id": 38, "type": "capital-city", "name": "Stockholm", "landId": "se", "region": "Severní Evropa", "position": {"x": 53.64, "y": 68.27} },
+            { "id": 39, "type": "city", "name": "Goteborg", "landId": "se", "region": "Severní Evropa", "position": {"x": 8.49, "y": 83.70} },
+            { "id": 40, "type": "city", "name": "Linkoping", "landId": "se", "region": "Severní Evropa", "position": {"x": 37.51, "y": 78.81} },
+            { "id": 41, "type": "city", "name": "Malmo", "landId": "se", "region": "Severní Evropa", "position": {"x": 16.02, "y": 96.88} },
+            { "id": 42, "type": "city", "name": "Lulea", "landId": "se", "region": "Severní Evropa", "position": {"x": 83.63, "y": 22.76} },
+            { "id": 43, "type": "capital-city", "name": "Oslo", "landId": "no", "region": "Severní Evropa", "position": {"x": 49.71, "y": 90.41} },
+            { "id": 44, "type": "city", "name": "Bergen", "landId": "no", "region": "Severní Evropa", "position": {"x": 34.55, "y": 87.71} },
+            { "id": 45, "type": "city", "name": "Trondheim", "landId": "no", "region": "Severní Evropa", "position": {"x": 48.95, "y": 74.07} },
+            { "id": 46, "type": "capital-city", "name": "Kodaň", "landId": "dk", "region": "Severní Evropa", "position": {"x": 57.47, "y": 63.43} },
+            { "id": 47, "type": "city", "name": "Aalborg", "landId": "dk", "region": "Severní Evropa", "position": {"x": 26.72, "y": 24.66} },
+            { "id": 48, "type": "capital-city", "name": "Helsinky", "landId": "fi", "region": "Severní Evropa", "position": {"x": 54.38, "y": 93.78} },
+            { "id": 49, "type": "city", "name": "Turku", "landId": "fi", "region": "Severní Evropa", "position": {"x": 25.68, "y": 91.22} },
+            { "id": 50, "type": "city", "name": "Tampere", "landId": "fi", "region": "Severní Evropa", "position": {"x": 39.46, "y": 76.35} }
         ],
         "mapPosition": { "x": 900, "y": -50, "width": 1000, "height": 600, "scale": 1.75 }
     }

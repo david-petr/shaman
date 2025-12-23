@@ -5,8 +5,8 @@ let countOfWrongAnswers = 0
 let mainMapClickHandlerInstance = null
 let mapPosition = {}
 let currentCountryElement = document.getElementById("country")
-let taskContent = document.getElementById("task")
-let wrongTaskContent = document.getElementById("wrong")
+const taskContent = document.getElementById("task")
+const wrongTaskContent = document.getElementById("wrong")
 const continueButton = document.getElementById("continue-btn")
 
 // ==== preference ====

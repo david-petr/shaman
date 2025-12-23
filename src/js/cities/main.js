@@ -4,10 +4,12 @@ let mapPosition = {}
 let cities = []
 let remainingCitiesToGuess = []
 let countOfWrongAnswers = 0
-let mainMapClickHandlerInstance = null
 let currentCityElement = document.getElementById("country")
 const NS = "http://www.w3.org/2000/svg"
 const worldMap = document.getElementById("map")
+const taskContent = document.getElementById("task")
+const wrongTaskContent = document.getElementById("wrong")
+const continueButton = document.getElementById("continue-btn")
 
 // ==== preference ====
 const preferences = JSON.parse(localStorage.getItem("preferences"))
@@ -25,8 +27,7 @@ const update = () => {
     const guessedCityId = currentCityElement.dataset.id
 
     if(guessedCityId){
-        remainingCitiesToGuess = remainingCitiesToGuess.filter(city => city.id !== guessedCityId)
-
+        remainingCitiesToGuess = remainingCitiesToGuess.filter(city => city.id != guessedCityId)
     }
 
     draggableWindow.updateInfoBox(remainingCitiesToGuess.length, countOfWrongAnswers)
@@ -38,36 +39,77 @@ const update = () => {
             currentCityElement.dataset.id = nextRandomCity.id
         }
     } else {
-        currentCityElement.textContent = "Všechny země uhodnuty! Gratulujeme!"
+        currentCityElement.textContent = "Všechny města uhodnuty! Gratulujeme!"
         currentCityElement.dataset.id = ""
 
-        document.getElementById("map").removeEventListener("click", mainMapClickHandlerInstance)
+        cities.forEach(city => {
+            const element = document.getElementById(city.id)
+
+            element.removeEventListener("click", cityClickHandler)
+        })
     }
 }
 
 const mapClickHandler = (event) => {
-    // let clickedCountry = event.target.closest(".landxx")
+    let clickedCountry = event.target.closest(".landxx")
 
-    // if(clickedCountry){
-    //     const rect = clickedCountry.getBoundingClientRect()
-    //     const relativeX = event.clientX - rect.left
-    //     const relativeY = event.clientY - rect.top
+    if(clickedCountry){
+        while (clickedCountry.id.length > 2 || clickedCountry.parentElement.id.length === 2) {
+            clickedCountry = clickedCountry.parentElement
+        }
 
-    //     const percentX = (relativeX / rect.width) * 100
-    //     const percentY = (relativeY / rect.height) * 100
+        const rect = clickedCountry.getBoundingClientRect()
+        const relativeX = event.clientX - rect.left
+        const relativeY = event.clientY - rect.top
 
-    //     console.log(`"x": ${percentX.toFixed(2)}, "y": ${percentY.toFixed(2)}`)
-    // }
+        const percentX = (relativeX / rect.width) * 100
+        const percentY = (relativeY / rect.height) * 100
+
+        console.log(`"x": ${percentX.toFixed(2)}, "y": ${percentY.toFixed(2)}`)
+    }
 }
 
 const cityClickHandler = (event) => {
-    const cityId = event.target.dataset.id
+    const cityId = event.target.id
 
     if(cityId === currentCityElement.dataset.id){
         update()
     } else {
-        
+        taskContent.style.display = "none"
+        wrongTaskContent.style.display = "flex"
+        countOfWrongAnswers += 1
+
+        cities.forEach(city => {
+            const element = document.getElementById(city.id)
+
+            element.removeEventListener("click", cityClickHandler)
+
+            if(city.id == currentCityElement.dataset.id){
+                element.classList.add("blink-target")
+            }
+        })
+
+        continueButton.addEventListener("click", continueButtonHandler)
     }
+}
+
+const continueButtonHandler = () => {
+    continueButton.removeEventListener("click", continueButtonHandler)
+
+    taskContent.style.display = "flex"
+    wrongTaskContent.style.display = "none"
+
+    cities.forEach(city => {
+        const element = document.getElementById(city.id)
+
+        element.addEventListener("click", cityClickHandler)
+
+        if(city.id == currentCityElement.dataset.id){
+            element.classList.remove("blink-target")
+        }
+    })
+
+    update()
 }
 
 const initializeGame = async () => {
@@ -118,7 +160,7 @@ const initializeGame = async () => {
 
             polygon.setAttribute("points", points.trim())
             polygon.setAttribute("class", "city-marker")
-            polygon.dataset.id = city.id
+            polygon.id = city.id
             polygon.style.fill = "var(--accent-color)"
             polygon.addEventListener("click", cityClickHandler)
             cityGroup.appendChild(polygon)
@@ -126,9 +168,9 @@ const initializeGame = async () => {
             const circle = document.createElementNS(NS, "circle")
             circle.setAttribute("cx", x)
             circle.setAttribute("cy", y)
-            circle.setAttribute("r", 1.5)
+            circle.setAttribute("r", 1.75)
             circle.setAttribute("class", "city-marker")
-            circle.dataset.id = city.id
+            circle.id = city.id
             circle.style.fill = "var(--accent-color)"
             circle.addEventListener("click", cityClickHandler)
             cityGroup.appendChild(circle)
@@ -146,8 +188,7 @@ const initializeGame = async () => {
 
     // ==== Nastavení click handleru pro mapu (globální) ====
     if (worldMap) {
-        mainMapClickHandlerInstance = (event) => mapClickHandler(event, worldMap)
-        worldMap.addEventListener("click", mainMapClickHandlerInstance)
+        worldMap.addEventListener("click", mapClickHandler)
     }
 }
 
