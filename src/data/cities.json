@@ -1,12 +1,37 @@
 {
     "europe": {
         "cities": [
-            { "type": "capital-city", "name": "Praha", "landId": "cz", "region": "Střední Evropa", "position": {} },
-            { "type": "city", "name": "Ostrava", "landId": "cz", "region": "Střední Evropa", "position": {} },
-            { "type": "city", "name": "Brno", "landId": "cz", "region": "Střední Evropa", "position": {} },
-            { "type": "city", "name": "Plzeň", "landId": "cz", "region": "Střední Evropa", "position": {} },
-            { "type": "capital-city", "name": "Bratislava", "landId": "sk", "region": "Střední Evropa", "position": {} },
-            { "type": "city", "name": "Košice", "landId": "sk", "region": "Střední Evropa", "position": {} }
+            { "id": 1, "type": "capital-city", "name": "Praha", "landId": "cz", "region": "Střední Evropa", "position": {"x": 34.55, "y": 38.85} },
+            { "id": 2, "type": "city", "name": "Ostrava", "landId": "cz", "region": "Střední Evropa", "position": {"x": 88.71, "y": 48.58} },
+            { "id": 3, "type": "city", "name": "Brno", "landId": "cz", "region": "Střední Evropa", "position": {"x": 64.25, "y": 68.04} },
+            { "id": 4, "type": "city", "name": "Plzeň", "landId": "cz", "region": "Střední Evropa", "position": {"x": 21.45, "y": 50.53} },
+            { "id": 5, "type": "capital-city", "name": "Bratislava", "landId": "sk", "region": "Střední Evropa", "position": {"x": 5.16, "y": 68.65} },
+            { "id": 6, "type": "city", "name": "Košice", "landId": "sk", "region": "Střední Evropa", "position": {"x": 77.03, "y": 35.10} },
+            { "id": 7, "type": "city", "name": "Hannover", "landId": "de", "region": "Střední Evropa", "position": {"x": 42.32, "y": 37.94} },
+            { "id": 8, "type": "city", "name": "Drážďany", "landId": "de", "region": "Střední Evropa", "position": {"x": 84.04, "y": 50.85} },
+            { "id": 9, "type": "city", "name": "Rostock", "landId": "de", "region": "Střední Evropa", "position": {"x": 65.74, "y": 10.76} },
+            { "id": 10, "type": "city", "name": "Kolýn nad Rýnem", "landId": "de", "region": "Střední Evropa", "position": {"x": 9.38, "y": 50.85} },
+            { "id": 11, "type": "city", "name": "Hamburg", "landId": "de", "region": "Střední Evropa", "position": {"x": 42.32, "y": 18.24} },
+            { "id": 12, "type": "city", "name": "Lipsko", "landId": "de", "region": "Střední Evropa", "position": {"x": 70.86, "y": 46.09} },
+            { "id": 13, "type": "city", "name": "Stuttgart", "landId": "de", "region": "Střední Evropa", "position": {"x": 32.07, "y": 81.42} },
+            { "id": 14, "type": "city", "name": "Frankfurt nad Mohanem", "landId": "de", "region": "Střední Evropa", "position": {"x": 30.61, "y": 59.68} },
+            { "id": 15, "type": "capital-city", "name": "Berlín", "landId": "de", "region": "Střední Evropa", "position": {"x": 81.11, "y": 29.78} },
+            { "id": 16, "type": "city", "name": "Mnichov", "landId": "de", "region": "Střední Evropa", "position": {"x": 59.15, "y": 87.53} },
+            { "id": 17, "type": "city", "name": "Norimberk", "landId": "de", "region": "Střední Evropa", "position": {"x": 54.76, "y": 70.55} },
+            { "id": 18, "type": "city", "name": "Dortmund", "landId": "de", "region": "Střední Evropa", "position": {"x": 13.77, "y": 41.33} },
+            { "id": 19, "type": "city", "name": "Gdaňsk", "landId": "pl", "region": "Střední Evropa", "position": {"x": 42.89, "y": 8.69} },
+            { "id": 20, "type": "city", "name": "Wroclaw", "landId": "pl", "region": "Střední Evropa", "position": {"x": 25.10, "y": 60.27} },
+            { "id": 21, "type": "capital-city", "name": "Varšava", "landId": "pl", "region": "Střední Evropa", "position": {"x": 67.92, "y": 41.27} },
+            { "id": 22, "type": "city", "name": "Lublin", "landId": "pl", "region": "Střední Evropa", "position": {"x": 84.39, "y": 63.89} },
+            { "id": 23, "type": "city", "name": "Štětín", "landId": "pl", "region": "Střední Evropa", "position": {"x": 3.08, "y": 21.23} },
+            { "id": 24, "type": "city", "name": "Gdynia", "landId": "pl", "region": "Střední Evropa", "position": {"x": 39.51, "y": 2.12} },
+            { "id": 25, "type": "city", "name": "Poznaň", "landId": "pl", "region": "Střední Evropa", "position": {"x": 22.95, "y": 37.60} },
+            { "id": 26, "type": "city", "name": "Kraków", "landId": "pl", "region": "Střední Evropa", "position": {"x": 58.72, "y": 78.54} },
+            { "id": 27, "type": "city", "name": "Katowice", "landId": "pl", "region": "Střední Evropa", "position": {"x": 50.77, "y": 72.17} },
+            { "id": 28, "type": "capital-city", "name": "Vídeň", "landId": "at", "region": "Střední Evropa", "position": {"x": 86.18, "y": 22.99} },
+            { "id": 29, "type": "city", "name": "Salzburg", "landId": "at", "region": "Střední Evropa", "position": {"x": 45.29, "y": 44.78} },
+            { "id": 30, "type": "city", "name": "Graz", "landId": "at", "region": "Střední Evropa", "position": {"x": 80.22, "y": 62.61} },
+            { "id": 31, "type": "city", "name": "Linz", "landId": "at", "region": "Střední Evropa", "position": {"x": 63.18, "y": 30.92} }
         ],
         "mapPosition": { "x": 900, "y": -50, "width": 1000, "height": 600, "scale": 1.75 }
     }
